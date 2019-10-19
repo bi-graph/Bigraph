@@ -43,7 +43,7 @@ decorator==4.4.0
 definitions==0.2.0
 defusedxml==0.5.0
 distributed==1.26.0
-Django==2.2
+Django==2.2.4
 docutils==0.14
 dtaidistance==1.2.3
 entrypoints==0.3
