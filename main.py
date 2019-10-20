@@ -28,8 +28,8 @@ def main():
     print(G.__dict__)
     print(nx.nodes(G))
 
-    nx.write_gexf(G, './outputs/Probiotic_icd.gexf')
-    nodes = [{'name': str(i), 'club': str(G.node[i]['bipartite'])}
+    nx.write_gexf(G, './outputs/graph.gexf')
+    nodes = [{'left': str(i), 'right': str(G.node[i]['bipartite'])}
              for i in G.nodes()]
     links = [{'source': int(u[0]), 'target': int(u[1])}
              for u in G.edges()]
