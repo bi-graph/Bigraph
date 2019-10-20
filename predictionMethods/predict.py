@@ -19,27 +19,28 @@ def jc_predict(G, df_nodes):
     hop2s = dict()
     neighbors = dict()
     jaccard_sim = defaultdict(dict)
-    pros = list(set(nx.bipartite.sets(G)[0]))
-    icds = list(set(nx.bipartite.sets(G)[1]))
+    left_set = list(set(nx.bipartite.sets(G)[0]))
+    right_set = list(set(nx.bipartite.sets(G)[1]))
 
-    out.write('(Probiotic, ICD)')
+    out.write('(right_element, left_element)')
     out.write(",")
     out.write('Probability')
     out.write("\n")
 
-    outN.write('(Probiotic, ICD)')
+    outN.write('(right_element, left_element)')
     outN.write(",")
     outN.write('Probability')
     outN.write("\n")
 
-    for pro in pros:
-        hop2s[pro] = getAdj2(G, list(set(G[pro])), 1)
-        for icd in icds:
-            neighbors[icd] = list(set(G[icd]))
-            if not (pro, icd) in G.edges:
-                jaccard_sim[pro][icd] = jaccard(hop2s[int(pro)], neighbors[int(icd)])
-                if jaccard_sim[pro][icd] > 0:
-                    dictionary.update({(pro, icd): jaccard_sim[pro][icd]})
+    for right_element in left_set:
+        hop2s[right_element] = getAdj2(G, list(set(G[right_element])), 1)
+        for left_element in right_set:
+            neighbors[left_element] = list(set(G[left_element]))
+            if not (right_element, left_element) in G.edges:
+                jaccard_sim[right_element][left_element] = jaccard(hop2s[int(right_element)],
+                                                                   neighbors[int(left_element)])
+                if jaccard_sim[right_element][left_element] > 0:
+                    dictionary.update({(right_element, left_element): jaccard_sim[right_element][left_element]})
 
     for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
         # print(k[0],v)
@@ -69,27 +70,28 @@ def aa_predict(G, df_nodes):
     neighbors = dict()
     aa_sim = defaultdict(dict)
     sortDic = {}
-    pros = list(set(nx.bipartite.sets(G)[0]))
-    icds = list(set(nx.bipartite.sets(G)[1]))
+    left_set = list(set(nx.bipartite.sets(G)[0]))
+    right_set = list(set(nx.bipartite.sets(G)[1]))
     dictionary = {}
-    out.write('(Probiotic, ICD)')
+    out.write('(right_element, left_element)')
     out.write(",")
     out.write('Probability')
     out.write("\n")
 
-    outN.write('(Probiotic, ICD)')
+    outN.write('(right_element, left_element)')
     outN.write(",")
     outN.write('Probability')
     outN.write("\n")
 
-    for pro in pros:
-        hop2s[pro] = getAdj2(G, list(set(G[pro])), 1)
-        for icd in icds:
-            neighbors[icd] = list(set(G[icd]))
-            if not (pro, icd) in G.edges:
-                aa_sim[pro][icd] = adamic_adar(hop2s[int(pro)], neighbors[int(icd)], G)
-                if aa_sim[pro][icd] > 0:
-                    dictionary.update({(pro, icd): aa_sim[pro][icd]})
+    for right_element in left_set:
+        hop2s[right_element] = getAdj2(G, list(set(G[right_element])), 1)
+        for left_element in right_set:
+            neighbors[left_element] = list(set(G[left_element]))
+            if not (right_element, left_element) in G.edges:
+                aa_sim[right_element][left_element] = adamic_adar(hop2s[int(right_element)],
+                                                                  neighbors[int(left_element)], G)
+                if aa_sim[right_element][left_element] > 0:
+                    dictionary.update({(right_element, left_element): aa_sim[right_element][left_element]})
 
     for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
         # print(k[0],v)
@@ -119,27 +121,28 @@ def cn_predict(G, df_nodes):
     neighbors = dict()
     cn_sim = defaultdict(dict)
     sortDic = {}
-    pros = list(set(nx.bipartite.sets(G)[0]))
-    icds = list(set(nx.bipartite.sets(G)[1]))
+    left_set = list(set(nx.bipartite.sets(G)[0]))
+    right_set = list(set(nx.bipartite.sets(G)[1]))
     dictionary = {}
-    out.write('(Probiotic, ICD)')
+    out.write('(right_element, left_element)')
     out.write(",")
     out.write('Probability')
     out.write("\n")
 
-    outN.write('(Probiotic, ICD)')
+    outN.write('(right_element, left_element)')
     outN.write(",")
     outN.write('Probability')
     outN.write("\n")
 
-    for pro in pros:
-        hop2s[pro] = getAdj2(G, list(set(G[pro])), 1)
-        for icd in icds:
-            neighbors[icd] = list(set(G[icd]))
-            if not (pro, icd) in G.edges:
-                cn_sim[pro][icd] = common_neighbors(hop2s[int(pro)], neighbors[int(icd)])
-                if cn_sim[pro][icd] > 0:
-                    dictionary.update({(pro, icd): cn_sim[pro][icd]})
+    for right_element in left_set:
+        hop2s[right_element] = getAdj2(G, list(set(G[right_element])), 1)
+        for left_element in right_set:
+            neighbors[left_element] = list(set(G[left_element]))
+            if not (right_element, left_element) in G.edges:
+                cn_sim[right_element][left_element] = common_neighbors(hop2s[int(right_element)],
+                                                                       neighbors[int(left_element)])
+                if cn_sim[right_element][left_element] > 0:
+                    dictionary.update({(right_element, left_element): cn_sim[right_element][left_element]})
 
     for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
         # print(k[0],v)
@@ -165,32 +168,33 @@ def pa_predict(G, df_nodes):
     out = open('./predictions/preferential_attachment.csv', 'w')
     outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
     hop2s = dict()
-    neighborsICD = dict()
-    neighborsPro = dict()
+    neighbors_left_element = dict()
+    neighbors_right_element = dict()
     pa_sim = defaultdict(dict)
     sortDic = {}
-    pros = list(set(nx.bipartite.sets(G)[0]))
-    icds = list(set(nx.bipartite.sets(G)[1]))
+    left_set = list(set(nx.bipartite.sets(G)[0]))
+    right_set = list(set(nx.bipartite.sets(G)[1]))
 
-    out.write('(Probiotic, ICD)')
+    out.write('(right_element, left_element)')
     out.write(",")
     out.write('Probability')
     out.write("\n")
 
-    outN.write('(Probiotic, ICD)')
+    outN.write('(right_element, left_element)')
     outN.write(",")
     outN.write('Probability')
     outN.write("\n")
 
-    for pro in pros:
-        # hop2s[pro] = getAdj2(G, list(set(G[pro])), 1)
-        neighborsPro[pro] = list(set(G[pro]))
-        for icd in icds:
-            neighborsICD[icd] = list(set(G[icd]))
-            if not (pro, icd) in G.edges:
-                pa_sim[pro][icd] = preferential_attachment(neighborsPro[int(pro)], neighborsICD[int(icd)])
-                if pa_sim[pro][icd] > 0:
-                    dictionary.update({(pro, icd): pa_sim[pro][icd]})
+    for right_element in left_set:
+        # hop2s[right_element] = getAdj2(G, list(set(G[right_element])), 1)
+        neighbors_right_element[right_element] = list(set(G[right_element]))
+        for left_element in right_set:
+            neighbors_left_element[left_element] = list(set(G[left_element]))
+            if not (right_element, left_element) in G.edges:
+                pa_sim[right_element][left_element] = preferential_attachment(
+                    neighbors_right_element[int(right_element)], neighbors_left_element[int(left_element)])
+                if pa_sim[right_element][left_element] > 0:
+                    dictionary.update({(right_element, left_element): pa_sim[right_element][left_element]})
 
     for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
         # print(k[0],v)
@@ -220,34 +224,34 @@ def katz_predict(G, df_nodes):
     neighbors = dict()
     pa_sim = defaultdict(dict)
     sortDic = {}
-    pros = list(set(nx.bipartite.sets(G)[0]))
-    icds = list(set(nx.bipartite.sets(G)[1]))
+    left_set = list(set(nx.bipartite.sets(G)[0]))
+    right_set = list(set(nx.bipartite.sets(G)[1]))
 
-    out.write('(Probiotic, ICD)')
+    out.write('(right_element, left_element)')
     out.write(",")
     out.write('Probability')
     out.write("\n")
 
-    outN.write('(Probiotic, ICD)')
+    outN.write('(right_element, left_element)')
     outN.write(",")
     outN.write('Probability')
     outN.write("\n")
 
-    for pro in pros:
-        hop2s[pro] = getAdj2(G, list(set(G[pro])), 1)
-        for icd in icds:
-            neighbors[icd] = list(set(G[icd]))
-            if not (pro, icd) in G.edges:
-                pa_sim[pro][icd] = katz_similarity(int(pro), int(icd), G)
-                if pa_sim[pro][icd] > 0:
-                    out.write(str((pro, icd)))
+    for right_element in left_set:
+        hop2s[right_element] = getAdj2(G, list(set(G[right_element])), 1)
+        for left_element in right_set:
+            neighbors[left_element] = list(set(G[left_element]))
+            if not (right_element, left_element) in G.edges:
+                pa_sim[right_element][left_element] = katz_similarity(int(right_element), int(left_element), G)
+                if pa_sim[right_element][left_element] > 0:
+                    out.write(str((right_element, left_element)))
                     out.write(",")
-                    out.write(str(pa_sim[pro][icd]))
+                    out.write(str(pa_sim[right_element][left_element]))
                     out.write("\n")
 
-                    outN.write(str((df_nodes[pro], df_nodes[icd])))
+                    outN.write(str((df_nodes[right_element], df_nodes[left_element])))
                     outN.write(",")
-                    outN.write(str(pa_sim[pro][icd]))
+                    outN.write(str(pa_sim[right_element][left_element]))
                     outN.write("\n")
     print('Preferential_attachment prediction finished sucnessfully')
     end_pa = datetime.now()

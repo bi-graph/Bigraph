@@ -7,8 +7,8 @@ def make_graph(df, df_nodes):
     print('Start to construct the graph...')
     nodeList = []
     G = nx.Graph()
-    G.add_nodes_from(df['prbiotic_ID'], bipartite=0)
-    G.add_nodes_from(df['ICD_ID'], bipartite=1)
+    G.add_nodes_from(df['left_set_ID'], bipartite=0)
+    G.add_nodes_from(df['right_set_ID'], bipartite=1)
     for i in df.iterrows():
         nodeList.append(i[1][0])
         nodeList.append(i[1][1])

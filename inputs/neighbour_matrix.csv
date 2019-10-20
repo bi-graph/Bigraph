@@ -1,4 +1,4 @@
-prbiotic_ID,ICD_ID,Weight
+left_side_ID,right_side_ID,Weight
 10,0,1
 10,2,1
 11,1,1
