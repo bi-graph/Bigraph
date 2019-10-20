@@ -51,6 +51,6 @@ def main():
 ### Documentation
 I will provide documentations whenever I could make time!:watch:
 
-> 1. The after running the main, it will exports the graph in .json ann .gefx format for furthur usages
+> 1. After running the main, it will exports the graph in .json ann .gefx format for furthur usages
 
 <h3>:heart:If it was helpful then please hit the <span>:star:</span> button!:heart:</h3>
