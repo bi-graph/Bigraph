@@ -17,7 +17,7 @@ Algorithms untill now:
   
 
 ### How to use the code
-you can run the code by placing your code in inputs folder and use predict methodes omplemented in "predict" file or directly call provided functions in the evaluation file.
+you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
 ```python
 from predictionMethods import predict as pr
 
