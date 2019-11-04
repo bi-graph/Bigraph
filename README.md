@@ -17,7 +17,7 @@ Algorithms untill now:
   
 
 ### How to use the code
-you can run the code by placing your code in inputs folder and use predict methodes omplemented in "predict" file or directly call provided functions in the evaluation file.
+you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
 ```python
 from predictionMethods import predict as pr
 
@@ -51,6 +51,6 @@ def main():
 ### Documentation
 I will provide documentations whenever I could make time!:watch:
 
-> 1. After running the main, it will exports the graph in .json ann .gefx format for furthur usages
+> 1. After running the main, it will exports the graph in .json and .gexf format for furthur usages
 
 <h3>:heart:If it was helpful then please hit the <span>:star:</span> button!:heart:</h3>
