@@ -24,11 +24,11 @@ from predictionMethods import predict as pr
 def main():
     """
     Link prediction on a bipartite network
-    :return: your desired method output
+    :return: Predicted linkes
     """
     df, df_nodes = import_files()
-    G = make_graph(df, df_nodes)
-    pr.aa_predict(G, df_nodes) # Here we have called Adamic Adar method from predict module
+    G = make_graph(df)
+    pr.aa_predict(G) # Here we have called Adamic Adar method from predict module
 
 ```
 or you can run evaluation methods directly which calls its peer method automatically
@@ -39,18 +39,64 @@ from evaluation import evaluation as ev
 def main():
     """
     Link prediction on a bipartite network
-    :return: your desired method output
+    :return: Predicted linkes
     """
     df, df_nodes = import_files()
-    G = make_graph(df, df_nodes)
-    graphEdges = G.edges
-    ev.evaluateROC(G,df_nodes, graphEdges, method='jc', k=10) # Here we have evaluated Jaccard method using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
+    G = make_graph(df)
+    ev.evaluate(G, k=10, method='all') # Here we have evaluated Jaccard method using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
 
 ```
+| Number  | Evaluattion metrics           |
+  | ------------- | -------------            |
+  |       1.     |  `Precision`             |
+  |       2.     | `AUC`        |
+  |       3.     | `ROC`  |
+  |       4.     | `returns fpr*`                |
+  |       5.     | `returns tpr*`          |
 
+> * For further usages and calculating different metrics
+
+### Dataset format
+Your dataset should be in the following format:
+
+| Row  | Left side element | Right side element | Weight* |
+  | ------------- | ------------- | --- | --- |
+  |       1.     | `ll0` | `rl1` | 1 |
+  |       2.     | `ll2` | `rl1` | 1 |
+  |       3.     | `ll1` | `rl2`| 1 |
+  |       4.     | `ll3` | `rl3` | 1|
+  |       5.     | `ll4` | `rl3` | 2 |
+
+> * Although the weight have not been involved in current version, but, the format will be the same.
+### More examples
+
+```python
+from predictionMethods import predict as pr
+
+def main():
+    """
+    Link prediction on a bipartite network
+    :return: Predicted linkes
+    """
+    df, df_nodes = import_files()
+    G = make_graph(df)
+    pr.aa_predict(G) # Here we have called Adamic Adar method from predict module
+    pr.pa_predict(G) # Prefferencial attachment
+    pr.jc_predict(G) # Jaccard coefficient
+    pr.cn_predict(G) # Common neighbors
+
+```
+### References
+
+| Number  | Reference           |
+  | ------------- | -------------            |
+  |       1.     |  `Yang, Y., Lichtenwalter, R.N. & Chawla, N.V. Knowl Inf Syst (2015) 45: 751.` https://doi.org/10.1007/s10115-014-0789-0             |
+  |       2.     | `Liben-nowell, David & Kleinberg, Jon. (2003). The Link Prediction Problem for Social Networks. Journal of the American Society for Information Science and Technology.` https://doi.org/58.10.1002/asi.20591 |
+  |       3.     | `...`  |
+  
 ### Documentation
 I will provide documentations whenever I could make time!:watch:
 
 > 1. After running the main, it will exports the graph in .json and .gexf format for furthur usages
 
-<h3>:heart:If it was helpful then please hit the <span>:star:</span> button!:heart:</h3>
+<h3>:heart:If it was helpful then hit the <span>:star:</span> button!:heart:</h3>
