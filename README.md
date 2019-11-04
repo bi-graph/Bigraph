@@ -46,6 +46,9 @@ def main():
     ev.evaluate(G, k=10, method='all') # Here we have evaluated Jaccard method using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
 
 ```
+### Metrics
+Metrics that are calculated during evaluation:
+
 | Number  | Evaluattion metrics           |
   | ------------- | -------------            |
   |       1.     |  `Precision`             |
