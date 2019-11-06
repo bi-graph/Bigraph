@@ -15,3 +15,4 @@ def getAdj2(G, inListt, n):
                 if neigh not in fullListt:
                     fullListt.append(neigh)
                     outListt.append(neigh)
+    return outListt
