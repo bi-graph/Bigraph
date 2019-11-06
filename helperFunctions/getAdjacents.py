@@ -6,3 +6,4 @@ def getAdj2(G, inListt, n):
     :param n:
     :return:
     """
+    fullListt = []
