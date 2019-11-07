@@ -1,10 +1,10 @@
 def getAdj2(graph, inListt, n):
     """
 
-    :param graph:
-    :param inListt:
-    :param n:
-    :return:
+    :param graph: NetworkX graph object
+    :param inListt: Input list
+    :param n: Hop N
+    :return: N hop neighbours of the input list's items
     """
     fullListt = []
     while (n > 0):
