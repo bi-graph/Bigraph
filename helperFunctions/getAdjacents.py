@@ -1,7 +1,7 @@
-def getAdj2(G, inListt, n):
+def getAdj2(graph, inListt, n):
     """
 
-    :param G:
+    :param graph:
     :param inListt:
     :param n:
     :return:
@@ -10,8 +10,8 @@ def getAdj2(G, inListt, n):
     while (n > 0):
         n -= 1
         outListt = []
-        for nd in G.nbunch_iter(inListt):
-            for neigh in G[nd]:
+        for nd in graph.nbunch_iter(inListt):
+            for neigh in graph[nd]:
                 if neigh not in fullListt:
                     fullListt.append(neigh)
                     outListt.append(neigh)
