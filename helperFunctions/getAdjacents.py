@@ -11,8 +11,8 @@ def getAdj2(graph, input_list, n):
         n -= 1
         output_list = []
         for node in graph.nbunch_iter(input_list):
-            for neigh in graph[node]:
-                if neigh not in full_list:
-                    full_list.append(neigh)
-                    output_list.append(neigh)
+            for neighbour in graph[node]:
+                if neighbour not in full_list:
+                    full_list.append(neighbour)
+                    output_list.append(neighbour)
     return output_list
