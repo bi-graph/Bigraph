@@ -9,10 +9,10 @@ def getAdj2(graph, input_list, n):
     full_list = []
     while (n > 0):
         n -= 1
-        outListt = []
+        output_list = []
         for node in graph.nbunch_iter(input_list):
             for neigh in graph[node]:
                 if neigh not in full_list:
                     full_list.append(neigh)
-                    outListt.append(neigh)
-    return outListt
+                    output_list.append(neigh)
+    return output_list
