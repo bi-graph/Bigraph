@@ -1,6 +1,6 @@
 def getAdj2(graph, input_list, n):
     """
-
+    Find hop-N neighbours of each item in input_list
     :param graph: NetworkX graph object
     :param input_list: Input list
     :param n: Hop N
