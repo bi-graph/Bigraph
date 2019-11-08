@@ -12,3 +12,4 @@ def import_files():
     dic = {}
     for row in df_nodes.iterrows():
         dic.update({row[1][0]: row[1][1]})
+    return df, dic
