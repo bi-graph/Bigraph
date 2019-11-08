@@ -7,7 +7,7 @@ def getAdj2(graph, input_list: list, hop_n: int) -> list:
     :return: hop_n hop neighbours of the input list's items
     """
     full_list = []
-    while (hop_n > 0):
+    while hop_n > 0:
         hop_n -= 1
         output_list = []
         for node in graph.nbunch_iter(input_list):
