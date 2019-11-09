@@ -3,7 +3,7 @@ import pandas as pd
 def import_files():
     """
     Import links and labels from csv files
-    :return:
+    :return: links and label dataframes
     """
     print('Importing files and making dataframes...')
     df = pd.read_csv('./inputs/neighbour_matrix.csv', sep=',')
