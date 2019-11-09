@@ -2,7 +2,7 @@ import pandas as pd
 
 def import_files():
     """
-
+    Import links and labels from csv files
     :return:
     """
     print('Importing files and making dataframes...')
