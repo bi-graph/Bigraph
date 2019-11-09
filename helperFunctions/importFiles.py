@@ -6,11 +6,11 @@ def import_files():
     :return: links and label dataframes
     """
     print('Importing files and making dataframes...')
-    df = pd.read_csv('./inputs/neighbour_matrix.csv', sep=',')
+    raw_adjacency_dictionary = pd.read_csv('./inputs/neighbour_matrix.csv', sep=',')
     df_nodes = pd.read_csv('./inputs/id_labels.csv', sep=',')
-    # df = df.drop(['Weight'], axis=1)
+    # raw_adjacency_dictionary = raw_adjacency_dictionary.drop(['Weight'], axis=1)
 
     label_dictionary = {}
     for row in df_nodes.iterrows():
         label_dictionary.update({row[1][0]: row[1][1]})
-    return df, label_dictionary
+    return raw_adjacency_dictionary, label_dictionary
