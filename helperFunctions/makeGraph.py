@@ -3,9 +3,9 @@ import networkx as nx
 
 def make_graph(df):
     """
-
-    :param df:
-    :return:
+    Make a graph based on the input dataframe
+    :param df: Bipartite graph dataframe
+    :return: Generated networkx graph
     """
     nodeList = []
     G = nx.Graph()
