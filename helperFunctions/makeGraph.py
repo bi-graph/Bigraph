@@ -7,8 +7,8 @@ def make_graph(
         right_bipartite: str = "Cancer"):
     """
     Make a graph based on the input dataframe
-    :param left_bipartite:
-    :param right_bipartite:
+    :param left_bipartite: Left part of the graph
+    :param right_bipartite: Right part of the graph
     :param dataframe: Bipartite graph dataframe
     :return: Generated networkx graph
     """
