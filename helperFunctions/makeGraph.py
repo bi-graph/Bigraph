@@ -1,7 +1,7 @@
 import networkx as nx
 
 
-def make_graph(dataframe):
+def make_graph(dataframe: dict):
     """
     Make a graph based on the input dataframe
     :param dataframe: Bipartite graph dataframe
