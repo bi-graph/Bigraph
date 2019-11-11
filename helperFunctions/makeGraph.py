@@ -8,15 +8,15 @@ def make_graph(dataframe):
     :return: Generated networkx graph
     """
     nodeList = []
-    G = nx.Graph()
-    G.add_nodes_from(dataframe['SNP'], bipartite=0)
-    G.add_nodes_from(dataframe['Cancer'], bipartite=1)
-    for i in dataframe.iterrows():
-        nodeList.append(i[1][0])
-        nodeList.append(i[1][1])
+    graph = nx.Graph()
+    graph.add_nodes_from(dataframe['SNP'], bipartite=0)
+    graph.add_nodes_from(dataframe['Cancer'], bipartite=1)
+    for node in dataframe.iterrows():
+        nodeList.append(node[1][0])
+        nodeList.append(node[1][1])
 
-    G.add_edges_from(add_to_list(dataframe))
-    isolates = nx.isolates(G)
-    # G.remove_nodes_from(isolates)
+    graph.add_edges_from(add_to_list(dataframe))
+    isolates = nx.isolates(graph)
+    # graph.remove_nodes_from(isolates)
     print('Graph made successfully', "\n")
-    return G
+    return graph
