@@ -1,9 +1,14 @@
 import networkx as nx
 
 
-def make_graph(dataframe: dict):
+def make_graph(
+        dataframe: dict,
+        left_bipartite: str = "SNP",
+        right_bipartite: str = "Cancer"):
     """
     Make a graph based on the input dataframe
+    :param left_bipartite:
+    :param right_bipartite:
     :param dataframe: Bipartite graph dataframe
     :return: Generated networkx graph
     """
