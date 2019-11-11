@@ -14,8 +14,8 @@ def make_graph(
     """
     node_list = []
     graph = nx.Graph()
-    graph.add_nodes_from(dataframe['SNP'], bipartite=0)
-    graph.add_nodes_from(dataframe['Cancer'], bipartite=1)
+    graph.add_nodes_from(dataframe[left_bipartite], bipartite=0)
+    graph.add_nodes_from(dataframe[right_bipartite], bipartite=1)
     for node in dataframe.iterrows():
         node_list.append(node[1][0])
         node_list.append(node[1][1])
