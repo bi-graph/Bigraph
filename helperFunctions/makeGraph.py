@@ -18,3 +18,5 @@ def make_graph(df):
     G.add_edges_from(add_to_list(df))
     isolates = nx.isolates(G)
     # G.remove_nodes_from(isolates)
+    print('Graph made successfully', "\n")
+    return G
