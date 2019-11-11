@@ -1,6 +1,6 @@
 import pandas as pd
 
-def import_files():
+def import_files() -> Union[dict, dict]:
     """
     Import links and labels from csv files
     :return: links and label dataframes
