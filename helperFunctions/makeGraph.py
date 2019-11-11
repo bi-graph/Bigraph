@@ -7,13 +7,13 @@ def make_graph(dataframe: dict):
     :param dataframe: Bipartite graph dataframe
     :return: Generated networkx graph
     """
-    nodeList = []
+    node_list = []
     graph = nx.Graph()
     graph.add_nodes_from(dataframe['SNP'], bipartite=0)
     graph.add_nodes_from(dataframe['Cancer'], bipartite=1)
     for node in dataframe.iterrows():
-        nodeList.append(node[1][0])
-        nodeList.append(node[1][1])
+        node_list.append(node[1][0])
+        node_list.append(node[1][1])
 
     graph.add_edges_from(add_to_list(dataframe))
     isolates = nx.isolates(graph)
