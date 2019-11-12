@@ -1,4 +1,4 @@
-def add_to_list(df):
+def add_to_list(df: dict) -> list:
     """
     Generate link tuples and append them to a list
     :param df: Dataframe containing links
