@@ -3,8 +3,8 @@ import networkx as nx
 
 def make_graph(
         dataframe: dict,
-        left_bipartite: str = "SNP",
-        right_bipartite: str = "Cancer"):
+        left_bipartite: str = "left_side",
+        right_bipartite: str = "right_side"):
     """
     Make a graph based on the input dataframe
     :param left_bipartite: Left part of the graph
@@ -22,6 +22,8 @@ def make_graph(
 
     graph.add_edges_from(add_to_list(dataframe))
     isolates = nx.isolates(graph)
+    # TODO: make following line a choice to be able to remove isolates or not
+
     # graph.remove_nodes_from(isolates)
     print('Graph made successfully', "\n")
     return graph
