@@ -1,8 +1,8 @@
 def add_to_list(df):
     """
-
-    :param df:
-    :return:
+    Generate link tuples and append them to a list
+    :param df: Dataframe containing links
+    :return: Edge list
     """
     edgeList = []
     for i in df.iterrows():
