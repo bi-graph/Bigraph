@@ -16,3 +16,4 @@ def adamic_adar(setone, settwo, G):
             sum += (math.log(deg)) ** -1
         else:
             sum += 0
+    return sum
