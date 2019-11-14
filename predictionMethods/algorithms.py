@@ -11,9 +11,9 @@ def adamic_adar(set_one, set_two, G):
     sum = 0
     for node in intersection:
         # Get neighbors count
-        deg = set(G[node]).__len__()
-        if (deg > 1):
-            sum += (math.log(deg)) ** -1
+        degree = set(G[node]).__len__()
+        if degree > 1:
+            sum += (math.log(degree)) ** -1
         else:
             sum += 0
     return sum
