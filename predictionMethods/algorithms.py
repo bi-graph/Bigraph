@@ -3,7 +3,7 @@ def adamic_adar(set_one: list, set_two: list, G) -> float:
     Calculate Adamic Adar score for input lists
     :param set_one: A list of graph nodes -> part one
     :param set_two: A list of graph nodes -> part two
-    :param G: NetworkX graph
+    :param G: NetworkX bipartite graph
     :return: Adamic Adar score
     """
     intersection = (set(set_one) & set(set_two))
@@ -16,3 +16,4 @@ def adamic_adar(set_one: list, set_two: list, G) -> float:
         else:
             sum += 0
     return sum
+
