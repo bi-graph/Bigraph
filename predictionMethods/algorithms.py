@@ -17,3 +17,10 @@ def adamic_adar(set_one: list, set_two: list, G) -> float:
             sum += 0
     return sum
 
+def common_neighbors(setone, settwo):
+    """
+
+    :param setone:
+    :param settwo:
+    :return:
+    """
