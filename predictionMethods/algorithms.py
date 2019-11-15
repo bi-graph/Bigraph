@@ -19,9 +19,9 @@ def adamic_adar(set_one: list, set_two: list, G) -> float:
 
 def common_neighbors(setone, settwo):
     """
-
-    :param setone:
-    :param settwo:
+    Calculate Common neighbors score for input lists
+    :param set_one: A list of graph nodes -> part one
+    :param set_two: A list of graph nodes -> part two
     :return:
     """
     return len(set(setone) & set(settwo))
