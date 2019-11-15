@@ -24,3 +24,4 @@ def common_neighbors(setone, settwo):
     :param settwo:
     :return:
     """
+    return len(set(setone) & set(settwo))
