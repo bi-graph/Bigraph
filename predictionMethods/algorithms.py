@@ -1,4 +1,4 @@
-def adamic_adar(set_one, set_two, G):
+def adamic_adar(set_one: list, set_two: list, G) -> float:
     """
     Calculate Adamic Adar score for input lists
     :param set_one: A list of graph nodes -> part one
