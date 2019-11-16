@@ -22,6 +22,6 @@ def common_neighbors(set_one, set_two):
     Calculate Common neighbors score for input lists
     :param set_one: A list of graph nodes -> part one
     :param set_two: A list of graph nodes -> part two
-    :return:
+    :return: Common neighbours score
     """
     return len(set(set_one) & set(set_two))
