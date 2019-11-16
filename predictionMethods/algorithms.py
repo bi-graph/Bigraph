@@ -1,3 +1,5 @@
+import math
+
 def adamic_adar(set_one: list, set_two: list, G) -> float:
     """
     Calculate Adamic Adar score for input lists
