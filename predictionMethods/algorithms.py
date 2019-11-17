@@ -30,9 +30,9 @@ def common_neighbors(set_one: list, set_two: list) -> int:
 
 def preferential_attachment(set_one: list, set_two: list) -> int:
     """
-
-    :param set_one:
-    :param set_two:
-    :return:
+    Calculate Preferential attachment score for input lists
+    :param set_one: A list of graph nodes -> part one
+    :param set_two: A list of graph nodes -> part two
+    :return: Preferential attachment score
     """
     return len(set(set_one)) * len(set(set_two))
