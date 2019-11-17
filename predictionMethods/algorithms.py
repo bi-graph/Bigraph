@@ -27,3 +27,11 @@ def common_neighbors(set_one: list, set_two: list) -> int:
     :return: Common neighbours score
     """
     return len(set(set_one) & set(set_two))
+
+def preferential_attachment(setone, settwo):
+    """
+
+    :param setone:
+    :param settwo:
+    :return:
+    """
