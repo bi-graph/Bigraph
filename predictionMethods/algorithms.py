@@ -35,3 +35,4 @@ def preferential_attachment(setone, settwo):
     :param settwo:
     :return:
     """
+    return len(set(setone)) * len(set(settwo))
