@@ -39,3 +39,11 @@ def preferential_attachment(set_one: list, set_two: list) -> int:
     :return: Preferential attachment score
     """
     return len(set(set_one)) * len(set(set_two))
+
+def jaccard(setone, settwo):
+    """
+
+    :param setone:
+    :param settwo:
+    :return:
+    """
