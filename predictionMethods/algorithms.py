@@ -49,3 +49,4 @@ def jaccard(setone, settwo):
     """
     intersection = len(set(setone) & set(settwo))
     union = len(set(setone) | set(settwo))
+    return float(intersection) / float(union)
