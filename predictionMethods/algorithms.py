@@ -47,3 +47,5 @@ def jaccard(setone, settwo):
     :param settwo:
     :return:
     """
+    intersection = len(set(setone) & set(settwo))
+    union = len(set(setone) | set(settwo))
