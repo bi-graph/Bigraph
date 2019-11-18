@@ -1,5 +1,6 @@
 import math
 
+
 def adamic_adar(set_one: list, set_two: list, graph) -> float:
     """
     Calculate Adamic Adar score for input lists
@@ -19,6 +20,7 @@ def adamic_adar(set_one: list, set_two: list, graph) -> float:
             sum += 0
     return sum
 
+
 def common_neighbors(set_one: list, set_two: list) -> int:
     """
     Calculate Common neighbors score for input lists
@@ -27,6 +29,7 @@ def common_neighbors(set_one: list, set_two: list) -> int:
     :return: Common neighbours score
     """
     return len(set(set_one) & set(set_two))
+
 
 def preferential_attachment(set_one: list, set_two: list) -> int:
     """
