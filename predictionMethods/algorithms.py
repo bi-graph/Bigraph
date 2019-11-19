@@ -40,13 +40,13 @@ def preferential_attachment(set_one: list, set_two: list) -> int:
     """
     return len(set(set_one)) * len(set(set_two))
 
-def jaccard(setone, settwo):
+def jaccard(set_one, set_two):
     """
 
-    :param setone:
-    :param settwo:
+    :param set_one:
+    :param set_two:
     :return:
     """
-    intersection = len(set(setone) & set(settwo))
-    union = len(set(setone) | set(settwo))
+    intersection = len(set(set_one) & set(set_two))
+    union = len(set(set_one) | set(set_two))
     return float(intersection) / float(union)
