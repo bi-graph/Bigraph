@@ -40,6 +40,7 @@ def preferential_attachment(set_one: list, set_two: list) -> int:
     """
     return len(set(set_one)) * len(set(set_two))
 
+
 def jaccard(set_one: list, set_two: list) -> float:
     """
     Calculate Jaccard score for input lists
