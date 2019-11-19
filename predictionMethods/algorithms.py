@@ -51,3 +51,12 @@ def jaccard(set_one: list, set_two: list) -> float:
     intersection = len(set(set_one) & set(set_two))
     union = len(set(set_one) | set(set_two))
     return float(intersection) / float(union)
+
+def katz_similarity(i, j, G):
+    """
+
+    :param i:
+    :param j:
+    :param G:
+    :return:
+    """
