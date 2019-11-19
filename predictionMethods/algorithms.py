@@ -42,10 +42,10 @@ def preferential_attachment(set_one: list, set_two: list) -> int:
 
 def jaccard(set_one, set_two):
     """
-
-    :param set_one:
-    :param set_two:
-    :return:
+    Calculate Jaccard score for input lists
+    :param set_one: A list of graph nodes -> part one
+    :param set_two: A list of graph nodes -> part two
+    :return: Jaccard score
     """
     intersection = len(set(set_one) & set(set_two))
     union = len(set(set_one) | set(set_two))
