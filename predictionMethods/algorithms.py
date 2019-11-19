@@ -60,3 +60,19 @@ def katz_similarity(i, j, G):
     :param G:
     :return:
     """
+    l = 1
+    neighbors = set(G[i])
+    score = 0
+    maxl = 2
+    beta = 0.1
+
+    while l <= maxl:
+        numberOfPaths = neighbors.count(j)
+        if numberOfPaths > 0:
+            score += (beta ** l) * numberOfPaths
+
+        neighborsForNextLoop = []
+        for k in neighbors:
+            neighborsForNextLoop += set(G[k])
+        neighbors = neighborsForNextLoop
+        l += 1
