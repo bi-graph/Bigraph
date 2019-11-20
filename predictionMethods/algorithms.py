@@ -63,13 +63,13 @@ def katz_similarity(node_i, node_j, graph):
     l = 1
     neighbors = set(graph[node_i])
     score = 0
-    maxl = 2
+    max_length = 2
     beta = 0.1
 
-    while l <= maxl:
-        numberOfPaths = neighbors.count(node_j)
-        if numberOfPaths > 0:
-            score += (beta ** l) * numberOfPaths
+    while l <= max_length:
+        number_of_paths = neighbors.count(node_j)
+        if number_of_paths > 0:
+            score += (beta ** l) * number_of_paths
 
         neighborsForNextLoop = []
         for k in neighbors:
