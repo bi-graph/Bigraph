@@ -76,3 +76,4 @@ def katz_similarity(i, j, G):
             neighborsForNextLoop += set(G[k])
         neighbors = neighborsForNextLoop
         l += 1
+    return score
