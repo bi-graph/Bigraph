@@ -52,6 +52,7 @@ def jaccard(set_one: list, set_two: list) -> float:
     union = len(set(set_one) | set(set_two))
     return float(intersection) / float(union)
 
+
 def katz_similarity(node_i: int, node_j: int, graph) -> float:
     """
     Calculate Katz score for input nodes
