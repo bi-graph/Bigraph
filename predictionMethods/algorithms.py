@@ -52,28 +52,28 @@ def jaccard(set_one: list, set_two: list) -> float:
     union = len(set(set_one) | set(set_two))
     return float(intersection) / float(union)
 
-def katz_similarity(i, j, G):
+def katz_similarity(node_i, node_j, graph):
     """
-
-    :param i:
-    :param j:
-    :param G:
-    :return:
+    Calculate Katz score for input nodes
+    :param node_i: Starting node
+    :param node_j: Destination node
+    :param graph: NetworkX bipartite graph
+    :return: Katz similarity score
     """
     l = 1
-    neighbors = set(G[i])
+    neighbors = set(graph[node_i])
     score = 0
     maxl = 2
     beta = 0.1
 
     while l <= maxl:
-        numberOfPaths = neighbors.count(j)
+        numberOfPaths = neighbors.count(node_j)
         if numberOfPaths > 0:
             score += (beta ** l) * numberOfPaths
 
         neighborsForNextLoop = []
         for k in neighbors:
-            neighborsForNextLoop += set(G[k])
+            neighborsForNextLoop += set(graph[k])
         neighbors = neighborsForNextLoop
         l += 1
     return score
