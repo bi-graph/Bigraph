@@ -60,20 +60,20 @@ def katz_similarity(node_i, node_j, graph):
     :param graph: NetworkX bipartite graph
     :return: Katz similarity score
     """
-    l = 1
+    length = 1
     neighbors = set(graph[node_i])
     score = 0
     max_length = 2
     beta = 0.1
 
-    while l <= max_length:
+    while length <= max_length:
         number_of_paths = neighbors.count(node_j)
         if number_of_paths > 0:
-            score += (beta ** l) * number_of_paths
+            score += (beta ** length) * number_of_paths
 
-        neighborsForNextLoop = []
+        neighbours_for_next_loop = []
         for k in neighbors:
-            neighborsForNextLoop += set(graph[k])
-        neighbors = neighborsForNextLoop
-        l += 1
+            neighbours_for_next_loop += set(graph[k])
+        neighbors = neighbours_for_next_loop
+        length += 1
     return score
