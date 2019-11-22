@@ -18,17 +18,19 @@ Algorithms untill now:
 
 ### How to use the code
 you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
+
 ```python
-from predictionMethods import predict as pr
+from predict import predict as pr
+
 
 def main():
-    """
-    Link prediction on a bipartite network
-    :return: Predicted linkes
-    """
-    df, df_nodes = import_files()
-    G = make_graph(df)
-    pr.aa_predict(G) # Here we have called Adamic Adar method from predict module
+  """
+  Link prediction on a bipartite network
+  :return: Predicted linkes
+  """
+  df, df_nodes = import_files()
+  G = make_graph(df)
+  pr.aa_predict(G)  # Here we have called Adamic Adar method from predict module
 
 ```
 or you can run evaluation methods directly which calls its peer method automatically
@@ -74,19 +76,20 @@ Your dataset should be in the following format:
 ### More examples
 
 ```python
-from predictionMethods import predict as pr
+from predict import predict as pr
+
 
 def main():
-    """
-    Link prediction on a bipartite network
-    :return: Predicted linkes
-    """
-    df, df_nodes = import_files()
-    G = make_graph(df)
-    pr.aa_predict(G) # Here we have called Adamic Adar method from predict module
-    pr.pa_predict(G) # Prefferencial attachment
-    pr.jc_predict(G) # Jaccard coefficient
-    pr.cn_predict(G) # Common neighbors
+  """
+  Link prediction on a bipartite network
+  :return: Predicted linkes
+  """
+  df, df_nodes = import_files()
+  G = make_graph(df)
+  pr.aa_predict(G)  # Here we have called Adamic Adar method from predict module
+  pr.pa_predict(G)  # Prefferencial attachment
+  pr.jc_predict(G)  # Jaccard coefficient
+  pr.cn_predict(G)  # Common neighbors
 
 ```
 ### References

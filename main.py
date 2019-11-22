@@ -8,7 +8,7 @@ from tabulate import tabulate
 # from sklearn.cross_validation import KFold
 from helperFunctions.importFiles import import_files
 from helperFunctions.makeGraph import make_graph
-from predictionMethods import predict as pr
+from predict import predict as pr
 
 
 def complement_graph(G):
