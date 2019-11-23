@@ -16,3 +16,8 @@ def jc_predict(G):
     jaccard_sim = defaultdict(dict)
     left_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 0]
     right_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 1]
+
+    out.write('(left_element, right_element)')
+    out.write(",")
+    out.write('Probability')
+    out.write("\n")
