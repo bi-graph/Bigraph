@@ -20,7 +20,7 @@ Algorithms untill now:
 you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
 
 ```python
-from predict import predict as pr
+from bigraph import bigraph as pr
 
 
 def main():
@@ -30,7 +30,7 @@ def main():
   """
   df, df_nodes = import_files()
   G = make_graph(df)
-  pr.aa_predict(G)  # Here we have called Adamic Adar method from predict module
+  pr.aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
 
 ```
 or you can run evaluation methods directly which calls its peer method automatically
@@ -76,7 +76,7 @@ Your dataset should be in the following format:
 ### More examples
 
 ```python
-from predict import predict as pr
+from bigraph import bigraph as pr
 
 
 def main():
@@ -86,7 +86,7 @@ def main():
   """
   df, df_nodes = import_files()
   G = make_graph(df)
-  pr.aa_predict(G)  # Here we have called Adamic Adar method from predict module
+  pr.aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
   pr.pa_predict(G)  # Prefferencial attachment
   pr.jc_predict(G)  # Jaccard coefficient
   pr.cn_predict(G)  # Common neighbors

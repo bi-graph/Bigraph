@@ -5,7 +5,7 @@ from datetime import datetime
 import networkx as nx
 
 from helperFunctions.getAdjacents import getAdj2
-from predict.algorithms import adamic_adar, common_neighbors, preferential_attachment, katz_similarity, \
+from bigraph.algorithms import adamic_adar, common_neighbors, preferential_attachment, katz_similarity, \
     jaccard
 
 

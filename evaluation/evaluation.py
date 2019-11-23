@@ -7,7 +7,7 @@ from sklearn.metrics import roc_curve, roc_auc_score
 from sklearn.model_selection import KFold
 from tabulate import tabulate
 
-from predict import predict as pr
+from bigraph import bigraph as pr
 
 
 def plot_ROC(fpr, tpr, met):
