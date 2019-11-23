@@ -1,3 +1,6 @@
+from bigraph.algorithms import jaccard
+from helperFunctions.getAdjacents import getAdj2
+
 
 def jc_predict(G):
     """
