@@ -1,3 +1,5 @@
+from _operator import itemgetter
+
 from bigraph.algorithms import jaccard
 from helperFunctions.getAdjacents import getAdj2
 
