@@ -1,4 +1,5 @@
 from _operator import itemgetter
+from datetime import datetime
 
 from bigraph.algorithms import jaccard
 from helperFunctions.getAdjacents import getAdj2
@@ -48,3 +49,4 @@ def jc_predict(G):
         out.write("\n")
 
     end_jc = datetime.now()
+    return dictionary
