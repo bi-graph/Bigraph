@@ -11,8 +11,8 @@ from helperFunctions.getAdjacents import getAdj2
 def jc_predict(G):
     """
     Compute the Jaccard-Needham dissimilarity between two boolean 1-D arrays.
-    :param G:
-    :return:
+    :param G: Networkx bipartite graph
+    :return: A dictionary containing the Jaccard distance between vectors `left_element` and `right_element`.
     """
     start_jc = datetime.now()
 
