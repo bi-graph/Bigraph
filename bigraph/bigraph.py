@@ -53,3 +53,10 @@ def jc_predict(G):
     _time = start_jc - datetime.now()
     return dictionary
 
+def aa_predict(G):
+    """
+
+    :param G:
+    :return:
+    """
+
