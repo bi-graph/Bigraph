@@ -2,8 +2,7 @@ from _operator import itemgetter
 from collections import defaultdict
 from datetime import datetime
 
-# from bigraph.algorithms import jaccard
-from scipy.spatial.distance import jaccard
+from bigraph.algorithms import jaccard
 
 from helperFunctions.getAdjacents import getAdj2
 
