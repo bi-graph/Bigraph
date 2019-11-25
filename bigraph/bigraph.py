@@ -50,6 +50,6 @@ def jc_predict(G):
         out.write(str(jaccard_sim[k[0]][k[1]]))
         out.write("\n")
 
-    end_jc = datetime.now()
+    _time = start_jc - datetime.now()
     return dictionary
 
