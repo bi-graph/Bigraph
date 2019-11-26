@@ -2,7 +2,7 @@ from _operator import itemgetter
 from collections import defaultdict
 from datetime import datetime
 
-from bigraph.algorithms import jaccard
+from bigraph.algorithms import jaccard, adamic_adar
 
 from helperFunctions.getAdjacents import getAdj2
 
