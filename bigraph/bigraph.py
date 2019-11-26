@@ -93,3 +93,10 @@ def aa_predict(G):
                 except:
                     exception_count += 1
                     print(exception_count)
+
+    for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
+        # print(k[0],v)
+        out.write(str((k[0], k[1])))
+        out.write(",")
+        out.write(str(aa_sim[k[0]][k[1]]))
+        out.write("\n")
