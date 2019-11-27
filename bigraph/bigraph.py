@@ -100,3 +100,5 @@ def aa_predict(G):
         out.write(",")
         out.write(str(aa_sim[k[0]][k[1]]))
         out.write("\n")
+
+    return dictionary
