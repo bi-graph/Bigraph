@@ -101,4 +101,6 @@ def aa_predict(G):
         out.write(str(aa_sim[k[0]][k[1]]))
         out.write("\n")
 
+    _time = start_aa - datetime.now()
+
     return dictionary
