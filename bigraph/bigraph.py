@@ -102,5 +102,5 @@ def aa_predict(G):
         out.write("\n")
 
     _time = start_aa - datetime.now()
-
+    print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
