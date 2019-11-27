@@ -51,6 +51,8 @@ def jc_predict(G):
         out.write("\n")
 
     _time = start_jc - datetime.now()
+    print('Jaccard Executed in {} seconds'.format(_time), "\n")
+
     return dictionary
 
 def aa_predict(G):
