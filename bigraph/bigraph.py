@@ -58,8 +58,8 @@ def jc_predict(G):
 def aa_predict(G):
     """
     Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
-    :param G:
-    :return:
+    :param G: Networkx bipartite graph
+    :return: A dictionary containing the Adamic-adar score for `left_element` and `right_element`.
     """
     start_aa = datetime.now()
 
