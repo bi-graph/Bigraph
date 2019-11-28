@@ -7,7 +7,7 @@ from bigraph.algorithms import jaccard, adamic_adar
 from helperFunctions.getAdjacents import getAdj2
 
 
-def jc_predict(G):
+def jc_predict(G: object) -> dict:
     """
     Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
     :param G: Networkx bipartite graph
