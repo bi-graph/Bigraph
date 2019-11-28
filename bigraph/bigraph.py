@@ -55,7 +55,7 @@ def jc_predict(G):
 
     return dictionary
 
-def aa_predict(G):
+def aa_predict(G: object) -> dict:
     """
     Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
     :param G: Networkx bipartite graph
