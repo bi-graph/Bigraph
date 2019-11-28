@@ -57,7 +57,7 @@ def jc_predict(G):
 
 def aa_predict(G):
     """
-
+    Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
     :param G:
     :return:
     """
