@@ -91,6 +91,11 @@ def aa_predict(G: object) -> dict:
     out.write('Probability')
     out.write("\n")
 
+    # outN.write('(left_element, right_element)')
+    # outN.write(",")
+    # outN.write('Probability')
+    # outN.write("\n")
+
     exception_count = 0
     for left_element in left_set:
         hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
