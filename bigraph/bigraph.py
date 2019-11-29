@@ -55,7 +55,12 @@ def jc_predict(G: object) -> dict:
         out.write(",")
         out.write(str(jaccard_sim[k[0]][k[1]]))
         out.write("\n")
+        # outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
+        # outN.write(",")
+        # outN.write(str(jaccard_sim[k[0]][k[1]]))
+        # outN.write("\n")
 
+    # print('Jaccard prediction finished sucnessfully')
     _time = start_jc - datetime.now()
     print('Jaccard Executed in {} seconds'.format(_time), "\n")
 
