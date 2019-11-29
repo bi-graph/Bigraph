@@ -119,6 +119,12 @@ def aa_predict(G: object) -> dict:
         out.write(str(aa_sim[k[0]][k[1]]))
         out.write("\n")
 
+        # outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
+        # outN.write(",")
+        # outN.write(str(aa_sim[k[0]][k[1]]))
+        # outN.write("\n")
+    # print('Adamic-adar prediction finished sucnessfully')
+
     _time = start_aa - datetime.now()
     print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
