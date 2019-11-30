@@ -129,3 +129,9 @@ def aa_predict(G: object) -> dict:
     print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
 
+def cn_predict(G):
+    """
+
+    :param G:
+    :return:
+    """
