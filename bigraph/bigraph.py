@@ -187,4 +187,7 @@ def cn_predict(G):
         #     outN.write(",")
         #     outN.write(str(cn_sim[k[0]][k[1]]))
         #     outN.write("\n")
-    # print('Common neghbor prediction finished sucnessfully')
+    # print('Common neighbor prediction finished sucnessfully')
+
+    _time = start_cn - datetime.now()
+    print('Common neighbours Executed in {} seconds'.format(_time), "\n")
