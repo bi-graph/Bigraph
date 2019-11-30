@@ -182,3 +182,9 @@ def cn_predict(G):
         out.write(",")
         out.write(str(cn_sim[k[0]][k[1]]))
         out.write("\n")
+
+        #     outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
+        #     outN.write(",")
+        #     outN.write(str(cn_sim[k[0]][k[1]]))
+        #     outN.write("\n")
+    # print('Common neghbor prediction finished sucnessfully')
