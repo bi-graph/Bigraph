@@ -159,3 +159,19 @@ def cn_predict(G):
     # outN.write(",")
     # outN.write('Probability')
     # outN.write("\n")
+
+    for left_element in left_set:
+        # print('snp {} -- '.format(len(G[left_element])))
+        hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        # print('snp hop 2 {} -- '.format(len(hop2s[left_element])))
+        for right_element in right_set:
+            # print('cancer {} -- '.format(len(G[right_element])))
+            neighbors[right_element] = list(set(G[right_element]))
+            if not (left_element, right_element) in G.edges:
+                cn_sim[left_element][right_element] = common_neighbors(hop2s[left_element],
+                                                                       neighbors[right_element])
+
+                # if (left_element, right_element) in edge_subset:
+                #   print((left_element, right_element), cn_sim[left_element][right_element])
+                if cn_sim[left_element][right_element] > 0:
+                    dictionary.update({(left_element, right_element): cn_sim[left_element][right_element]})
