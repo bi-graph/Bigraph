@@ -2,7 +2,7 @@ from _operator import itemgetter
 from collections import defaultdict
 from datetime import datetime
 
-from bigraph.algorithms import jaccard, adamic_adar
+from bigraph.algorithms import jaccard, adamic_adar, common_neighbors
 
 from helperFunctions.getAdjacents import getAdj2
 
@@ -175,3 +175,10 @@ def cn_predict(G):
                 #   print((left_element, right_element), cn_sim[left_element][right_element])
                 if cn_sim[left_element][right_element] > 0:
                     dictionary.update({(left_element, right_element): cn_sim[left_element][right_element]})
+
+    for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
+        # print(k[0],v)
+        out.write(str((k[0], k[1])))
+        out.write(",")
+        out.write(str(cn_sim[k[0]][k[1]]))
+        out.write("\n")
