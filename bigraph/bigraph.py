@@ -131,7 +131,7 @@ def aa_predict(G: object) -> dict:
 
 def cn_predict(G):
     """
-
+    Return the common neighbors of two nodes in a graph.
     :param G:
     :return:
     """
