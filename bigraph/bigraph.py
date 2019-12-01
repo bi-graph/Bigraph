@@ -191,3 +191,5 @@ def cn_predict(G):
 
     _time = start_cn - datetime.now()
     print('Common neighbours Executed in {} seconds'.format(_time), "\n")
+
+    return dictionary
