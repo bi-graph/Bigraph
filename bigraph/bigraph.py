@@ -193,3 +193,10 @@ def cn_predict(G: object) -> dict:
     print('Common neighbours Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
+
+def pa_predict(G):
+    """
+
+    :param G:
+    :return:
+    """
