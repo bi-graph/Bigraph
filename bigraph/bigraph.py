@@ -129,7 +129,7 @@ def aa_predict(G: object) -> dict:
     print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
 
-def cn_predict(G):
+def cn_predict(G: object) -> dict:
     """
     Return the common neighbors of two nodes in a graph.
     :param G: Networkx bipartite graph
