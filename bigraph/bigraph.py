@@ -132,8 +132,8 @@ def aa_predict(G: object) -> dict:
 def cn_predict(G):
     """
     Return the common neighbors of two nodes in a graph.
-    :param G:
-    :return:
+    :param G: Networkx bipartite graph
+    :return: A dictionary containing the Common neighbours score for `left_element` and `right_element`.
     """
     start_cn = datetime.now()
 
