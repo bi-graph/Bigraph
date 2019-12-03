@@ -222,3 +222,14 @@ def pa_predict(G):
     # outN.write(",")
     # outN.write('Probability')
     # outN.write("\n")
+
+    for left_element in left_set:
+        # hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        neighbors_left_element[left_element] = list(set(G[left_element]))
+        for right_element in right_set:
+            neighbors_right_element[right_element] = list(set(G[right_element]))
+            if not (left_element, right_element) in G.edges:
+                pa_sim[left_element][right_element] = preferential_attachment(
+                    neighbors_left_element[(left_element)], neighbors_right_element[(right_element)])
+                if pa_sim[left_element][right_element] > 0:
+                    dictionary.update({(left_element, right_element): pa_sim[left_element][right_element]})
