@@ -200,3 +200,15 @@ def pa_predict(G):
     :param G:
     :return:
     """
+    start_pa = datetime.now()
+    # print('Preferential_attachment prediction starting...')
+    dictionary = {}
+    out = open('./predictions/preferential_attachment.csv', 'w')
+    outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
+    hop2s = dict()
+    neighbors_right_element = dict()
+    neighbors_left_element = dict()
+    pa_sim = defaultdict(dict)
+    sortDic = {}
+    left_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 0]
+    right_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 1]
