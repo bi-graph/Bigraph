@@ -217,3 +217,8 @@ def pa_predict(G):
     out.write(",")
     out.write('Probability')
     out.write("\n")
+
+    # outN.write('(left_element, right_element)')
+    # outN.write(",")
+    # outN.write('Probability')
+    # outN.write("\n")
