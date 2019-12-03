@@ -2,7 +2,7 @@ from _operator import itemgetter
 from collections import defaultdict
 from datetime import datetime
 
-from bigraph.algorithms import jaccard, adamic_adar, common_neighbors
+from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment
 
 from helperFunctions.getAdjacents import getAdj2
 
@@ -233,3 +233,5 @@ def pa_predict(G):
                     neighbors_left_element[(left_element)], neighbors_right_element[(right_element)])
                 if pa_sim[left_element][right_element] > 0:
                     dictionary.update({(left_element, right_element): pa_sim[left_element][right_element]})
+
+
