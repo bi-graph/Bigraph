@@ -234,4 +234,9 @@ def pa_predict(G):
                 if pa_sim[left_element][right_element] > 0:
                     dictionary.update({(left_element, right_element): pa_sim[left_element][right_element]})
 
-
+    for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
+        # print(k[0],v)
+        out.write(str((k[0], k[1])))
+        out.write(",")
+        out.write(str(pa_sim[k[0]][k[1]]))
+        out.write("\n")
