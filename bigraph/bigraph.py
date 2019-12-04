@@ -246,3 +246,6 @@ def pa_predict(G):
         # outN.write(str(pa_sim[k[0]][k[1]]))
         # outN.write("\n")
     # print('Preferential_attachment prediction finished sucnessfully')
+
+    _time = start_pa - datetime.now()
+    print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
