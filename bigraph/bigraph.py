@@ -240,3 +240,9 @@ def pa_predict(G):
         out.write(",")
         out.write(str(pa_sim[k[0]][k[1]]))
         out.write("\n")
+
+        # outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
+        # outN.write(",")
+        # outN.write(str(pa_sim[k[0]][k[1]]))
+        # outN.write("\n")
+    # print('Preferential_attachment prediction finished sucnessfully')
