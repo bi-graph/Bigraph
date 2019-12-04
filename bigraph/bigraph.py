@@ -249,3 +249,5 @@ def pa_predict(G):
 
     _time = start_pa - datetime.now()
     print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
+
+    return dictionary
