@@ -196,7 +196,7 @@ def cn_predict(G: object) -> dict:
 
 def pa_predict(G):
     """
-
+    Compute the preferential attachment score of all node pairs.
     :param G:
     :return:
     """
@@ -251,3 +251,4 @@ def pa_predict(G):
     print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
+
