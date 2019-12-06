@@ -194,7 +194,7 @@ def cn_predict(G: object) -> dict:
 
     return dictionary
 
-def pa_predict(G):
+def pa_predict(G: object) -> dict:
     """
     Compute the preferential attachment score of all node pairs.
     :param G: Networkx bipartite graph
