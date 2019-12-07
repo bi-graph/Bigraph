@@ -252,3 +252,10 @@ def pa_predict(G: object) -> dict:
 
     return dictionary
 
+def katz_predict(G, df_nodes):
+    """
+
+    :param G:
+    :param df_nodes:
+    :return:
+    """
