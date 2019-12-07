@@ -269,7 +269,7 @@ def katz_predict(G, df_nodes):
     outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
     hop2s = dict()
     neighbors = dict()
-    pa_sim = defaultdict(dict)
+    katz_sim = defaultdict(dict)
     sortDic = {}
     left_set = list(set(nx.bipartite.sets(G)[0]))
     right_set = list(set(nx.bipartite.sets(G)[1]))
@@ -283,3 +283,16 @@ def katz_predict(G, df_nodes):
     outN.write(",")
     outN.write('Probability')
     outN.write("\n")
+
+    for left_element in left_set:
+        hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        for right_element in right_set:
+            neighbors[right_element] = list(set(G[right_element]))
+            if not (left_element, right_element) in G.edges:
+                katz_sim[left_element][right_element] = katz_similarity(int(left_element), int(right_element), G)
+                if katz_sim[left_element][right_element] > 0:
+                    out.write(str((left_element, right_element)))
+                    out.write(",")
+                    out.write(str(katz_sim[left_element][right_element]))
+                    out.write("\n")
+
