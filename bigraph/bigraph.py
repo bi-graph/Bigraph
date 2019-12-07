@@ -259,3 +259,15 @@ def katz_predict(G, df_nodes):
     :param df_nodes:
     :return:
     """
+    start_pa = datetime.now()
+
+    # print('Preferential_attachment prediction starting...')
+
+    out = open('./predictions/preferential_attachment.csv', 'w')
+    outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
+    hop2s = dict()
+    neighbors = dict()
+    pa_sim = defaultdict(dict)
+    sortDic = {}
+    left_set = list(set(nx.bipartite.sets(G)[0]))
+    right_set = list(set(nx.bipartite.sets(G)[1]))
