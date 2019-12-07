@@ -2,6 +2,8 @@ from _operator import itemgetter
 from collections import defaultdict
 from datetime import datetime
 
+import networkx as nx
+
 from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment
 
 from helperFunctions.getAdjacents import getAdj2
@@ -271,3 +273,8 @@ def katz_predict(G, df_nodes):
     sortDic = {}
     left_set = list(set(nx.bipartite.sets(G)[0]))
     right_set = list(set(nx.bipartite.sets(G)[1]))
+
+    out.write('(left_element, right_element)')
+    out.write(",")
+    out.write('Probability')
+    out.write("\n")
