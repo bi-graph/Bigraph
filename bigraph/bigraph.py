@@ -278,3 +278,8 @@ def katz_predict(G, df_nodes):
     out.write(",")
     out.write('Probability')
     out.write("\n")
+
+    outN.write('(left_element, right_element)')
+    outN.write(",")
+    outN.write('Probability')
+    outN.write("\n")
