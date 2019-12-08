@@ -257,9 +257,9 @@ def pa_predict(G: object) -> dict:
 def katz_predict(G, df_nodes):
     """
     Compute the Katz similarity score of all node pairs.
-    :param G:
-    :param df_nodes:
-    :return:
+    :param G: Networkx bipartite graph
+    :param df_nodes: Graph nodes
+    :return: A dictionary containing the Preferential attachment score for `left_element` and `right_element`.
     """
     start_pa = datetime.now()
 
