@@ -296,3 +296,7 @@ def katz_predict(G, df_nodes):
                     out.write(str(katz_sim[left_element][right_element]))
                     out.write("\n")
 
+                    outN.write(str((df_nodes[left_element], df_nodes[right_element])))
+                    outN.write(",")
+                    outN.write(str(katz_sim[left_element][right_element]))
+                    outN.write("\n")
