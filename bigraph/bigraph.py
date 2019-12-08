@@ -4,7 +4,7 @@ from datetime import datetime
 
 import networkx as nx
 
-from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment
+from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
 
 from helperFunctions.getAdjacents import getAdj2
 
@@ -256,7 +256,7 @@ def pa_predict(G: object) -> dict:
 
 def katz_predict(G, df_nodes):
     """
-
+    Compute the Katz similarity score of all node pairs.
     :param G:
     :param df_nodes:
     :return:
