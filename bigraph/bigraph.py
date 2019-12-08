@@ -300,3 +300,7 @@ def katz_predict(G, df_nodes):
                     outN.write(",")
                     outN.write(str(katz_sim[left_element][right_element]))
                     outN.write("\n")
+
+    # print('Katz similarity prediction finished sucnessfully')
+    _time = start_pa - datetime.now()
+    print('Katz similarity Executed in {} seconds'.format(_time), "\n")
