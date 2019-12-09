@@ -68,6 +68,7 @@ def jc_predict(G: object) -> dict:
 
     return dictionary
 
+
 def aa_predict(G: object) -> dict:
     """
     Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
@@ -130,6 +131,7 @@ def aa_predict(G: object) -> dict:
     _time = start_aa - datetime.now()
     print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
+
 
 def cn_predict(G: object) -> dict:
     """
@@ -196,6 +198,7 @@ def cn_predict(G: object) -> dict:
 
     return dictionary
 
+
 def pa_predict(G: object) -> dict:
     """
     Compute the preferential attachment score of all node pairs.
@@ -253,6 +256,7 @@ def pa_predict(G: object) -> dict:
     print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
+
 
 def katz_predict(G: object, df_nodes: dict) -> dict:
     """
