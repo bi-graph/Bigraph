@@ -254,7 +254,7 @@ def pa_predict(G: object) -> dict:
 
     return dictionary
 
-def katz_predict(G, df_nodes):
+def katz_predict(G: object, df_nodes: dict) -> dict:
     """
     Compute the Katz similarity score of all node pairs.
     :param G: Networkx bipartite graph
