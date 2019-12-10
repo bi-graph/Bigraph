@@ -102,4 +102,4 @@ I will provide documentations whenever I could make time!:watch:
 
 > 1. After running the main, it will exports the graph in .json and .gexf format for furthur usages
 
-<h3>:heart:If it was helpful then hit the <span>:star:</span> button!:heart:</h3>
+<h3>If it was helpful then hit the <span>:star:</span></h3>
