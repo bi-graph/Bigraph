@@ -67,3 +67,11 @@ def _evaluate_method(G, k, method):
         # -------------------------------------------------------------------
         iterator += 1
         print('---' * 20)
+
+    overal_precision = precision_sum / k
+    overal_auc = auc_sum / k
+    print(tabulate([["%i-fold evaluation overal precision: %f" % (k, overal_precision),
+                     "%i-fold evaluation overal auc: %f" % (k, overal_auc)]], tablefmt='jira'))
+    headers = ['overal_precision', 'overal_auc']
+    table = [[overal_precision, overal_auc]]
+    print(tabulate(table, headers, tablefmt="pipe"))
