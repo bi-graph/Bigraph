@@ -51,3 +51,19 @@ def _evaluate_method(G, k, method):
         else:
             raise Exception('Entered method is not valid', method)
         # -------------------------------------------------------------------
+        precision = len(set(predicted.keys()) & set(map(tuple, test_edges))) / len(set(predicted.keys()))
+        precision_sum += precision
+        print('precision: ', precision)
+
+        # -------------------------------------------------------------------
+
+        score_algo, label_algo = zip(*[(float(score), label in test_edges) for label, score in
+                                       sorted(predicted.items(), key=itemgetter(1), reverse=True)])
+        # Compute the ROC AUC Score
+        fpr_algo, tpr_algo, _ = roc_curve(label_algo, score_algo)
+        auc_algo = roc_auc_score(label_algo, score_algo)
+        print("auc: ", auc_algo)
+        auc_sum += auc_algo
+        # -------------------------------------------------------------------
+        iterator += 1
+        print('---' * 20)
