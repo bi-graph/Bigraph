@@ -1,4 +1,7 @@
+from more_itertools import tabulate
+from pandas.tests.extension.numpy_.test_numpy_nested import np
 from sklearn import metrics
+from sklearn.model_selection import KFold
 
 
 def plot_ROC(fpr, tpr, met):
@@ -75,3 +78,4 @@ def _evaluate_method(G, k, method):
     headers = ['overal_precision', 'overal_auc']
     table = [[overal_precision, overal_auc]]
     print(tabulate(table, headers, tablefmt="pipe"))
+    return [overal_precision, overal_auc, fpr_algo, tpr_algo]
