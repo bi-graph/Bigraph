@@ -1,3 +1,5 @@
+from sklearn import metrics
+
 
 def plot_ROC(fpr, tpr, met):
     """
@@ -15,3 +17,12 @@ def plot_ROC(fpr, tpr, met):
     plt.plot(fpr, tpr, label='AUC -> %s (area = %0.2f)' % (met, auc))
     # plt.show()
     return True
+
+def _evaluate_method(G, k, method):
+    """
+
+    :param G:
+    :param k:
+    :param method:
+    :return:
+    """
