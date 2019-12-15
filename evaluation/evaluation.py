@@ -26,3 +26,8 @@ def _evaluate_method(G, k, method):
     :param method:
     :return:
     """
+    kf = KFold(n_splits=k, shuffle=True)
+    precision_sum = 0
+    auc_sum = 0
+    print(tabulate([[f'Starting caculating {method}']], tablefmt='grid'))
+    iterator = 0
