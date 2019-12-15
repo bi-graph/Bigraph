@@ -79,3 +79,12 @@ def _evaluate_method(G, k, method):
     table = [[overal_precision, overal_auc]]
     print(tabulate(table, headers, tablefmt="pipe"))
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
+
+def evaluate(G, k=2, method='all'):
+    """
+
+    :param G:
+    :param k:
+    :param method:
+    :return:
+    """
