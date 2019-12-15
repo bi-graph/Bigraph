@@ -14,3 +14,4 @@ def plot_ROC(fpr, tpr, met):
     # Print ROC curve
     plt.plot(fpr, tpr, label='AUC -> %s (area = %0.2f)' % (met, auc))
     # plt.show()
+    return True
