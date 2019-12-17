@@ -88,3 +88,9 @@ def evaluate(G, k=2, method='all'):
     :param method:
     :return:
     """
+    methods = ['cn', 'jc', 'aa', 'pa']
+    results = {}
+    if method == 'all':
+        for _method in methods:
+            result = _evaluate_method(G, k, _method)
+            results.update({method: result})
