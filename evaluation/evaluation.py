@@ -94,3 +94,9 @@ def evaluate(G, k=2, method='all'):
         for _method in methods:
             result = _evaluate_method(G, k, _method)
             results.update({method: result})
+    elif method in methods:
+        result = _evaluate_method(G, k, method)
+        results.update({method: result})
+
+    else:
+        raise Exception('Make sure you have entered a valid method name.\n valid methods: all, cn, jc, aa, pa')
