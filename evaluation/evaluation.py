@@ -1,8 +1,13 @@
-from more_itertools import tabulate
-from pandas.tests.extension.numpy_.test_numpy_nested import np
-from sklearn import metrics
-from sklearn.model_selection import KFold
+from _operator import itemgetter
 
+import numpy as np
+from matplotlib import pyplot as plt
+from sklearn import metrics
+from sklearn.metrics import roc_curve, roc_auc_score
+from sklearn.model_selection import KFold
+from tabulate import tabulate
+
+from bigraph import bigraph as pr
 
 def plot_ROC(fpr, tpr, met):
     """
