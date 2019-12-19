@@ -100,3 +100,4 @@ def evaluate(G, k=2, method='all'):
 
     else:
         raise Exception('Make sure you have entered a valid method name.\n valid methods: all, cn, jc, aa, pa')
+    return results
