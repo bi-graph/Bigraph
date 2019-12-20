@@ -11,11 +11,11 @@ from bigraph import bigraph as pr
 
 def plot_ROC(fpr, tpr, met):
     """
-
-    :param fpr:
-    :param tpr:
-    :param met:
-    :return:
+    Plot ROC curve for algorithms
+    :param fpr: False positive rate metric
+    :param tpr: True positive rate metric
+    :param met: Metric
+    :return: True on success
     """
     # Print AUC
     auc = metrics.auc(fpr, tpr)
