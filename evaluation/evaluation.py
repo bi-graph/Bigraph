@@ -28,7 +28,7 @@ def plot_ROC(fpr, tpr, met):
 
 def _evaluate_method(G, k, method):
     """
-
+    Evaluate algorithms using precision and AUC metrics
     :param G:
     :param k:
     :param method:
