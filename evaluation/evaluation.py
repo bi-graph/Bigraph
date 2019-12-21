@@ -29,10 +29,10 @@ def plot_ROC(fpr, tpr, met):
 def _evaluate_method(G, k, method):
     """
     Evaluate algorithms using precision and AUC metrics
-    :param G:
-    :param k:
-    :param method:
-    :return:
+    :param G: Networkx bipartite graph
+    :param k: Number of folds (used in KFold)
+    :param method: Algorithm name
+    :return: Calculated metrics: overal_precision, overal_auc, fpr_algo, tpr_algo
     """
     kf = KFold(n_splits=k, shuffle=True)
     precision_sum = 0
