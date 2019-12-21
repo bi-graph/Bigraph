@@ -87,7 +87,7 @@ def _evaluate_method(G, k, method):
 
 def evaluate(G, k=2, method='all'):
     """
-
+    Evaluation interface for evaluating algorithms
     :param G:
     :param k:
     :param method:
