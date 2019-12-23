@@ -85,7 +85,7 @@ def _evaluate_method(G, k, method):
     print(tabulate(table, headers, tablefmt="pipe"))
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
 
-def evaluate(G, k=2, method='all'):
+def evaluate(G: object, k: int = 2, method: str = 'all'):
     """
     Evaluation interface for evaluating algorithms
     :param G: Networkx bipartite graph
