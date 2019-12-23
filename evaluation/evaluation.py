@@ -88,10 +88,10 @@ def _evaluate_method(G, k, method):
 def evaluate(G, k=2, method='all'):
     """
     Evaluation interface for evaluating algorithms
-    :param G:
-    :param k:
-    :param method:
-    :return:
+    :param G: Networkx bipartite graph
+    :param k: Number of folds (used in KFold)
+    :param method: Algorithm name
+    :return: Calculated metrics: overal_precision, overal_auc, fpr_algo, tpr_algo
     """
     methods = ['cn', 'jc', 'aa', 'pa']
     results = {}
