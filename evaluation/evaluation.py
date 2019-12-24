@@ -26,7 +26,7 @@ def plot_ROC(fpr, tpr, met):
     # plt.show()
     return True
 
-def _evaluate_method(G, k, method):
+def _evaluate_method(G: object, k: int, method: str) -> list:
     """
     Evaluate algorithms using precision and AUC metrics
     :param G: Networkx bipartite graph
