@@ -9,11 +9,11 @@ from tabulate import tabulate
 
 from bigraph import bigraph as pr
 
-def plot_ROC(fpr, tpr, met):
+def plot_ROC(fpr: list, tpr: list, met: str):
     """
     Plot ROC curve for algorithms
-    :param fpr: False positive rate metric
-    :param tpr: True positive rate metric
+    :param fpr: *type: list - False positive rate metric
+    :param tpr: *type: list - True positive rate metric
     :param met: Metric
     :return: True on success
     """
