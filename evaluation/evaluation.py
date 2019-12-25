@@ -9,6 +9,7 @@ from tabulate import tabulate
 
 from bigraph import bigraph as pr
 
+
 def plot_ROC(fpr: list, tpr: list, met: str):
     """
     Plot ROC curve for algorithms
@@ -25,6 +26,7 @@ def plot_ROC(fpr: list, tpr: list, met: str):
     plt.plot(fpr, tpr, label='AUC -> %s (area = %0.2f)' % (met, auc))
     # plt.show()
     return True
+
 
 def _evaluate_method(G: object, k: int, method: str) -> list:
     """
@@ -84,6 +86,7 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
     table = [[overal_precision, overal_auc]]
     print(tabulate(table, headers, tablefmt="pipe"))
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
+
 
 def evaluate(G: object, k: int = 2, method: str = 'all'):
     """
@@ -332,4 +335,3 @@ def evaluate(G: object, k: int = 2, method: str = 'all'):
         fprdic[k22] = fprdic[k22] / fprList.__len__()
 
     return list(fprdic.values()), list(tprdic.values()), precisionSum'''''
-
