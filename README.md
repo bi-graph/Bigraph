@@ -100,6 +100,6 @@ def main():
 ### Documentation
 I will provide documentations whenever I could make time!:watch:
 
-> 1. After running the main, it will exports the graph in .json and .gexf format for furthur usages
+> 1. After running the main, it will exports the graph in .json and .gexf format for furthur usages. For instance: Gephi etc.
 
 <h3>If it was helpful then hit the <span>:star:</span></h3>
