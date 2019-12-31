@@ -70,7 +70,7 @@ Your dataset should be in the following format:
   |       4.     | `ll3` | `rl3` | 1|
   |       5.     | `ll4` | `rl3` | 2 |
 
-> * Although the weight have not been involved in current version, but, the format will be the same.
+> * Although the weight has not been involved in current version, but, the format will be the same.
 ### More examples
 
 ```python
