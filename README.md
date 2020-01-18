@@ -100,7 +100,7 @@ def main():
 ### TODO
 - [x] Modulate the functions
 - [ ] Make it faster using vectorization etc.
-- [ ] Unify and reconstruct the architecture and readicate redundancy
+- [ ] Unify and reconstruct the architecture and eliminate redundancy
 
 ### Documentation
 I will provide documentations whenever I could make time!:watch:
