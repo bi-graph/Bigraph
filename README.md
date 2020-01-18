@@ -97,6 +97,11 @@ def main():
   |       2.     | `Liben-nowell, David & Kleinberg, Jon. (2003). The Link Prediction Problem for Social Networks. Journal of the American Society for Information Science and Technology.` https://doi.org/58.10.1002/asi.20591 |
   |       3.     | `...`  |
   
+### TODO
+- [x] Modulate the functions
+- [ ] Make it faster using vectorization etc.
+- [ ] Unify and reconstruct the architecture and readicate redundancy
+
 ### Documentation
 I will provide documentations whenever I could make time!:watch:
 
