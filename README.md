@@ -43,7 +43,7 @@ def main():
     """
     df, df_nodes = import_files()
     G = make_graph(df)
-    ev.evaluate(G, k=10, method='all') # Here we have evaluated Jaccard method using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
+    ev.evaluate(G, k=10, method='all') # Here we have evaluated all methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
 
 ```
 ### Metrics
