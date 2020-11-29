@@ -103,8 +103,8 @@ def main():
 - [ ] Unify and reconstruct the architecture and eliminate redundancy
 
 ### Documentation
-I will provide documentations whenever I could make time!:watch:
+I will provide documentations whenever I could make time!:watch: or you can pull a request and help to make it happen together
 
-> 1. After running the main, it will exports the graph in .json and .gexf format for furthur usages. For instance: Gephi etc.
+> 1. After running the main, it will export the graph in .json and .gexf format for furthur usages. For instance: Gephi etc.
 
 <h3>If it was helpful then hit the <span>:star:</span></h3>
