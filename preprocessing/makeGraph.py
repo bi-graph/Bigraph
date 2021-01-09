@@ -1,5 +1,5 @@
 import networkx as nx
-from helperFunctions.pdToList import add_to_list
+from preprocessing.pdToList import add_to_list
 
 
 def make_graph(

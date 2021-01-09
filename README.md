@@ -22,7 +22,6 @@ you can run the code by placing your data in inputs folder and use predict metho
 ```python
 from bigraph import bigraph as bg
 
-
 def main():
   """
   Link prediction on a bipartite network
