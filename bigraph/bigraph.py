@@ -6,7 +6,7 @@ import networkx as nx
 
 from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
 
-from bigraph.preprocessing import getAdj2
+from preprocessing.getAdjacents import getAdj2
 
 
 def jc_predict(G: object) -> dict:

@@ -35,19 +35,16 @@ def main():
 or you can run evaluation methods directly which calls its peer method automatically
 
 ```python
-
-from bigraph.evaluation import evaluation as ev
-
+from evaluation import evaluation as ev
 
 def main():
-  """
-  Link prediction on a bipartite network
-  :return: Predicted linkes
-  """
-  df, df_nodes = import_files()
-  G = make_graph(df)
-  ev.evaluate(G, k=10,
-              method='all')  # Here we have evaluated all methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
+    """
+    Link prediction on a bipartite network
+    :return: Predicted linkes
+    """
+    df, df_nodes = import_files()
+    G = make_graph(df)
+    ev.evaluate(G, k=10, method='all') # Here we have evaluated all methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
 
 ```
 ### Metrics

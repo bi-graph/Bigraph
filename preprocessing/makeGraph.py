@@ -1,5 +1,5 @@
 import networkx as nx
-from bigraph.preprocessing import add_to_list
+from preprocessing.pdToList import add_to_list
 
 
 def make_graph(
