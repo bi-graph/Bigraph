@@ -6,8 +6,8 @@ from tabulate import tabulate
 # import snap
 # from scipy.stats import mode
 # from sklearn.cross_validation import KFold
-from preprocessing.importFiles import import_files
-from preprocessing.makeGraph import make_graph
+from bigraph.preprocessing import import_files
+from bigraph.preprocessing import make_graph
 from bigraph import bigraph as pr
 
 

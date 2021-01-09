@@ -7,7 +7,7 @@ requirements = []
 
 setup(
     name="bigraph",
-    version="0.1.1",
+    version="0.2.0",
     author="Soran Ghadri",
     author_email="jeffmshale@gmail.com",
     description="Link prediction in bipartite graphs",
