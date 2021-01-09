@@ -20,7 +20,7 @@ Algorithms untill now:
 you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
 
 ```python
-from bigraph import bigraph as pr
+from bigraph import bigraph as bg
 
 
 def main():
