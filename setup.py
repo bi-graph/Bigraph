@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ["networkx==2.2", "numpy==1.19.5", "matplotlib==3.3.3"]
+requirements = ["networkx==2.2"]
 
 setup(
     name="bigraph",
