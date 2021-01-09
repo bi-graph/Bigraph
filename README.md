@@ -76,7 +76,7 @@ Your dataset should be in the following format:
 ### More examples
 
 ```python
-from bigraph import bigraph as pr
+from bigraph import bigraph as bg
 
 
 def main():
