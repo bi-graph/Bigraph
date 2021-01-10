@@ -1,7 +1,7 @@
 matplotlib==3.3.3
-networkx
+networkx==2.2
 numpy==1.19.5
-pandas
+pandas==0.24.2
 scikit-learn==0.20.3
 
 
