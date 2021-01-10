@@ -10,8 +10,8 @@ def parse_requirements_file(filename):
     return requires
 
 
-requirements = parse_requirements_file("requirements_dev.txt")
-# requirements = ['pandas', 'networkx']
+# requirements = parse_requirements_file("requirements_dev.txt")
+requirements = ["networkx==2.5; python_version=='3.8'"]
 
 setup(
     name="bigraph",
