@@ -7,7 +7,7 @@ requirements = ['pandas>=0.24.2', 'networkx>=2.2']
 
 setup(
     name="bigraph",
-    version="0.2.6",
+    version="0.2.7",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",
@@ -18,6 +18,8 @@ setup(
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     ],
 )
