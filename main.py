@@ -6,8 +6,8 @@ from tabulate import tabulate
 # import snap
 # from scipy.stats import mode
 # from sklearn.cross_validation import KFold
-from bigraph.preprocessing import import_files
-from bigraph.preprocessing import make_graph
+from bigraph.preprocessing import importFiles
+from bigraph.preprocessing import makeGraph
 from bigraph import bigraph as pr
 
 
@@ -23,8 +23,8 @@ def main():
     start_time = datetime.now()
 
     print('Running...', "\n")
-    df, df_nodes = import_files()
-    G = make_graph(df)
+    df, df_nodes = importFiles()
+    G = makeGraph(df)
     graphEdges = G.edges
     print(G.__dict__)
     # print(set(n for n,d in G.nodes(data=True)))# if d['bipartite']==0))

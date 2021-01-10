@@ -15,7 +15,7 @@ requirements = parse_requirements_file("requirements_dev.txt")
 
 setup(
     name="bigraph",
-    version="0.0a1",
+    version="0.0a2",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",
