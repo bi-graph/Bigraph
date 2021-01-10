@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ['pandas', 'networkx']
+requirements = ['pandas>=0.24.2', 'networkx>=2.2']
 
 setup(
     name="bigraph",
-    version="0.2.5",
+    version="0.2.6",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",
