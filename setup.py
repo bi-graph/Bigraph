@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = ['pandas>=0.24.2', 'networkx>=2.2']
+requirements = ['pandas', 'networkx']
 
 setup(
     name="bigraph",
