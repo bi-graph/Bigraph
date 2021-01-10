@@ -11,11 +11,11 @@ def parse_requirements_file(filename):
 
 
 # requirements = parse_requirements_file("requirements_dev.txt")
-requirements = ["networkx==2.5; python_version=='3.8'"]
+requirements = ['networkx']
 
 setup(
     name="bigraph",
-    version="0.2.13",
+    version="0.2.14",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",
