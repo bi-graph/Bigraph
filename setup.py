@@ -7,7 +7,7 @@ requirements = ['pandas', 'networkx']
 
 setup(
     name="bigraph",
-    version="0.2.4",
+    version="0.2.5",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",
