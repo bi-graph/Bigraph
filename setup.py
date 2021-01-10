@@ -15,7 +15,7 @@ requirements = ["networkx==2.5; python_version=='3.8'"]
 
 setup(
     name="bigraph",
-    version="0.2.12",
+    version="0.2.13",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",
