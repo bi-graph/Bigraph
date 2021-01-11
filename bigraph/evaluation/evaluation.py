@@ -8,6 +8,7 @@ from sklearn.model_selection import KFold
 from tabulate import tabulate
 
 from bigraph import bigraph as pr
+from bigraph.bigraph import jc_predict, aa_predict, cn_predict, pa_predict, katz_predict
 
 
 def plot_ROC(fpr: list, tpr: list, met: str):
@@ -51,29 +52,36 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
         print('Iteration %i / %i :' % (iterator, k))
         # -------------------------------------------------------------------
         if method == 'jc':
-            predicted = pr.jc_predict(G_train)
+            predicted = jc_predict(G_train)
         elif method == 'aa':
-            predicted = pr.aa_predict(G_train)
+            predicted = aa_predict(G_train)
         elif method == 'cn':
-            predicted = pr.cn_predict(G_train)
+            predicted = cn_predict(G_train)
         elif method == 'pa':
-            predicted = pr.pa_predict(G_train)
+            predicted = pa_predict(G_train)
         else:
             raise Exception('Entered method is not valid', method)
         # -------------------------------------------------------------------
-        precision = len(set(predicted.keys()) & set(map(tuple, test_edges))) / len(set(predicted.keys()))
-        precision_sum += precision
-        print('precision: ', precision)
+        try:
+            precision = len(set(predicted.keys()) & set(map(tuple, test_edges))) / len(set(predicted.keys()))
+            print('precision: ', precision)
+            precision_sum += precision
+        except:
+            print(f"{method} evaluation - Iterate {iterator}: Predicted 0 links")
 
         # -------------------------------------------------------------------
-
-        score_algo, label_algo = zip(*[(float(score), label in test_edges) for label, score in
-                                       sorted(predicted.items(), key=itemgetter(1), reverse=True)])
-        # Compute the ROC AUC Score
-        fpr_algo, tpr_algo, _ = roc_curve(label_algo, score_algo)
-        auc_algo = roc_auc_score(label_algo, score_algo)
-        print("auc: ", auc_algo)
-        auc_sum += auc_algo
+        fpr_algo = []
+        tpr_algo = []
+        try:
+            score_algo, label_algo = zip(*[(float(score), label in test_edges) for label, score in
+                                           sorted(predicted.items(), key=itemgetter(1), reverse=True)])
+            # Compute the ROC AUC Score
+            fpr_algo, tpr_algo, _ = roc_curve(label_algo, score_algo)
+            auc_algo = roc_auc_score(label_algo, score_algo)
+            print("auc: ", auc_algo)
+            auc_sum += auc_algo
+        except Exception as e:
+            print(e)
         # -------------------------------------------------------------------
         iterator += 1
         print('---' * 20)
