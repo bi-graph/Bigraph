@@ -1,6 +1,8 @@
-# Bipartite link prediction </h1>
+<h1>BiGraph</h1>
+<p>BiGraph is a Python package for the creation, Link prediction, and 
+evaluation of bipartite networks.</p>
 
-Predicting links in bipartite networks on top of networkx
+<ul><b>Bug reports:</b> https://github.com/bi-graph/bigraph/issues</ul>
 
 > Node based similarities and Katz has been implemented. you can find algorithms in prediction directory.
 Algorithms untill now:
