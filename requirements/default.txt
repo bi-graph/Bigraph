@@ -1,7 +1,9 @@
-matplotlib
-networkx
-numpy
-pandas
-scikit-learn
+matplotlib~=3.3.3
+networkx~=2.2
+numpy~=1.19.5
+pandas~=0.24.2
+scikit-learn~=0.20.3
 
-tabulate
+tabulate~=0.8.7
+
+setuptools~=51.1.1

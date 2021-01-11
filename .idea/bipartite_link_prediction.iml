@@ -11,7 +11,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="requirements_dev.txt" />
+    <option name="requirementsPath" value="$MODULE_DIR$/requirements/default.txt" />
     <option name="removeUnused" value="true" />
   </component>
 </module>
