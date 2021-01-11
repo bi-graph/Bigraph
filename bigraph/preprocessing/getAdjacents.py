@@ -1,5 +1,5 @@
 
-def getAdj2(graph, input_list: list, hop_n: int) -> list:
+def get_hop_2_neighbours(graph, input_list: list, hop_n: int) -> list:
     """
     Find hop_n neighbours of each item in input_list
     :param graph: NetworkX graph object
