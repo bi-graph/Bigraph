@@ -2,7 +2,7 @@ from _operator import itemgetter
 from collections import defaultdict
 import time
 import networkx as nx
-
+import pathlib
 from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
 
 from bigraph.preprocessing import get_adjacents
@@ -18,6 +18,8 @@ def jc_predict(G: object) -> dict:
 
     # print('Jaccard prediction starting...')
     dictionary = {}
+    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
+
     out = open('./predictions/jaccard.csv', 'w')
     outN = open('./predictions/jaccard_with_name.csv', 'w')
     hop2s = dict()
@@ -77,9 +79,10 @@ def aa_predict(G: object) -> dict:
     start_aa = time.time()
 
     print('Adamic_adar prediction starting...')
+    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
 
-    out = open('adamic_adar.csv', 'w')
-    outN = open('adamic_adar_with_name.csv', 'w')
+    out = open('./predictions/adamic_adar.csv', 'w')
+    outN = open('./predictions/adamic_adar_with_name.csv', 'w')
     hop2s = dict()
     neighbors = dict()
     aa_sim = defaultdict(dict)
@@ -141,6 +144,7 @@ def cn_predict(G: object) -> dict:
     start_cn = time.time()
 
     # print('Common neighbor prediction starting...')
+    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
 
     out = open('./predictions/common_neighbor.csv', 'w')
     outN = open('./predictions/common_neighbor_with_name.csv', 'w')
@@ -207,6 +211,8 @@ def pa_predict(G: object) -> dict:
     start_pa = time.time()
     # print('Preferential_attachment prediction starting...')
     dictionary = {}
+
+    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
     out = open('./predictions/preferential_attachment.csv', 'w')
     outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
     hop2s = dict()
@@ -267,6 +273,7 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     start_pa = time.time()
 
     # print('Preferential_attachment prediction starting...')
+    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
 
     out = open('./predictions/preferential_attachment.csv', 'w')
     outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
