@@ -9,16 +9,34 @@ evaluation of bipartite networks.</p>
 > Node based similarities and Katz has been implemented. you can find algorithms in bigraph module.
 Algorithms implemented so far:
   
-
-  
-  | Number  | Algorithm           |
-  | ------------- | -------------            |
-  |       1.     |  `adamic adar`             |
-  |       2.     | `common neighbors `        |
-  |       3.     | `preferential attachment`  |
-  |       4.     | `jaccard  `                |
-  |       5.     | `katz similarity`          |
-  
+<table>
+<caption><b>Algorithms table</b></caption>
+    <tr>
+        <td><b>Number</b></td>
+        <td align="center"><b>Algorithm</b></td>
+    </tr>
+    <tr>
+        <td align="center">1</td>
+        <td><code>jaccard</code></td>
+    </tr>
+    <tr>
+        <td align="center">2</td>
+        <td><code>adamic adar</code></td>
+    </tr>
+    <tr>
+        <td align="center">3</td>
+        <td><code>common neighbors</code></td>
+    </tr>
+    <tr>
+        <td align="center">4</td>
+        <td><code>	preferential attachment</code></td>
+    </tr>
+    <tr>
+        <td align="center">5</td>
+        <td><code>katz similarity</code></td>
+    </tr>
+</table>
+ 
 
 <h2>Simple example</h2>
 <p>Predicting new links in a randomly generated graph using 
@@ -69,6 +87,11 @@ def adamic_adar_evaluation():
 if __name__ == '__main__':
     adamic_adar_evaluation()
 ```
+
+<h2>Installation</h2>
+<p>Install the latest version of BiGraph:</p>
+<pre>$ pip install bigraph</pre>
+
 <h3>Metrics</h3>
 <p>Metrics that are calculated during evaluation:</p>
 
