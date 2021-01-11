@@ -22,7 +22,7 @@ Algorithms implemented so far:
 
 <h2>Simple example</h2>
 <p>Predicting new links in a randomly generated graph using 
-<b>Adamic-Adar</b> algorithm:</p>
+<code><b>Adamic-Adar</b></code> algorithm:</p>
 
 ```python
 from bigraph.bigraph import aa_predict
@@ -46,7 +46,7 @@ def adamic_adar_prediction():
 if __name__ == '__main__':
     adamic_adar_prediction()
 ```
-<p>Evaluating <b>Adamic-Adar</b> algorithm.<br>
+<p>Evaluating <code><b>Adamic-Adar</b></code> algorithm.<br>
 You can try other provided prediction algorithms by replacing the <b>"aa"</b> argument.</p>
 
 ```python
@@ -96,6 +96,12 @@ if __name__ == '__main__':
 > * Although the weight has not been involved in current version, but, the format will be the same.
 
 <h3>More examples</h3>
+<p>Predicting new links in a randomly generated graph using following algorithms:</p>
+<ul>
+  <li><code><b>Preferential attachment</b></code></li>
+  <li><code><b>Jaccard similarity</b></code></li>
+  <li><code><b>Common neighbours</b></code></li>
+</ul>
 
 ```python
 from bigraph.bigraph import pa_predict, jc_predict, cn_predict
@@ -108,7 +114,7 @@ def main():
   """
   df, df_nodes = import_files()
   G = make_graph(df)
-  pa_predict(G)  # Prefferencial attachment
+  pa_predict(G)  # Preferential attachment
   jc_predict(G)  # Jaccard coefficient
   cn_predict(G)  # Common neighbors
 
@@ -131,13 +137,14 @@ if __name__ == '__main__':
 - [ ] Unify and reconstruct the architecture and eliminate redundancy
 
 <h3>Documentation</h3>
+<p>Comming soon</p>
 
-I will provide documentations whenever I could make time!:watch: or you can pull a request and help to make it happen together
-
-> 1. After running the main, it will export the graph in .json and .gexf format for furthur usages. For instance: Gephi etc.
+<pre><ul><li>It can export the graph in .json and .gexf format 
+for furthur usages. For instance: Gephi etc.</li></ul></pre>
 
 <h3>If it was helpful then hit the <span>:star:</span></h3>
 
 <div class="footer">
         &copy; 2021 BiGraph Developers
 </div>
+
