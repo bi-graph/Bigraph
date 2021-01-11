@@ -19,8 +19,8 @@ Algorithms implemented so far:
   
 
 <h2>Simple example</h2>
-
-<p>You can try other provided prediction algorithms by replacing the `aa_predict()` function.</p>
+<p>Predicting new links in a randomly generated graph using 
+<b>Adamic-Adar</b> algorithm:</p>
 
 ```python
 from bigraph.bigraph import aa_predict
@@ -28,8 +28,8 @@ from bigraph.preprocessing import import_files, make_graph
 
 def adamic_adar_prediction():
     """
-    Link prediction on a bipartite network
-    :return: Predicted linkes
+    Link prediction on bipartite networks
+    :return: A dictionary containing predicted links
     """
 
     df, df_nodes = import_files()
@@ -37,12 +37,14 @@ def adamic_adar_prediction():
     print(f"Graph Nodes: ", df_nodes)
     G = make_graph(df)
     print(G)
-    aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
+    predicted = aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
+    return predicted
 
 # Executing the function
 if __name__ == '__main__':
     adamic_adar_prediction()
 ```
+<p>You can try other provided prediction algorithms by replacing the `aa_predict()` function.</p>
 <p>or you can run evaluation methods directly which calls its peer method automatically.</p>
 
 ```python
@@ -51,14 +53,15 @@ from bigraph.preprocessing import import_files, make_graph, check_input_files
 
 def adamic_adar_evaluation():
     """
-
-    :return:
+    Evaluate Adamic-Adar algorithm using 10-Fold cross-validation 
+    :return: A dictionary containing the evaluation results
     """
     df, df_nodes = import_files()
     G = make_graph(df)
-    evaluate(G, k=10,
+    results = evaluate(G, k=10,
              method='aa')  # Here we have evaluated adamic-adar
     # methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
+    return results
 
 # Executing the function
 if __name__ == '__main__':
