@@ -66,6 +66,5 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
                 for i in range(left_nodes_count):
                     file_writer.writerow([i, f"left_node_{i}"])
                 for i in range(right_nodes_count):
-                    file_writer.writerow([i+100, f"right_node_{i}"])
+                    file_writer.writerow([i + 100, f"right_node_{i}"])
     return True
-
