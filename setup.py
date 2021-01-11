@@ -3,8 +3,6 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-
-
 name = "bigraph"
 description = "Python package for link prediction in bipartite graphs and networks"
 
@@ -13,6 +11,9 @@ platforms = ["Linux", "Mac OSX", "Windows", "Unix"]
 authors = {
     "Soran": ("Soran Ghadri", "soran.gdr.cs@gmail.com"),
 }
+
+maintainer = "Soran Ghadri"
+maintainer_email = "soran.gdr.cs@gmail.com"
 
 keywords = [
     "Networks",
@@ -43,11 +44,13 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Physics",
 ]
 
+
 def parse_requirements_file(filename):
     with open(filename) as fid:
         requires = [l.strip() for l in fid.readlines() if not l.startswith("#")]
 
     return requires
+
 
 extras_require = {
     dep: parse_requirements_file("requirements/" + dep + ".txt")
@@ -58,20 +61,22 @@ requirements = parse_requirements_file("requirements/default.txt")
 
 
 setup(
-    name="bigraph",
+    name=name,
     version="0.0rc1",
-    author="Soran Ghadri",
-    author_email="soran.gdr.cs@gmail.com",
-    description="",
+    maintainer=maintainer,
+    maintainer_email=maintainer_email,
+    author=authors["Soran"][0],
+    author_email=authors["Soran"][1],
+    description=description,
     long_description=readme,
+    keywords=keywords,
+    platforms=platforms,
     long_description_content_type="text/markdown",
     url="https://github.com/soran-ghadri/bigraph",
     packages=find_packages(),
     install_requires=requirements,
     extras_require=extras_require,
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-    ],
+    classifiers=classifiers,
     python_requires='>=3.6',
+    zip_safe=False,
 )
