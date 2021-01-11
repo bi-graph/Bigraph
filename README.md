@@ -216,7 +216,7 @@ if __name__ == '__main__':
 
 <div>
 <table>
-<caption><b>Metrics table</b></caption>
+<caption><b>References table</b></caption>
     <tr>
         <td><b>Number</b></td>
         <td align="center"><b>Reference</b></td>
@@ -234,14 +234,13 @@ target="_blank">https://doi.org/10.1007/s10115-014-0789-0</a></td>
 target="_blank">https://doi.org/58.10.1002/asi.20591</a></td>
         <td align="center"><b>2003</b></td>
     </tr>
+    <tr>
+        <td align="center">2</td>
+        <td><code>...</code></td>
+        <td align="center"><b>...</b></td>
+    </tr>
 </table>
 </div>
-
-| Number  | Reference           |
-  | ------------- | -------------            |
-|       1.     |  `Yang, Y., Lichtenwalter, R.N. & Chawla, N.V. Knowl Inf Syst (2015) 45: 751.` https://doi.org/10.1007/s10115-014-0789-0             |
-|       2.     | `Liben-nowell, David & Kleinberg, Jon. (2003). The Link Prediction Problem for Social Networks. Journal of the American Society for Information Science and Technology.` https://doi.org/58.10.1002/asi.20591 |
-|       3.     | `...`  |
 
 <h3>Future work</h3>
 
