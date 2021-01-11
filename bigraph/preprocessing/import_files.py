@@ -1,3 +1,4 @@
+import pathlib
 from typing import Union
 
 import pandas as pd
@@ -20,6 +21,9 @@ def import_files(
     :return: links and label dataframes
     """
     print('Importing files and making dataframes...')
+    pathlib.Path('./inputs').mkdir(parents=True, exist_ok=True)
+
+
     raw_adjacency_dictionary = pd.read_csv(edge_csv, sep=sep, *args, **kwargs)
     raw_label_dictionary = pd.read_csv(label_id, sep=sep, *args, **kwargs)
     # raw_adjacency_dictionary = raw_adjacency_dictionary.drop(['Weight'], axis=1)
