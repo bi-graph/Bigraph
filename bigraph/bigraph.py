@@ -64,7 +64,7 @@ def jc_predict(G: object) -> dict:
         # outN.write("\n")
 
     # print('Jaccard prediction finished sucnessfully')
-    _time = start_jc - time.time()
+    _time = time.time() - start_jc
     print('Jaccard Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
@@ -130,7 +130,7 @@ def aa_predict(G: object) -> dict:
         # outN.write("\n")
     # print('Adamic-adar prediction finished sucnessfully')
 
-    _time = start_aa - time.time()
+    _time = time.time() - start_aa
     print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
 
@@ -196,7 +196,7 @@ def cn_predict(G: object) -> dict:
         #     outN.write("\n")
     # print('Common neighbor prediction finished sucnessfully')
 
-    _time = start_cn - time.time()
+    _time = time.time() - start_cn
     print('Common neighbours Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
@@ -257,7 +257,7 @@ def pa_predict(G: object) -> dict:
         # outN.write("\n")
     # print('Preferential_attachment prediction finished sucnessfully')
 
-    _time = start_pa - time.time()
+    _time = time.time() - start_pa
     print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
@@ -270,7 +270,7 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     :param df_nodes: Graph nodes
     :return: A dictionary containing the Preferential attachment score for `left_element` and `right_element`.
     """
-    start_pa = time.time()
+    start_katz = time.time()
 
     # print('Preferential_attachment prediction starting...')
     pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
@@ -312,5 +312,5 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
                     outN.write("\n")
 
     # print('Katz similarity prediction finished sucnessfully')
-    _time = start_pa - time.time()
+    _time = time.time() - start_katz
     print('Katz similarity Executed in {} seconds'.format(_time), "\n")
