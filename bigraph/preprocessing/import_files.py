@@ -56,6 +56,12 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
 
 
 def generate_random_graph_labels(left_nodes_count, right_nodes_count):
+    """
+
+    :param left_nodes_count:
+    :param right_nodes_count:
+    :return:
+    """
     with open('./inputs/id_labels.csv', 'w') as csvfile:
         file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         file_writer.writerow(['ID', 'Label'])
