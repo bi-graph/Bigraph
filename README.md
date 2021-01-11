@@ -20,33 +20,38 @@ Algorithms untill now:
 you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
 
 ```python
-from bigraph import bigraph as bg
+from bigraph.bigraph import aa_predict
+from bigraph.preprocessing import import_files, make_graph
 
-def main():
-  """
-  Link prediction on a bipartite network
-  :return: Predicted linkes
-  """
-  df, df_nodes = import_files()
-  G = make_graph(df)
-  pr.aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
-
-```
-or you can run evaluation methods directly which calls its peer method automatically
-
-```python
-from bigraph.evaluation import evaluation as ev
-
-
-def main():
+def adamic_adar_prediction():
     """
     Link prediction on a bipartite network
     :return: Predicted linkes
     """
+
+    df, df_nodes = import_files()
+    print(df)
+    print(f"Graph Nodes: ", df_nodes)
+    G = make_graph(df)
+    print(G)
+    aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
+```
+or you can run evaluation methods directly which calls its peer method automatically
+
+```python
+from bigraph.evaluation import evaluate
+from bigraph.preprocessing import import_files, make_graph, check_input_files
+
+def adamic_adar_evaluation():
+    """
+
+    :return:
+    """
     df, df_nodes = import_files()
     G = make_graph(df)
-    ev.evaluate(G, k=10,
-                method='all')  # Here we have evaluated all methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
+    evaluate(G, k=10,
+             method='aa')  # Here we have evaluated adamic-adar
+    # methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
 
 ```
 ### Metrics
@@ -77,8 +82,8 @@ Your dataset should be in the following format:
 ### More examples
 
 ```python
-from bigraph import bigraph as bg
-
+from bigraph.bigraph import pa_predict, jc_predict, cn_predict
+from bigraph.preprocessing import import_files, make_graph
 
 def main():
   """
@@ -87,10 +92,9 @@ def main():
   """
   df, df_nodes = import_files()
   G = make_graph(df)
-  pr.aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
-  pr.pa_predict(G)  # Prefferencial attachment
-  pr.jc_predict(G)  # Jaccard coefficient
-  pr.cn_predict(G)  # Common neighbors
+  pa_predict(G)  # Prefferencial attachment
+  jc_predict(G)  # Jaccard coefficient
+  cn_predict(G)  # Common neighbors
 
 ```
 ### References
