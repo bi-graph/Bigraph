@@ -2,7 +2,9 @@
 <p>BiGraph is a Python package for the creation, Link prediction, and 
 evaluation of bipartite networks.</p>
 
-<ul><b>Bug reports:</b> https://github.com/bi-graph/bigraph/issues</ul>
+<ul>
+<li><b>Bug reports:</b> https://github.com/bi-graph/bigraph/issues</li>
+</ul>
 
 > Node based similarities and Katz has been implemented. you can find algorithms in bigraph module.
 Algorithms implemented so far:
@@ -67,8 +69,8 @@ def adamic_adar_evaluation():
 if __name__ == '__main__':
     adamic_adar_evaluation()
 ```
-### Metrics
-Metrics that are calculated during evaluation:
+<h3>Metrics</h3>
+<p>Metrics that are calculated during evaluation:</p>
 
 | Number  | Evaluattion metrics           |
   | ------------- | -------------            |
@@ -80,19 +82,20 @@ Metrics that are calculated during evaluation:
 
 > * For further usages and calculating different metrics
 
-### Dataset format
-Your dataset should be in the following format:
+<h3>Dataset format</h3>
+<p>Your dataset should be in the following format:</p>
 
 | Row  | Left side element | Right side element | Weight* |
   | ------------- | ------------- | --- | --- |
-  |       1.     | `ll0` | `rl1` | 1 |
-  |       2.     | `ll2` | `rl1` | 1 |
-  |       3.     | `ll1` | `rl2`| 1 |
-  |       4.     | `ll3` | `rl3` | 1|
-  |       5.     | `ll4` | `rl3` | 2 |
+  |       1.     | `u0` | `v1` | 1 |
+  |       2.     | `u2` | `v1` | 1 |
+  |       3.     | `u1` | `v2`| 1 |
+  |       4.     | `u3` | `v3` | 1|
+  |       5.     | `u4` | `v3` | 2 |
 
 > * Although the weight has not been involved in current version, but, the format will be the same.
-### More examples
+
+<h3>More examples</h3>
 
 ```python
 from bigraph.bigraph import pa_predict, jc_predict, cn_predict
@@ -113,7 +116,7 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-### References
+<h3>References</h3>
 
 | Number  | Reference           |
   | ------------- | -------------            |
@@ -121,14 +124,20 @@ if __name__ == '__main__':
   |       2.     | `Liben-nowell, David & Kleinberg, Jon. (2003). The Link Prediction Problem for Social Networks. Journal of the American Society for Information Science and Technology.` https://doi.org/58.10.1002/asi.20591 |
   |       3.     | `...`  |
   
-### TODO
+<h3>Future work</h3>
+
 - [x] Modulate the functions
 - [ ] Make it faster using vectorization etc.
 - [ ] Unify and reconstruct the architecture and eliminate redundancy
 
-### Documentation
+<h3>Documentation</h3>
+
 I will provide documentations whenever I could make time!:watch: or you can pull a request and help to make it happen together
 
 > 1. After running the main, it will export the graph in .json and .gexf format for furthur usages. For instance: Gephi etc.
 
 <h3>If it was helpful then hit the <span>:star:</span></h3>
+
+<div class="footer">
+        &copy; 2021 BiGraph Developers
+</div>
