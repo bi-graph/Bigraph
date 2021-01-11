@@ -147,4 +147,3 @@ for furthur usages. For instance: Gephi etc.</li></ul></pre>
 <div class="footer">
         &copy; 2021 BiGraph Developers
 </div>
-
