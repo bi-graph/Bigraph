@@ -35,6 +35,10 @@ def adamic_adar_prediction():
     G = make_graph(df)
     print(G)
     aa_predict(G)  # Here we have called Adamic Adar method from bigraph module
+
+# Executing the function
+if __name__ == '__main__':
+    adamic_adar_prediction()
 ```
 or you can run evaluation methods directly which calls its peer method automatically
 
@@ -53,6 +57,9 @@ def adamic_adar_evaluation():
              method='aa')  # Here we have evaluated adamic-adar
     # methods using evaluation module. Methods are 'jc', 'aa', 'pa', 'cn'
 
+# Executing the function
+if __name__ == '__main__':
+    adamic_adar_evaluation()
 ```
 ### Metrics
 Metrics that are calculated during evaluation:
@@ -96,6 +103,9 @@ def main():
   jc_predict(G)  # Jaccard coefficient
   cn_predict(G)  # Common neighbors
 
+# Executing the function
+if __name__ == '__main__':
+    main()
 ```
 ### References
 
