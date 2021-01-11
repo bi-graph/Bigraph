@@ -9,13 +9,17 @@ def parse_requirements_file(filename):
 
     return requires
 
+extras_require = {
+    dep: parse_requirements_file("requirements/" + dep + ".txt")
+    for dep in ["developer", "doc", "extra", "test"]
+}
 
-requirements = parse_requirements_file("requirements_dev.txt")
+requirements = parse_requirements_file("requirements/default.txt")
 # requirements = ['networkx']
 
 setup(
     name="bigraph",
-    version="0.0a2",
+    version="0.0rc1",
     author="Soran Ghadri",
     author_email="soran.gdr.cs@gmail.com",
     description="Link prediction in bipartite graphs",

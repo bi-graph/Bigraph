@@ -6,7 +6,7 @@ import networkx as nx
 
 from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
 
-from bigraph.preprocessing import getAdj2
+from bigraph.preprocessing import get_adjacents
 
 
 def jc_predict(G: object) -> dict:
@@ -39,7 +39,7 @@ def jc_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
@@ -101,7 +101,7 @@ def aa_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
@@ -166,7 +166,7 @@ def cn_predict(G: object) -> dict:
 
     for left_element in left_set:
         # print('snp {} -- '.format(len(G[left_element])))
-        hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
         # print('snp hop 2 {} -- '.format(len(hop2s[left_element])))
         for right_element in right_set:
             # print('cancer {} -- '.format(len(G[right_element])))
@@ -229,7 +229,7 @@ def pa_predict(G: object) -> dict:
     # outN.write("\n")
 
     for left_element in left_set:
-        # hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        # hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
         neighbors_left_element[left_element] = list(set(G[left_element]))
         for right_element in right_set:
             neighbors_right_element[right_element] = list(set(G[right_element]))
@@ -289,7 +289,7 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     outN.write("\n")
 
     for left_element in left_set:
-        hop2s[left_element] = getAdj2(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
