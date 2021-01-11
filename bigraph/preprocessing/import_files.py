@@ -34,9 +34,9 @@ def import_files(
     return raw_adjacency_dictionary, label_dictionary
 
 
-def check_input_files(edge_csv, label_id):
+def check_input_files(edge_csv: str, label_id: str) -> bool:
     """
-    Check if there is any input file
+    Check if there is any input file.
     :param edge_csv: Path to the edge-list csv file
     :param label_id: Path to the label-id-list csv file
     :return: True on finishing successfully
