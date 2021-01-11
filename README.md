@@ -4,8 +4,8 @@ evaluation of bipartite networks.</p>
 
 <ul><b>Bug reports:</b> https://github.com/bi-graph/bigraph/issues</ul>
 
-> Node based similarities and Katz has been implemented. you can find algorithms in prediction directory.
-Algorithms untill now:
+> Node based similarities and Katz has been implemented. you can find algorithms in bigraph module.
+Algorithms implemented so far:
   
 
   
