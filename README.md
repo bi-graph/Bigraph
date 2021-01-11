@@ -16,8 +16,9 @@ Algorithms untill now:
   |       5.     | `katz similarity`          |
   
 
-### How to use the code
-you can run the code by placing your data in inputs folder and use predict methodes iplemented in "predict" file or directly call provided functions in the evaluation file.
+<h2>Simple example</h2>
+
+<p>You can try other provided prediction algorithms by replacing the `aa_predict()` function.</p>
 
 ```python
 from bigraph.bigraph import aa_predict
@@ -40,7 +41,7 @@ def adamic_adar_prediction():
 if __name__ == '__main__':
     adamic_adar_prediction()
 ```
-or you can run evaluation methods directly which calls its peer method automatically
+<p>or you can run evaluation methods directly which calls its peer method automatically.</p>
 
 ```python
 from bigraph.evaluation import evaluate
