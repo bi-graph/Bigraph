@@ -1,4 +1,7 @@
+import csv
+import os
 import pathlib
+import random
 from typing import Union
 
 import pandas as pd
@@ -21,14 +24,42 @@ def import_files(
     :return: links and label dataframes
     """
     print('Importing files and making dataframes...')
-    pathlib.Path('./inputs').mkdir(parents=True, exist_ok=True)
-
-
+    check_input_files(edge_csv, label_id)
     raw_adjacency_dictionary = pd.read_csv(edge_csv, sep=sep, *args, **kwargs)
     raw_label_dictionary = pd.read_csv(label_id, sep=sep, *args, **kwargs)
     # raw_adjacency_dictionary = raw_adjacency_dictionary.drop(['Weight'], axis=1)
-
     label_dictionary = {}
     for row in raw_label_dictionary.iterrows():
         label_dictionary.update({row[1][0]: row[1][1]})
     return raw_adjacency_dictionary, label_dictionary
+
+
+def check_input_files(edge_csv, label_id):
+    pathlib.Path('./inputs').mkdir(parents=True, exist_ok=True)
+    right_nodes_count = random.randint(20, 30)
+    left_nodes_count = random.randint(30, 40)
+    if edge_csv == "./inputs/neighbour_matrix.csv":
+        file_exists = os.path.isfile("./inputs/neighbour_matrix.csv")
+        if not file_exists:
+            with open('./inputs/neighbour_matrix.csv', 'w') as csvfile:
+                file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                rand_seed = right_nodes_count * left_nodes_count - ((right_nodes_count * left_nodes_count) / 3)
+                rand_seed2 = right_nodes_count * left_nodes_count
+                links_count = random.randint(int(rand_seed), int(rand_seed2))
+                file_writer.writerow(['left_side', 'right_side', 'Weight'])
+                for i in range(links_count):
+                    file_writer.writerow(
+                        [random.randint(0, left_nodes_count), random.randint(0, right_nodes_count) + 100,
+                         random.randint(1, 3)])
+    if label_id == "./inputs/id_labels.csv":
+        file_exists = os.path.isfile("./inputs/id_labels.csv")
+        if not file_exists:
+            with open('./inputs/id_labels.csv', 'w') as csvfile:
+                file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                file_writer.writerow(['ID', 'Label'])
+                for i in range(left_nodes_count):
+                    file_writer.writerow([i, f"left_node_{i}"])
+                for i in range(right_nodes_count):
+                    file_writer.writerow([i+100, f"right_node_{i}"])
+
+
