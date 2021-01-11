@@ -36,10 +36,10 @@ def import_files(
 
 def check_input_files(edge_csv, label_id):
     """
-
-    :param edge_csv:
-    :param label_id:
-    :return:
+    Check if there is any input file
+    :param edge_csv: Path to the edge-list csv file
+    :param label_id: Path to the label-id-list csv file
+    :return: True on finishing successfully
     """
     pathlib.Path('./inputs').mkdir(parents=True, exist_ok=True)
     right_nodes_count = random.randint(20, 30)
@@ -67,5 +67,4 @@ def check_input_files(edge_csv, label_id):
                     file_writer.writerow([i, f"left_node_{i}"])
                 for i in range(right_nodes_count):
                     file_writer.writerow([i+100, f"right_node_{i}"])
-
 
