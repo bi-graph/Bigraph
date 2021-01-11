@@ -133,6 +133,9 @@ if __name__ == '__main__':
 <h3>Future work</h3>
 
 - [x] Modulate the functions
+- [ ] Add more algorithms
+- [ ] Add more preprocessors
+- [ ] Add dataset, graph, and dataframe manipulations
 - [ ] Make it faster using vectorization etc.
 - [ ] Unify and reconstruct the architecture and eliminate redundancy
 
