@@ -47,16 +47,7 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
     if edge_csv == "./inputs/neighbour_matrix.csv":
         file_exists = os.path.isfile("./inputs/neighbour_matrix.csv")
         if not file_exists:
-            with open('./inputs/neighbour_matrix.csv', 'w') as csvfile:
-                file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                rand_seed = right_nodes_count * left_nodes_count - ((right_nodes_count * left_nodes_count) / 3)
-                rand_seed2 = right_nodes_count * left_nodes_count
-                links_count = random.randint(int(rand_seed), int(rand_seed2))
-                file_writer.writerow(['left_side', 'right_side', 'Weight'])
-                for i in range(links_count):
-                    file_writer.writerow(
-                        [random.randint(0, left_nodes_count), random.randint(0, right_nodes_count) + 100,
-                         random.randint(1, 3)])
+            generate_random_graph_edges(left_nodes_count, right_nodes_count)
     if label_id == "./inputs/id_labels.csv":
         file_exists = os.path.isfile("./inputs/id_labels.csv")
         if not file_exists:
@@ -68,3 +59,16 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
                 for i in range(right_nodes_count):
                     file_writer.writerow([i + 100, f"right_node_{i}"])
     return True
+
+
+def generate_random_graph_edges(left_nodes_count, right_nodes_count):
+    with open('./inputs/neighbour_matrix.csv', 'w') as csvfile:
+        file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        rand_seed = right_nodes_count * left_nodes_count - ((right_nodes_count * left_nodes_count) / 3)
+        rand_seed2 = right_nodes_count * left_nodes_count
+        links_count = random.randint(int(rand_seed), int(rand_seed2))
+        file_writer.writerow(['left_side', 'right_side', 'Weight'])
+        for i in range(links_count):
+            file_writer.writerow(
+                [random.randint(0, left_nodes_count), random.randint(0, right_nodes_count) + 100,
+                 random.randint(1, 3)])
