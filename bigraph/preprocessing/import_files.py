@@ -63,9 +63,9 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
 
 def generate_random_graph_edges(left_nodes_count, right_nodes_count):
     """
-
-    :param left_nodes_count:
-    :param right_nodes_count:
+    Generate a random graph and write it to a CSV file
+    :param left_nodes_count: Number of the left-side nodes
+    :param right_nodes_count: Number of the right-side nodes
     :return:
     """
     with open('./inputs/neighbour_matrix.csv', 'w') as csvfile:
@@ -78,3 +78,5 @@ def generate_random_graph_edges(left_nodes_count, right_nodes_count):
             file_writer.writerow(
                 [random.randint(0, left_nodes_count), random.randint(0, right_nodes_count) + 100,
                  random.randint(1, 3)])
+
+
