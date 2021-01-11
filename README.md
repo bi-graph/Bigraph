@@ -44,8 +44,8 @@ def adamic_adar_prediction():
 if __name__ == '__main__':
     adamic_adar_prediction()
 ```
-<p>You can try other provided prediction algorithms by replacing the `aa_predict()` function.</p>
-<p>or you can run evaluation methods directly which calls its peer method automatically.</p>
+<p>Evaluating <b>Adamic-Adar</b> algorithm.<br>
+You can try other provided prediction algorithms by replacing the <b>"aa"</b> argument.</p>
 
 ```python
 from bigraph.evaluation import evaluate
