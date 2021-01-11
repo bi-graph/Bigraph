@@ -35,6 +35,12 @@ def import_files(
 
 
 def check_input_files(edge_csv, label_id):
+    """
+
+    :param edge_csv:
+    :param label_id:
+    :return:
+    """
     pathlib.Path('./inputs').mkdir(parents=True, exist_ok=True)
     right_nodes_count = random.randint(20, 30)
     left_nodes_count = random.randint(30, 40)
