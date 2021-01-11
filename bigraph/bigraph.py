@@ -18,7 +18,7 @@ def jc_predict(G: object) -> dict:
 
     # print('Jaccard prediction starting...')
     dictionary = {}
-    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
 
     out = open('./predictions/jaccard.csv', 'w')
     outN = open('./predictions/jaccard_with_name.csv', 'w')
@@ -144,7 +144,7 @@ def cn_predict(G: object) -> dict:
     start_cn = time.time()
 
     # print('Common neighbor prediction starting...')
-    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
 
     out = open('./predictions/common_neighbor.csv', 'w')
     outN = open('./predictions/common_neighbor_with_name.csv', 'w')
@@ -212,7 +212,7 @@ def pa_predict(G: object) -> dict:
     # print('Preferential_attachment prediction starting...')
     dictionary = {}
 
-    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
     out = open('./predictions/preferential_attachment.csv', 'w')
     outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
     hop2s = dict()
@@ -273,7 +273,7 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     start_pa = time.time()
 
     # print('Preferential_attachment prediction starting...')
-    pathlib.Path('/predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
 
     out = open('./predictions/preferential_attachment.csv', 'w')
     outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
