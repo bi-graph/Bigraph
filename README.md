@@ -100,8 +100,8 @@ from bigraph.preprocessing import import_files, make_graph
 
 def main():
   """
-  Link prediction on a bipartite network
-  :return: Predicted linkes
+  Link prediction on bipartite networks
+  :return:
   """
   df, df_nodes = import_files()
   G = make_graph(df)
