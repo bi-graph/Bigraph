@@ -51,14 +51,18 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
     if label_id == "./inputs/id_labels.csv":
         file_exists = os.path.isfile("./inputs/id_labels.csv")
         if not file_exists:
-            with open('./inputs/id_labels.csv', 'w') as csvfile:
-                file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                file_writer.writerow(['ID', 'Label'])
-                for i in range(left_nodes_count):
-                    file_writer.writerow([i, f"left_node_{i}"])
-                for i in range(right_nodes_count):
-                    file_writer.writerow([i + 100, f"right_node_{i}"])
+            generate_random_graph_labels(left_nodes_count, right_nodes_count)
     return True
+
+
+def generate_random_graph_labels(left_nodes_count, right_nodes_count):
+    with open('./inputs/id_labels.csv', 'w') as csvfile:
+        file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        file_writer.writerow(['ID', 'Label'])
+        for i in range(left_nodes_count):
+            file_writer.writerow([i, f"left_node_{i}"])
+        for i in range(right_nodes_count):
+            file_writer.writerow([i + 100, f"right_node_{i}"])
 
 
 def generate_random_graph_edges(left_nodes_count, right_nodes_count):
