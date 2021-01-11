@@ -139,8 +139,14 @@ if __name__ == '__main__':
 <h3>Documentation</h3>
 <p>Comming soon</p>
 
-<pre><ul><li>It can export the graph in .json and .gexf format 
-for furthur usages. For instance: Gephi etc.</li></ul></pre>
+
+<ul>
+  <li>
+    <code>It can export the graph in .json and .gexf format 
+    for furthur usages. For instance: Gephi etc.</code>
+  </li>
+</ul>
+
 
 <h3>If it was helpful then hit the <span>:star:</span></h3>
 
