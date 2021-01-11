@@ -1,7 +1,6 @@
 from _operator import itemgetter
 from collections import defaultdict
-from datetime import datetime
-
+import time
 import networkx as nx
 
 from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
@@ -15,7 +14,7 @@ def jc_predict(G: object) -> dict:
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Jaccard distance between vectors `left_element` and `right_element`.
     """
-    start_jc = datetime.now()
+    start_jc = time.time()
 
     # print('Jaccard prediction starting...')
     dictionary = {}
@@ -39,7 +38,7 @@ def jc_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
@@ -63,7 +62,7 @@ def jc_predict(G: object) -> dict:
         # outN.write("\n")
 
     # print('Jaccard prediction finished sucnessfully')
-    _time = start_jc - datetime.now()
+    _time = start_jc - time.time()
     print('Jaccard Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
@@ -75,12 +74,12 @@ def aa_predict(G: object) -> dict:
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Adamic-adar score for `left_element` and `right_element`.
     """
-    start_aa = datetime.now()
+    start_aa = time.time()
 
-    # print('Adamic_adar prediction starting...')
+    print('Adamic_adar prediction starting...')
 
-    out = open('./predictions/adamic_adar.csv', 'w')
-    outN = open('./predictions/adamic_adar_with_name.csv', 'w')
+    out = open('adamic_adar.csv', 'w')
+    outN = open('adamic_adar_with_name.csv', 'w')
     hop2s = dict()
     neighbors = dict()
     aa_sim = defaultdict(dict)
@@ -101,7 +100,7 @@ def aa_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
@@ -128,7 +127,7 @@ def aa_predict(G: object) -> dict:
         # outN.write("\n")
     # print('Adamic-adar prediction finished sucnessfully')
 
-    _time = start_aa - datetime.now()
+    _time = start_aa - time.time()
     print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
     return dictionary
 
@@ -139,7 +138,7 @@ def cn_predict(G: object) -> dict:
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Common neighbours score for `left_element` and `right_element`.
     """
-    start_cn = datetime.now()
+    start_cn = time.time()
 
     # print('Common neighbor prediction starting...')
 
@@ -166,7 +165,7 @@ def cn_predict(G: object) -> dict:
 
     for left_element in left_set:
         # print('snp {} -- '.format(len(G[left_element])))
-        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         # print('snp hop 2 {} -- '.format(len(hop2s[left_element])))
         for right_element in right_set:
             # print('cancer {} -- '.format(len(G[right_element])))
@@ -193,7 +192,7 @@ def cn_predict(G: object) -> dict:
         #     outN.write("\n")
     # print('Common neighbor prediction finished sucnessfully')
 
-    _time = start_cn - datetime.now()
+    _time = start_cn - time.time()
     print('Common neighbours Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
@@ -205,7 +204,7 @@ def pa_predict(G: object) -> dict:
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Preferential attachment score for `left_element` and `right_element`.
     """
-    start_pa = datetime.now()
+    start_pa = time.time()
     # print('Preferential_attachment prediction starting...')
     dictionary = {}
     out = open('./predictions/preferential_attachment.csv', 'w')
@@ -229,7 +228,7 @@ def pa_predict(G: object) -> dict:
     # outN.write("\n")
 
     for left_element in left_set:
-        # hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
+        # hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         neighbors_left_element[left_element] = list(set(G[left_element]))
         for right_element in right_set:
             neighbors_right_element[right_element] = list(set(G[right_element]))
@@ -252,7 +251,7 @@ def pa_predict(G: object) -> dict:
         # outN.write("\n")
     # print('Preferential_attachment prediction finished sucnessfully')
 
-    _time = start_pa - datetime.now()
+    _time = start_pa - time.time()
     print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
 
     return dictionary
@@ -265,7 +264,7 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     :param df_nodes: Graph nodes
     :return: A dictionary containing the Preferential attachment score for `left_element` and `right_element`.
     """
-    start_pa = datetime.now()
+    start_pa = time.time()
 
     # print('Preferential_attachment prediction starting...')
 
@@ -289,7 +288,7 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     outN.write("\n")
 
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
@@ -306,5 +305,5 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
                     outN.write("\n")
 
     # print('Katz similarity prediction finished sucnessfully')
-    _time = start_pa - datetime.now()
+    _time = start_pa - time.time()
     print('Katz similarity Executed in {} seconds'.format(_time), "\n")
