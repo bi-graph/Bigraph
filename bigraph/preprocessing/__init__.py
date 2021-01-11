@@ -1,4 +1,4 @@
-import import_files
-import get_adjacents
-import make_graph
-import pd_to_list
+import bigraph.preprocessing.import_files
+import bigraph.preprocessing.get_adjacents
+import bigraph.preprocessing.make_graph
+import bigraph.preprocessing.pd_to_list

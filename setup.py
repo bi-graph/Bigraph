@@ -10,9 +10,10 @@ platforms = ["Linux", "Mac OSX", "Windows", "Unix"]
 
 authors = {
     "Soran": ("Soran Ghadri", "soran.gdr.cs@gmail.com"),
+    "Taleb": ("Taleb Zarhesh", "taleb.zarhesh@gmail.com"),
 }
 
-maintainer = "Soran Ghadri"
+maintainer = "BiGraph Developers"
 maintainer_email = "soran.gdr.cs@gmail.com"
 
 keywords = [
@@ -22,6 +23,7 @@ keywords = [
     "network",
     "graph",
     "bipartite graph",
+    "bigraph",
     "link prediction",
     "discrete mathematics",
     "math",
@@ -62,7 +64,7 @@ requirements = parse_requirements_file("requirements/default.txt")
 
 setup(
     name=name,
-    version="0.1rc2",
+    version="0.1rc3",
     maintainer=maintainer,
     maintainer_email=maintainer_email,
     author=authors["Soran"][0],
@@ -72,7 +74,7 @@ setup(
     keywords=keywords,
     platforms=platforms,
     long_description_content_type="text/markdown",
-    url="https://github.com/soran-ghadri/bigraph",
+    url="https://github.com/bi-graph/bigraph",
     packages=find_packages(),
     install_requires=requirements,
     extras_require=extras_require,
