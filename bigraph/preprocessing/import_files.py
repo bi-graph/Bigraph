@@ -62,6 +62,12 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
 
 
 def generate_random_graph_edges(left_nodes_count, right_nodes_count):
+    """
+
+    :param left_nodes_count:
+    :param right_nodes_count:
+    :return:
+    """
     with open('./inputs/neighbour_matrix.csv', 'w') as csvfile:
         file_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         rand_seed = right_nodes_count * left_nodes_count - ((right_nodes_count * left_nodes_count) / 3)
