@@ -64,7 +64,7 @@ requirements = parse_requirements_file("requirements/default.txt")
 
 setup(
     name=name,
-    version="0.1rc5",
+    version="0.1rc6",
     maintainer=maintainer,
     maintainer_email=maintainer_email,
     author=authors["Soran"][0],
