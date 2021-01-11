@@ -55,7 +55,7 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
     return True
 
 
-def generate_random_graph_labels(left_nodes_count, right_nodes_count):
+def generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) -> bool:
     """
     Generate Labels for randomly generated graph nodes by generate_random_graph_edges() function
     :param left_nodes_count: Number of the left-side nodes
