@@ -1,3 +1,7 @@
+<html>
+<title>
+</title>
+<body>
 <h1>BiGraph</h1>
 <p>BiGraph is a Python package for the creation, Link prediction, and 
 evaluation of bipartite networks.</p>
@@ -9,6 +13,7 @@ evaluation of bipartite networks.</p>
 > Node based similarities and Katz has been implemented. you can find algorithms in bigraph module.
 Algorithms implemented so far:
   
+<div align="center">
 <table>
 <caption><b>Algorithms table</b></caption>
     <tr>
@@ -36,7 +41,7 @@ Algorithms implemented so far:
         <td><code>katz similarity</code></td>
     </tr>
 </table>
- 
+</div>
 
 <h2>Simple example</h2>
 <p>Predicting new links in a randomly generated graph using 
@@ -94,6 +99,8 @@ if __name__ == '__main__':
 
 <h3>Metrics</h3>
 <p>Metrics that are calculated during evaluation:</p>
+
+
 
 | Number  | Evaluattion metrics           |
   | ------------- | -------------            |
@@ -179,3 +186,5 @@ if __name__ == '__main__':
 <div class="footer">
         &copy; 2021 BiGraph Developers
 </div>
+</body>
+</html>
