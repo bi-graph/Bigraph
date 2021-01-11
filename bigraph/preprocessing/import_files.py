@@ -71,7 +71,7 @@ def generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) 
             file_writer.writerow([i + 100, f"right_node_{i}"])
     return True
 
-def generate_random_graph_edges(left_nodes_count, right_nodes_count):
+def generate_random_graph_edges(left_nodes_count: int, right_nodes_count: int) -> bool:
     """
     Generate a random graph and write it to a CSV file
     :param left_nodes_count: Number of the left-side nodes
