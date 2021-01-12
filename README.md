@@ -1,4 +1,5 @@
 <h1>BiGraph</h1>
+<div>
 <a href="https://badge.fury.io/py/bigraph"><img src="https://badge.fury.io/py/bigraph.svg" alt="PyPI version" height="18"></a>
 <a href="https://www.codacy.com/gh/bi-graph/bigraph/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bi-graph/bigraph&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e320ed8c06a3466aa9711a138085b9d2" alt="PyPI version" height="18"></a>
 <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/bigraph">
@@ -9,9 +10,8 @@
 <img alt="PyPI - Implementation" src="https://img.shields.io/pypi/implementation/bigraph">
 <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/bi-graph/bigraph">
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bi-graph/bigraph">
-
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/bi-graph/bigraph?style=social">
-
+</div>
 <p>BiGraph is a Python package for the creation, Link prediction, and 
 evaluation of bipartite networks.</p>
 
