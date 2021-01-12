@@ -96,7 +96,7 @@ if __name__ == '__main__':
 <div>
   <h2>Installation</h2>
   <p>Install the latest version of BiGraph:</p>
-  <pre>pip install bigraph</pre>
+  <pre>$ pip install bigraph</pre>
 </div>
 
 <div>
