@@ -277,6 +277,9 @@ target="_blank">https://doi.org/58.10.1002/asi.20591</a></td>
 
 <h3>If it was helpful then hit the <span>:star:</span></h3>
 
-<div class="footer">
-        &copy; 2021 BiGraph Developers
+<h2>License</h3>
+<p>Released under the BSD license</p>
+<div class="footer"><pre>Copyright &copy; 2019-2021 BiGraph Developers
+Soran Ghadri (soran.gdr.cs@gmail.com)
+Taleb Zarhesh (taleb.zarhesh@gmail.com)</pre>
 </div>
