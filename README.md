@@ -99,6 +99,14 @@ if __name__ == '__main__':
   <pre>pip install bigraph</pre>
 </div>
 
+<div>
+  <h2>Issues</h2>
+  <p>If you happen to encounter any issue in the codes, please report it
+    <a href="https://github.com/bi-graph/bigraph/issues">here</a>. 
+    A better way is to fork the repository on <b>Github</b> and create a pull request.</p>
+  <pre>pip install bigraph</pre>
+</div>
+
 
 <h3>Metrics</h3>
 <p>Metrics that are calculated during evaluation:</p>
@@ -136,7 +144,7 @@ if __name__ == '__main__':
 > * For further usages and calculating different metrics
 
 <h3>Dataset format</h3>
-<p>Your dataset should be in the following format:</p>
+<p>Your dataset should be in the following format (Exclude the 'Row' column):</p>
 
 <div>
 <table>
@@ -180,6 +188,10 @@ if __name__ == '__main__':
 </table>
 </div>
 
+> * Note that running <pre>
+<code>from bigraph.preprocessing import import_files
+df, df_nodes = import_files()</code></pre>will create a sample graph for you and will place it in the
+<code>inputs</code> directory.
 > * Although the weight has not been involved in current version, but, the format will be the same.
 
 <h3>More examples</h3>
