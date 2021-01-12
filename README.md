@@ -12,7 +12,7 @@
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bi-graph/bigraph">
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/bi-graph/bigraph?style=social">
 </div>
-<p>BiGraph is a Python package for the creation, Link prediction, and 
+<p>BiGraph is a Python package for the creation, Link prediction, and algorithms
 evaluation of bipartite networks.</p>
 
 <ul>
