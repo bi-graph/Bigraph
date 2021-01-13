@@ -77,8 +77,6 @@ def adamic_adar_prediction():
 
 # Executing the function
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d7e0395cdb814c89bf879ffe3581153c)](https://app.codacy.com/gh/bi-graph/bigraph?utm_source=github.com&utm_medium=referral&utm_content=bi-graph/bigraph&utm_campaign=Badge_Grade)
-
 if __name__ == '__main__':
     adamic_adar_prediction()
 ```
