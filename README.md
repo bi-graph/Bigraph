@@ -118,6 +118,7 @@ if __name__ == '__main__':
   <p>If you happen to encounter any issue in the codes, please report it
     <a href="https://github.com/bi-graph/bigraph/issues">here</a>. 
     A better way is to fork the repository on <b>Github</b> and create a pull request.</p>
+    <p>We appreciate any contribution.</p>
 </div>
 
 
