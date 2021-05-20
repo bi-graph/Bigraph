@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 from sklearn import metrics
 from sklearn.metrics import roc_curve, roc_auc_score
 from sklearn.model_selection import KFold
-from tabulate import tabulate
+# from tabulate import tabulate
 
 from bigraph import bigraph as pr
 from bigraph.bigraph import jc_predict, aa_predict, cn_predict, pa_predict, katz_predict
@@ -14,8 +14,8 @@ from bigraph.bigraph import jc_predict, aa_predict, cn_predict, pa_predict, katz
 def plot_ROC(fpr: list, tpr: list, met: str):
     """
     Plot ROC curve for algorithms
-    :param fpr: *type: list - False positive rate metric
-    :param tpr: *type: list - True positive rate metric
+    :param fpr: \*type: list - False positive rate metric
+    :param tpr: \*type: list - True positive rate metric
     :param met: Metric
     :return: True on success
     """
@@ -24,7 +24,7 @@ def plot_ROC(fpr: list, tpr: list, met: str):
     # auc = np.trapz(tpr, fpr)
     print('AUC:', auc)
     # Print ROC curve
-    plt.plot(fpr, tpr, label='AUC -> %s (area = %0.2f)' % (met, auc))
+    plt.plot(fpr, tpr, label=('AUC -> %s (area = %0.2f)' % (met, auc)))
     # plt.show()
     return True
 
@@ -40,7 +40,7 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
     kf = KFold(n_splits=k, shuffle=True)
     precision_sum = 0
     auc_sum = 0
-    print(tabulate([[f'Starting caculating {method}']], tablefmt='grid'))
+    # print(tabulate([[f'Starting caculating {method}']], tablefmt='grid'))
     iterator = 0
 
     for train_index, test_index in kf.split(list(G.edges)):
@@ -88,11 +88,11 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
 
     overal_precision = precision_sum / k
     overal_auc = auc_sum / k
-    print(tabulate([["%i-fold evaluation overal precision: %f" % (k, overal_precision),
-                     "%i-fold evaluation overal auc: %f" % (k, overal_auc)]], tablefmt='jira'))
+    # print(tabulate([["%i-fold evaluation overal precision: %f" % (k, overal_precision),
+    # "%i-fold evaluation overal auc: %f" % (k, overal_auc)]], tablefmt='jira'))
     headers = ['overal_precision', 'overal_auc']
     table = [[overal_precision, overal_auc]]
-    print(tabulate(table, headers, tablefmt="pipe"))
+    # print(tabulate(table, headers, tablefmt="pipe"))
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
 
 

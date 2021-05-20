@@ -1,6 +1,7 @@
 def add_to_list(dataframe: dict) -> list:
     """
     Generate link tuples and append them to a list
+
     :param dataframe: Dataframe containing links
     :return: Edge list
     """

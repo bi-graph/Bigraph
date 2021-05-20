@@ -11,6 +11,7 @@ from bigraph.preprocessing import get_adjacents
 def jc_predict(G: object) -> dict:
     """
     Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
+
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Jaccard distance between vectors `left_element` and `right_element`.
     """
@@ -73,6 +74,7 @@ def jc_predict(G: object) -> dict:
 def aa_predict(G: object) -> dict:
     """
     Compute the Jaccard-Needham dissimilarity between two 1-D arrays.
+
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Adamic-adar score for `left_element` and `right_element`.
     """
@@ -138,6 +140,7 @@ def aa_predict(G: object) -> dict:
 def cn_predict(G: object) -> dict:
     """
     Return the common neighbors of two nodes in a graph.
+
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Common neighbours score for `left_element` and `right_element`.
     """
@@ -205,6 +208,7 @@ def cn_predict(G: object) -> dict:
 def pa_predict(G: object) -> dict:
     """
     Compute the preferential attachment score of all node pairs.
+
     :param G: Networkx bipartite graph
     :return: A dictionary containing the Preferential attachment score for `left_element` and `right_element`.
     """
@@ -266,6 +270,7 @@ def pa_predict(G: object) -> dict:
 def katz_predict(G: object, df_nodes: dict) -> dict:
     """
     Compute the Katz similarity score of all node pairs.
+
     :param G: Networkx bipartite graph
     :param df_nodes: Graph nodes
     :return: A dictionary containing the Preferential attachment score for `left_element` and `right_element`.

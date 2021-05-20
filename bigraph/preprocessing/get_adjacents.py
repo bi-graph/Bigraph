@@ -1,6 +1,7 @@
 def get_hop_2_neighbours(graph, input_list: list, hop_n: int) -> list:
     """
     Find hop_n neighbours of each item in input_list
+
     :param graph: NetworkX graph object
     :param input_list: Input list
     :param hop_n: Hop hop_n

@@ -8,6 +8,7 @@ def make_graph(
         right_bipartite: str = "right_side"):
     """
     Make a graph based on the input dataframe
+
     :param left_bipartite: Left part of the graph
     :param right_bipartite: Right part of the graph
     :param dataframe: Bipartite graph dataframe

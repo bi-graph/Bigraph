@@ -16,6 +16,7 @@ def import_files(
 ) -> Union[dict, dict]:
     """
     Import links and labels from csv files
+
     :param edge_csv: A CSV file containing edge data on each line:
         0,4,2 that are u,v,w which stand for node 1, node 2, weight respectively
     :param label_id: A CSV file containing labels for nodes:
@@ -37,6 +38,7 @@ def import_files(
 def check_input_files(edge_csv: str, label_id: str) -> bool:
     """
     Check if there is any input file.
+
     :param edge_csv: Path to the edge-list csv file
     :param label_id: Path to the label-id-list csv file
     :return: True on finishing successfully
@@ -58,6 +60,7 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
 def generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) -> bool:
     """
     Generate Labels for randomly generated graph nodes by generate_random_graph_edges() function
+
     :param left_nodes_count: Number of the left-side nodes
     :param right_nodes_count: Number of the right-side nodes
     :return: True on success
@@ -71,9 +74,11 @@ def generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) 
             file_writer.writerow([i + 100, f"right_node_{i}"])
     return True
 
+
 def generate_random_graph_edges(left_nodes_count: int, right_nodes_count: int) -> bool:
     """
     Generate a random graph and write it to a CSV file
+
     :param left_nodes_count: Number of the left-side nodes
     :param right_nodes_count: Number of the right-side nodes
     :return: True on success

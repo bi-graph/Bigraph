@@ -4,6 +4,7 @@ import math
 def adamic_adar(set_one: list, set_two: list, graph) -> float:
     """
     Calculate Adamic Adar score for input lists
+
     :param set_one: A list of graph nodes -> part one
     :param set_two: A list of graph nodes -> part two
     :param graph: NetworkX bipartite graph
@@ -24,6 +25,7 @@ def adamic_adar(set_one: list, set_two: list, graph) -> float:
 def common_neighbors(set_one: list, set_two: list) -> int:
     """
     Calculate Common neighbors score for input lists
+
     :param set_one: A list of graph nodes -> part one
     :param set_two: A list of graph nodes -> part two
     :return: Common neighbours score
@@ -34,6 +36,7 @@ def common_neighbors(set_one: list, set_two: list) -> int:
 def preferential_attachment(set_one: list, set_two: list) -> int:
     """
     Calculate Preferential attachment score for input lists
+
     :param set_one: A list of graph nodes -> part one
     :param set_two: A list of graph nodes -> part two
     :return: Preferential attachment score
@@ -44,6 +47,7 @@ def preferential_attachment(set_one: list, set_two: list) -> int:
 def jaccard(set_one: list, set_two: list) -> float:
     """
     Calculate Jaccard score for input lists
+
     :param set_one: A list of graph nodes -> part one
     :param set_two: A list of graph nodes -> part two
     :return: Jaccard score
@@ -56,6 +60,7 @@ def jaccard(set_one: list, set_two: list) -> float:
 def katz_similarity(node_i: int, node_j: int, graph) -> float:
     """
     Calculate Katz score for input nodes
+
     :param node_i: Starting node
     :param node_j: Destination node
     :param graph: NetworkX bipartite graph
