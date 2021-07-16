@@ -3,9 +3,9 @@ from collections import defaultdict
 import time
 import networkx as nx
 import pathlib
+from bigraph.preprocessing import get_adjacents
 from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
 
-from bigraph.preprocessing import get_adjacents
 
 
 def jc_predict(G: object) -> dict:
