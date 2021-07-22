@@ -14,6 +14,7 @@ from bigraph.bigraph import jc_predict, aa_predict, cn_predict, pa_predict, katz
 def plot_ROC(fpr: list, tpr: list, met: str):
     """
     Plot ROC curve for algorithms
+
     :param fpr: \*type: list - False positive rate metric
     :param tpr: \*type: list - True positive rate metric
     :param met: Metric
@@ -32,6 +33,7 @@ def plot_ROC(fpr: list, tpr: list, met: str):
 def _evaluate_method(G: object, k: int, method: str) -> list:
     """
     Evaluate algorithms using precision and AUC metrics
+
     :param G: Networkx bipartite graph
     :param k: Number of folds (used in KFold)
     :param method: Algorithm name
@@ -99,6 +101,7 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
 def evaluate(G: object, k: int = 2, method: str = 'all'):
     """
     Evaluation interface for evaluating algorithms
+
     :param G: Networkx bipartite graph
     :param k: Number of folds (used in KFold)
     :param method: Algorithm name
