@@ -92,7 +92,7 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
     overal_auc = auc_sum / k
     # print(tabulate([["%i-fold evaluation overal precision: %f" % (k, overal_precision),
     # "%i-fold evaluation overal auc: %f" % (k, overal_auc)]], tablefmt='jira'))
-    headers = ['overal_precision', 'overal_auc']
+    headers = ['overall_precision', 'overall_auc']
     table = [[overal_precision, overal_auc]]
     # print(tabulate(table, headers, tablefmt="pipe"))
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
@@ -105,7 +105,7 @@ def evaluate(G: object, k: int = 2, method: str = 'all'):
     :param G: Networkx bipartite graph
     :param k: Number of folds (used in KFold)
     :param method: Algorithm name
-    :return: Calculated metrics: overal_precision, overal_auc, fpr_algo, tpr_algo
+    :return: Calculated metrics: overall_precision, overall_auc, fpr_algo, tpr_algo
     """
     methods = ['cn', 'jc', 'aa', 'pa']
     results = {}
