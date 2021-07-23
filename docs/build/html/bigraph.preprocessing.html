@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="english" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>bigraph.preprocessing package &mdash; Bigraph Documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+    <link rel="canonical" href="https://github.com/bi-graph/bigraph/bigraph.preprocessing.html" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="bigraph.evaluation package" href="bigraph.evaluation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F5A603" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Bigraph
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="bigraph.html">bigraph package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bigraph.evaluation.html">bigraph.evaluation package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">bigraph.preprocessing package</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bigraph</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="bigraph.html">bigraph package</a> &raquo;</li>
+        
+      <li>bigraph.preprocessing package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+      
+        <a href="bigraph.evaluation.html" class="btn btn-neutral float-left" title="bigraph.evaluation package" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bigraph-preprocessing-package">
+<h1>bigraph.preprocessing package<a class="headerlink" href="#bigraph-preprocessing-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-bigraph.preprocessing.get_adjacents">
+<span id="bigraph-preprocessing-get-adjacents-module"></span><h2>bigraph.preprocessing.get_adjacents module<a class="headerlink" href="#module-bigraph.preprocessing.get_adjacents" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="bigraph.preprocessing.get_adjacents.get_hop_2_neighbours">
+<code class="sig-prename descclassname">bigraph.preprocessing.get_adjacents.</code><code class="sig-name descname">get_hop_2_neighbours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">graph</span></em>, <em class="sig-param"><span class="n">input_list</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">hop_n</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; list<a class="headerlink" href="#bigraph.preprocessing.get_adjacents.get_hop_2_neighbours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find hop_n neighbours of each item in input_list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>graph</strong> -- NetworkX graph object</p></li>
+<li><p><strong>input_list</strong> -- Input list</p></li>
+<li><p><strong>hop_n</strong> -- Hop hop_n</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>hop_n hop neighbours of the input list's items</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-bigraph.preprocessing.import_files">
+<span id="bigraph-preprocessing-import-files-module"></span><h2>bigraph.preprocessing.import_files module<a class="headerlink" href="#module-bigraph.preprocessing.import_files" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="bigraph.preprocessing.import_files.check_input_files">
+<code class="sig-prename descclassname">bigraph.preprocessing.import_files.</code><code class="sig-name descname">check_input_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_csv</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">label_id</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#bigraph.preprocessing.import_files.check_input_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if there is any input file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edge_csv</strong> -- Path to the edge-list csv file</p></li>
+<li><p><strong>label_id</strong> -- Path to the label-id-list csv file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on finishing successfully</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="bigraph.preprocessing.import_files.generate_random_graph_edges">
+<code class="sig-prename descclassname">bigraph.preprocessing.import_files.</code><code class="sig-name descname">generate_random_graph_edges</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">left_nodes_count</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">right_nodes_count</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#bigraph.preprocessing.import_files.generate_random_graph_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a random graph and write it to a CSV file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left_nodes_count</strong> -- Number of the left-side nodes</p></li>
+<li><p><strong>right_nodes_count</strong> -- Number of the right-side nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="bigraph.preprocessing.import_files.generate_random_graph_labels">
+<code class="sig-prename descclassname">bigraph.preprocessing.import_files.</code><code class="sig-name descname">generate_random_graph_labels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">left_nodes_count</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">right_nodes_count</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#bigraph.preprocessing.import_files.generate_random_graph_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate Labels for randomly generated graph nodes by generate_random_graph_edges() function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left_nodes_count</strong> -- Number of the left-side nodes</p></li>
+<li><p><strong>right_nodes_count</strong> -- Number of the right-side nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="bigraph.preprocessing.import_files.import_files">
+<code class="sig-prename descclassname">bigraph.preprocessing.import_files.</code><code class="sig-name descname">import_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">edge_csv</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'./inputs/neighbour_matrix.csv'</span></em>, <em class="sig-param"><span class="n">label_id</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'./inputs/id_labels.csv'</span></em>, <em class="sig-param"><span class="n">sep</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">','</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#bigraph.preprocessing.import_files.import_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import links and labels from csv files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edge_csv</strong> -- A CSV file containing edge data on each line:
+0,4,2 that are u,v,w which stand for node 1, node 2, weight respectively</p></li>
+<li><p><strong>label_id</strong> -- A CSV file containing labels for nodes:
+10,node_name which are ID,label for each node</p></li>
+<li><p><strong>sep</strong> -- A separator that is the boundary for distinct entities</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>links and label dataframes</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-bigraph.preprocessing.make_graph">
+<span id="bigraph-preprocessing-make-graph-module"></span><h2>bigraph.preprocessing.make_graph module<a class="headerlink" href="#module-bigraph.preprocessing.make_graph" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="bigraph.preprocessing.make_graph.make_graph">
+<code class="sig-prename descclassname">bigraph.preprocessing.make_graph.</code><code class="sig-name descname">make_graph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span><span class="p">:</span> <span class="n">dict</span></em>, <em class="sig-param"><span class="n">left_bipartite</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'left_side'</span></em>, <em class="sig-param"><span class="n">right_bipartite</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'right_side'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bigraph.preprocessing.make_graph.make_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a graph based on the input dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left_bipartite</strong> -- Left part of the graph</p></li>
+<li><p><strong>right_bipartite</strong> -- Right part of the graph</p></li>
+<li><p><strong>dataframe</strong> -- Bipartite graph dataframe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Generated networkx graph</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-bigraph.preprocessing.pd_to_list">
+<span id="bigraph-preprocessing-pd-to-list-module"></span><h2>bigraph.preprocessing.pd_to_list module<a class="headerlink" href="#module-bigraph.preprocessing.pd_to_list" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="bigraph.preprocessing.pd_to_list.add_to_list">
+<code class="sig-prename descclassname">bigraph.preprocessing.pd_to_list.</code><code class="sig-name descname">add_to_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataframe</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; list<a class="headerlink" href="#bigraph.preprocessing.pd_to_list.add_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate link tuples and append them to a list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataframe</strong> -- Dataframe containing links</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Edge list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-bigraph.preprocessing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bigraph.preprocessing" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bigraph.evaluation.html" class="btn btn-neutral float-left" title="bigraph.evaluation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, Soran Ghadri.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
