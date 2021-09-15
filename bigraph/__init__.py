@@ -3,7 +3,7 @@
 import bigraph.algorithms
 # from bigraph.algorithms import *
 
-import bigraph.bigraph
+import bigraph.predict
 # from bigraph.bigraph import *
 
 import bigraph.evaluation

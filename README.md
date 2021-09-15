@@ -56,7 +56,7 @@ evaluation of bipartite networks.</p>
 <code><b>Adamic-Adar</b></code> algorithm:</p>
 
 ```python
-from bigraph.bigraph import aa_predict
+from bigraph.predict import aa_predict
 from bigraph.preprocessing import import_files, make_graph
 
 
@@ -217,7 +217,7 @@ df, df_nodes = import_files()</code></pre>will create a sample graph for you and
 </ul>
 
 ```python
-from bigraph.bigraph import pa_predict, jc_predict, cn_predict
+from bigraph.predict import pa_predict, jc_predict, cn_predict
 from bigraph.preprocessing import import_files, make_graph
 
 

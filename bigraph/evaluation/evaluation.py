@@ -8,7 +8,7 @@ from sklearn.model_selection import KFold
 # from tabulate import tabulate
 
 from bigraph import bigraph as pr
-from bigraph.bigraph import jc_predict, aa_predict, cn_predict, pa_predict, katz_predict
+from bigraph.predict import jc_predict, aa_predict, cn_predict, pa_predict, katz_predict
 
 
 def plot_ROC(fpr: list, tpr: list, met: str):

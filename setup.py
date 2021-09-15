@@ -75,7 +75,7 @@ setup(
     platforms=platforms,
     long_description_content_type="text/markdown",
     url="https://github.com/bi-graph/bigraph",
-    packages=find_packages(),
+    packages=find_packages(exclude=('tests', 'docs', 'html', 'requirements')),
     install_requires=requirements,
     extras_require=extras_require,
     classifiers=classifiers,
