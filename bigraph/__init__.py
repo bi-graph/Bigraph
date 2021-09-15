@@ -4,7 +4,7 @@ import bigraph.algorithms
 # from bigraph.algorithms import *
 
 import bigraph.predict
-# from bigraph.bigraph import *
+# from bigraph.predict import *
 
 import bigraph.evaluation
 # from bigraph.evaluation import *

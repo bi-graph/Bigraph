@@ -3,17 +3,23 @@
 <a href="https://badge.fury.io/py/bigraph"><img src="https://badge.fury.io/py/bigraph.svg" alt="PyPI version" height="18"></a>
 <a href="https://www.codacy.com/gh/bi-graph/bigraph/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=bi-graph/bigraph&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e320ed8c06a3466aa9711a138085b9d2" alt="PyPI version" height="18"></a>
 <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/bigraph">
-<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dw/bigraph">
-<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/bigraph">
-<img alt="GitHub search hit counter" src="https://img.shields.io/github/search/bi-graph/bigraph/hit">
-<img alt="GitHub search hit counter" src="https://img.shields.io/github/search/bi-graph/bigraph/goto">
-<img alt="PyPI - Implementation" src="https://img.shields.io/pypi/implementation/bigraph">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/bi-graph/bigraph">
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bi-graph/bigraph">
+
+[comment]: <> (<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dw/bigraph">)
+
+[comment]: <> (<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/bigraph">)
+
+[comment]: <> (<img alt="GitHub search hit counter" src="https://img.shields.io/github/search/bi-graph/bigraph/hit">)
+
+[comment]: <> (<img alt="GitHub search hit counter" src="https://img.shields.io/github/search/bi-graph/bigraph/goto">)
+
+[comment]: <> (<img alt="PyPI - Implementation" src="https://img.shields.io/pypi/implementation/bigraph">)
+
+[comment]: <> (<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/bi-graph/bigraph">)
+
+[comment]: <> (<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bi-graph/bigraph">)
 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/bi-graph/bigraph?style=social">
 </div>
-<p>BiGraph is a Python package for the creation, Link prediction, and algorithms
-evaluation of bipartite networks.</p>
+<p>BiGraph is a Python package for Link prediction in bipartite networks.</p>
 
 <ul>
     <li><b>Bug reports:</b> https://github.com/bi-graph/bigraph/issues</li>
@@ -49,6 +55,18 @@ evaluation of bipartite networks.</p>
         <td><code>katz similarity</code></td>
     </tr>
 </table>
+</div>
+
+<div>
+  <h2>Installation</h2>
+  <p>Install the latest version of BiGraph:</p>
+  <pre>$ pip install bigraph</pre>
+</div>
+
+<div>
+<h2>Documentation</h2>
+<p> <a>https://bigraph.readthedocs.io/en/latest/index.html</a></p>
+
 </div>
 
 <h2>Simple example</h2>
@@ -106,19 +124,25 @@ def adamic_adar_evaluation():
 if __name__ == '__main__':
     adamic_adar_evaluation()
 ```
-
 <div>
-  <h2>Installation</h2>
-  <p>Install the latest version of BiGraph:</p>
-  <pre>$ pip install bigraph</pre>
+<h2>Call for Contributions</h2>
+<p>The Bigraph project welcomes your expertise and enthusiasm!</p>
+
+<p>Ways to contribute to Bigraph:</p>
+<ul>
+  <li>Writing code</li>
+  <li>Review pull requests</li>
+  <li>Develop tutorials, presentations, and other educational materials</li>
+  <li>Translate documentation and readme contents</li>
+</ul>
 </div>
 
 <div>
   <h2>Issues</h2>
-  <p>If you happen to encounter any issue in the codes, please report it
+  <p>If you happened to encounter any issue in the codes, please report it
     <a href="https://github.com/bi-graph/bigraph/issues">here</a>. 
-    A better way is to fork the repository on <b>Github</b> and create a pull request.</p>
-    <p>We appreciate any contribution.</p>
+    A better way is to fork the repository on <b>Github</b> and/or create a pull request.</p>
+    
 </div>
 
 
@@ -272,15 +296,14 @@ target="_blank">https://doi.org/58.10.1002/asi.20591</a></td>
 
 - [x] Modulate the functions
 - [ ] Add more algorithms
+- [ ] Run on CUDA cores
+- [ ] Make it faster using vectorization etc.
 - [ ] Add more preprocessors
 - [ ] Add dataset, graph, and dataframe manipulations
-- [ ] Make it faster using vectorization etc.
 - [ ] Unify and reconstruct the architecture and eliminate redundancy
 
-<h3>Documentation</h3>
-<p>Comming soon</p>
 
-
+<h3>Notes</h3>
 <ul>
   <li>
     <code>It can export the graph in .json and .gexf format 
@@ -289,7 +312,7 @@ target="_blank">https://doi.org/58.10.1002/asi.20591</a></td>
 </ul>
 
 
-<h3>If it was helpful then hit the <span>:star:</span></h3>
+<h2>If you found it helpful, please give us a <span>:star:</span></h2>
 
 <h2>License</h3>
 <p>Released under the BSD license</p>

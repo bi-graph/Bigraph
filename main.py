@@ -8,7 +8,7 @@ from tabulate import tabulate
 # from sklearn.cross_validation import KFold
 from bigraph.preprocessing import import_files
 from bigraph.preprocessing import make_graph
-from bigraph import bigraph as pr
+from bigraph import predict as pr
 
 
 def complement_graph(G):
