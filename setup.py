@@ -1,22 +1,29 @@
-from setuptools import setup, find_packages
+import io
+import os
+import sys
+
+from setuptools import setup, find_packages, Command
+from shutil import rmtree
 
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-name = "bigraph"
-description = "Python package for link prediction in bipartite graphs and networks"
+here = os.path.abspath(os.path.dirname(__file__))
 
-platforms = ["Linux", "Mac OSX", "Windows", "Unix"]
+NAME = "bigraph"
+DESCRIPTION = "Python package for link prediction in bipartite graphs and networks"
 
-authors = {
+PLATFORMS = ["Linux", "Mac OSX", "Windows", "Unix"]
+VERSION = "0.1rc7"
+AUTHORS = {
     "Soran": ("Soran Ghadri", "soran.gdr.cs@gmail.com"),
     "Taleb": ("Taleb Zarhesh", "taleb.zarhesh@gmail.com"),
 }
 
-maintainer = "BiGraph Developers"
-maintainer_email = "soran.gdr.cs@gmail.com"
+MAINTAINER = "BiGraph Developers"
+MAINTAINER_EMAIL = "soran.gdr.cs@gmail.com"
 
-keywords = [
+KEYWORDS = [
     "Networks",
     "Graph Theory",
     "Mathematics",
@@ -29,7 +36,7 @@ keywords = [
     "math",
 ]
 
-classifiers = [
+CLASSIFIERS = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
@@ -46,6 +53,23 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Physics",
 ]
 
+# Import the README and use it as the long-description.
+# Note: this will only work if 'README.md' is present in your MANIFEST.in file!
+try:
+    with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+        long_description = '\n' + f.read()
+except FileNotFoundError:
+    long_description = readme
+
+
+# Load the package's __version__.py module as a dictionary.
+about = {}
+if not VERSION:
+    project_slug = NAME.lower().replace("-", "_").replace(" ", "_")
+    with open(os.path.join(here, project_slug, '__version__.py')) as f:
+        exec(f.read(), about)
+else:
+    about['__version__'] = VERSION
 
 def parse_requirements_file(filename):
     with open(filename) as fid:
@@ -63,22 +87,58 @@ requirements = parse_requirements_file("requirements/default.txt")
 
 
 setup(
-    name=name,
-    version="0.1rc7",
-    maintainer=maintainer,
-    maintainer_email=maintainer_email,
-    author=authors["Soran"][0],
-    author_email=authors["Soran"][1],
-    description=description,
+    name=NAME,
+    version=about['__version__'],
+    maintainer=MAINTAINER,
+    maintainer_email=MAINTAINER_EMAIL,
+    author=AUTHORS["Soran"][0],
+    author_email=AUTHORS["Soran"][1],
+    description=DESCRIPTION,
     long_description=readme,
-    keywords=keywords,
-    platforms=platforms,
+    keywords=KEYWORDS,
+    platforms=PLATFORMS,
     long_description_content_type="text/markdown",
     url="https://github.com/bi-graph/bigraph",
     packages=find_packages(exclude=('tests', 'docs', 'html', 'requirements')),
     install_requires=requirements,
     extras_require=extras_require,
-    classifiers=classifiers,
+    classifiers=CLASSIFIERS,
     python_requires='>=3.6',
     zip_safe=False,
 )
+
+
+class UploadCommand(Command):
+    """Support setup.py upload."""
+
+    user_options = []
+
+    @staticmethod
+    def status(s):
+        """Prints things in bold."""
+        print('\033[1m{0}\033[0m'.format(s))
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        try:
+            self.status('Removing previous builds…')
+            rmtree(os.path.join(here, 'dist'))
+        except OSError:
+            pass
+
+        self.status('Building Source and Wheel (universal) distribution…')
+        os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
+
+        self.status('Uploading the package to PyPI via Twine…')
+        os.system('twine upload dist/*')
+
+        self.status('Pushing git tags…')
+        os.system('git tag v{0}'.format(about['__version__']))
+        os.system('git push --tags')
+
+        sys.exit()

@@ -31,12 +31,12 @@ def jc_predict(G: object) -> dict:
 
     out.write('(left_element, right_element)')
     out.write(",")
-    out.write('Probability')
+    out.write('Score')
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
     # outN.write(",")
-    # outN.write('Probability')
+    # outN.write('Score')
     # outN.write("\n")
 
     exception_count = 0
@@ -95,12 +95,12 @@ def aa_predict(G: object) -> dict:
 
     out.write('(left_element, right_element)')
     out.write(",")
-    out.write('Probability')
+    out.write('Score')
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
     # outN.write(",")
-    # outN.write('Probability')
+    # outN.write('Score')
     # outN.write("\n")
 
     exception_count = 0
@@ -162,12 +162,12 @@ def cn_predict(G: object) -> dict:
     dictionary = {}
     out.write('(left_element, right_element)')
     out.write(",")
-    out.write('Probability')
+    out.write('Score')
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
     # outN.write(",")
-    # outN.write('Probability')
+    # outN.write('Score')
     # outN.write("\n")
 
     for left_element in left_set:
@@ -229,12 +229,12 @@ def pa_predict(G: object) -> dict:
 
     out.write('(left_element, right_element)')
     out.write(",")
-    out.write('Probability')
+    out.write('Score')
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
     # outN.write(",")
-    # outN.write('Probability')
+    # outN.write('Score')
     # outN.write("\n")
 
     for left_element in left_set:
@@ -291,12 +291,12 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
 
     out.write('(left_element, right_element)')
     out.write(",")
-    out.write('Probability')
+    out.write('Score')
     out.write("\n")
 
     outN.write('(left_element, right_element)')
     outN.write(",")
-    outN.write('Probability')
+    outN.write('Score')
     outN.write("\n")
 
     for left_element in left_set:

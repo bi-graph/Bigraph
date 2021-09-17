@@ -6,8 +6,9 @@ import bigraph.algorithms
 import bigraph.predict
 # from bigraph.predict import *
 
-import bigraph.evaluation
-# from bigraph.evaluation import *
-
 import bigraph.preprocessing
 # from bigraph.preprocessing import *
+
+# import bigraph.evaluation
+# from bigraph.evaluation import *
+
