@@ -1,7 +1,7 @@
 import math
 
 
-def adamic_adar(set_one: list, set_two: list, graph) -> float:
+def _adamic_adar(set_one: list, set_two: list, graph) -> float:
     """
     Calculate Adamic Adar score for input lists
 
@@ -22,7 +22,7 @@ def adamic_adar(set_one: list, set_two: list, graph) -> float:
     return sum
 
 
-def common_neighbors(set_one: list, set_two: list) -> int:
+def _common_neighbors(set_one: list, set_two: list) -> int:
     """
     Calculate Common neighbors score for input lists
 
@@ -33,7 +33,7 @@ def common_neighbors(set_one: list, set_two: list) -> int:
     return len(set(set_one) & set(set_two))
 
 
-def preferential_attachment(set_one: list, set_two: list) -> int:
+def _preferential_attachment(set_one: list, set_two: list) -> int:
     """
     Calculate Preferential attachment score for input lists
 
@@ -44,7 +44,7 @@ def preferential_attachment(set_one: list, set_two: list) -> int:
     return len(set(set_one)) * len(set(set_two))
 
 
-def jaccard(set_one: list, set_two: list) -> float:
+def _jaccard(set_one: list, set_two: list) -> float:
     """
     Calculate Jaccard score for input lists
 
@@ -57,7 +57,7 @@ def jaccard(set_one: list, set_two: list) -> float:
     return float(intersection) / float(union)
 
 
-def katz_similarity(node_i: int, node_j: int, graph) -> float:
+def _katz_similarity(node_i: int, node_j: int, graph) -> float:
     """
     Calculate Katz score for input nodes
 

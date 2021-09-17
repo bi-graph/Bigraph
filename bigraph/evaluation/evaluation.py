@@ -11,7 +11,7 @@ from bigraph import bigraph as pr
 from bigraph.predict import jc_predict, aa_predict, cn_predict, pa_predict, katz_predict
 
 
-def plot_ROC(fpr: list, tpr: list, met: str):
+def _plot_ROC(fpr: list, tpr: list, met: str):
     """
     Plot ROC curve for algorithms
 

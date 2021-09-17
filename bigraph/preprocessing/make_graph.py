@@ -1,5 +1,5 @@
 import networkx as nx
-from bigraph.preprocessing.pd_to_list import add_to_list
+from bigraph.preprocessing.pd_to_list import _add_to_list
 
 
 def make_graph(
@@ -22,7 +22,7 @@ def make_graph(
         node_list.append(node[1][0])
         node_list.append(node[1][1])
 
-    graph.add_edges_from(add_to_list(dataframe))
+    graph.add_edges_from(_add_to_list(dataframe))
     isolates = nx.isolates(graph)
     # TODO: make following line a choice to be able to remove isolates or not
 

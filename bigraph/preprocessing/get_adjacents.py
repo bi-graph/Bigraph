@@ -1,4 +1,4 @@
-def get_hop_2_neighbours(graph, input_list: list, hop_n: int) -> list:
+def _get_hop_2_neighbours(graph, input_list: list, hop_n: int) -> list:
     """
     Find hop_n neighbours of each item in input_list
 

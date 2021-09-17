@@ -25,7 +25,7 @@ def import_files(
     :return: links and label dataframes
     """
     print('Importing files and making dataframes...')
-    check_input_files(edge_csv, label_id)
+    _check_input_files(edge_csv, label_id)
     raw_adjacency_dictionary = pd.read_csv(edge_csv, sep=sep, *args, **kwargs)
     raw_label_dictionary = pd.read_csv(label_id, sep=sep, *args, **kwargs)
     # raw_adjacency_dictionary = raw_adjacency_dictionary.drop(['Weight'], axis=1)
@@ -35,7 +35,7 @@ def import_files(
     return raw_adjacency_dictionary, label_dictionary
 
 
-def check_input_files(edge_csv: str, label_id: str) -> bool:
+def _check_input_files(edge_csv: str, label_id: str) -> bool:
     """
     Check if there is any input file.
 
@@ -49,15 +49,15 @@ def check_input_files(edge_csv: str, label_id: str) -> bool:
     if edge_csv == "./inputs/neighbour_matrix.csv":
         file_exists = os.path.isfile("./inputs/neighbour_matrix.csv")
         if not file_exists:
-            generate_random_graph_edges(left_nodes_count, right_nodes_count)
+            _generate_random_graph_edges(left_nodes_count, right_nodes_count)
     if label_id == "./inputs/id_labels.csv":
         file_exists = os.path.isfile("./inputs/id_labels.csv")
         if not file_exists:
-            generate_random_graph_labels(left_nodes_count, right_nodes_count)
+            _generate_random_graph_labels(left_nodes_count, right_nodes_count)
     return True
 
 
-def generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) -> bool:
+def _generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) -> bool:
     """
     Generate Labels for randomly generated graph nodes by generate_random_graph_edges() function
 
@@ -75,7 +75,7 @@ def generate_random_graph_labels(left_nodes_count: int, right_nodes_count: int) 
     return True
 
 
-def generate_random_graph_edges(left_nodes_count: int, right_nodes_count: int) -> bool:
+def _generate_random_graph_edges(left_nodes_count: int, right_nodes_count: int) -> bool:
     """
     Generate a random graph and write it to a CSV file
 

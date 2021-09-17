@@ -4,7 +4,7 @@ import time
 import networkx as nx
 import pathlib
 from bigraph.preprocessing import get_adjacents
-from bigraph.algorithms import jaccard, adamic_adar, common_neighbors, preferential_attachment, katz_similarity
+from bigraph.algorithms import _jaccard, _adamic_adar, _common_neighbors, _preferential_attachment, _katz_similarity
 
 
 
@@ -41,13 +41,13 @@ def jc_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
                 try:
-                    jaccard_sim[left_element][right_element] = jaccard(hop2s[(left_element)],
-                                                                       neighbors[(right_element)])
+                    jaccard_sim[left_element][right_element] = _jaccard(hop2s[(left_element)],
+                                                                        neighbors[(right_element)])
                     if jaccard_sim[left_element][right_element] > 0:
                         dictionary.update({(left_element, right_element): jaccard_sim[left_element][right_element]})
                 except:
@@ -105,13 +105,13 @@ def aa_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
                 try:
-                    aa_sim[left_element][right_element] = adamic_adar(hop2s[(left_element)],
-                                                                      neighbors[(right_element)], G)
+                    aa_sim[left_element][right_element] = _adamic_adar(hop2s[(left_element)],
+                                                                       neighbors[(right_element)], G)
                     if aa_sim[left_element][right_element] > 0:
                         # print(left_element, right_element, aa_sim[left_element][right_element])
                         dictionary.update({(left_element, right_element): aa_sim[left_element][right_element]})
@@ -172,14 +172,13 @@ def cn_predict(G: object) -> dict:
 
     for left_element in left_set:
         # print('snp {} -- '.format(len(G[left_element])))
-        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         # print('snp hop 2 {} -- '.format(len(hop2s[left_element])))
         for right_element in right_set:
             # print('cancer {} -- '.format(len(G[right_element])))
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
-                cn_sim[left_element][right_element] = common_neighbors(hop2s[left_element],
-                                                                       neighbors[right_element])
+                cn_sim[left_element][right_element] = _common_neighbors(hop2s[left_element], neighbors[right_element])
 
                 # if (left_element, right_element) in edge_subset:
                 #   print((left_element, right_element), cn_sim[left_element][right_element])
@@ -243,8 +242,8 @@ def pa_predict(G: object) -> dict:
         for right_element in right_set:
             neighbors_right_element[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
-                pa_sim[left_element][right_element] = preferential_attachment(
-                    neighbors_left_element[(left_element)], neighbors_right_element[(right_element)])
+                pa_sim[left_element][right_element] = _preferential_attachment(neighbors_left_element[(left_element)],
+                                                                               neighbors_right_element[(right_element)])
                 if pa_sim[left_element][right_element] > 0:
                     dictionary.update({(left_element, right_element): pa_sim[left_element][right_element]})
 
@@ -300,11 +299,11 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     outN.write("\n")
 
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
-                katz_sim[left_element][right_element] = katz_similarity(int(left_element), int(right_element), G)
+                katz_sim[left_element][right_element] = _katz_similarity(int(left_element), int(right_element), G)
                 if katz_sim[left_element][right_element] > 0:
                     out.write(str((left_element, right_element)))
                     out.write(",")
