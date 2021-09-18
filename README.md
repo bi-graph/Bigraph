@@ -65,7 +65,7 @@
 
 <div>
 <h2>Documentation</h2>
-<p> <a>https://bigraph.readthedocs.io/en/latest/index.html</a></p>
+<p> <a href="https://bigraph.readthedocs.io/en/latest/index.html">https://bigraph.readthedocs.io/en/latest/</a></p>
 
 </div>
 
@@ -103,8 +103,8 @@ if __name__ == '__main__':
 You can try other provided prediction algorithms by replacing the <b>"aa"</b> argument.</p>
 
 ```python
-from bigraph.evaluation import evaluate
-from bigraph.preprocessing import import_files, make_graph, check_input_files
+from bigraph.evaluation.evaluation import evaluate
+from bigraph.preprocessing import import_files, make_graph
 
 
 def adamic_adar_evaluation():
@@ -307,7 +307,7 @@ target="_blank">https://doi.org/58.10.1002/asi.20591</a></td>
 <ul>
   <li>
     <code>It can export the graph in .json and .gexf format 
-    for furthur usages. For instance: Gephi etc.</code>
+    for further usages. For instance: Gephi etc.</code>
   </li>
 </ul>
 
@@ -316,7 +316,7 @@ target="_blank">https://doi.org/58.10.1002/asi.20591</a></td>
 
 <h2>License</h3>
 <p>Released under the BSD license</p>
-<div class="footer"><pre>Copyright &copy; 2019-2021 BiGraph Developers
+<div class="footer"><pre>Copyright &copy; 2017-2021 BiGraph Developers
 Soran Ghadri (soran.gdr.cs@gmail.com)
 Taleb Zarhesh (taleb.zarhesh@gmail.com)</pre>
 </div>
