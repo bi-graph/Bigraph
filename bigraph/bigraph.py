@@ -18,12 +18,8 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         self.graph = self.make_graph(df)
 
         print(self.graph.__dict__)
-        snp = {
-            n for n, d in self.graph.nodes(data=True) if d["bipartite"] == 0
-        }.__len__()
-        cancer = {
-            n for n, d in self.graph.nodes(data=True) if d["bipartite"] == 1
-        }.__len__()
+        snp = len({n for n, d in self.graph.nodes(data=True) if d["bipartite"] == 0})
+        cancer = len({n for n, d in self.graph.nodes(data=True) if d["bipartite"] == 1})
         headers = ["Number of nodes", "Number of edges", "SNP", "Cancer"]
         table = [[self.graph.nodes.__len__(), self.graph.edges.__len__(), snp, cancer]]
         print(tabulate.tabulate(table, headers, tablefmt="fancy_grid"))
@@ -37,12 +33,10 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         """
         start_jc = time.time()
 
-        # print('Jaccard prediction starting...')
         dictionary = {}
         pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
         out = open("./predictions/jaccard.csv", "w")
-        outN = open("./predictions/jaccard_with_name.csv", "w")
         hop2s = dict()
         neighbors = dict()
         jaccard_sim = collections.defaultdict(dict)
@@ -53,11 +47,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         out.write(",")
         out.write("Score")
         out.write("\n")
-
-        # outN.write('(left_element, right_element)')
-        # outN.write(",")
-        # outN.write('Score')
-        # outN.write("\n")
 
         exception_count = 0
         for left_element in left_set:
@@ -85,17 +74,11 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         for k, v in sorted(
             dictionary.items(), key=operator.itemgetter(1), reverse=True
         ):
-            # print(k[0],v)
             out.write(str((k[0], k[1])))
             out.write(",")
             out.write(str(jaccard_sim[k[0]][k[1]]))
             out.write("\n")
-            # outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
-            # outN.write(",")
-            # outN.write(str(jaccard_sim[k[0]][k[1]]))
-            # outN.write("\n")
 
-        # print('Jaccard prediction finished successfully')
         _time = time.time() - start_jc
         print("Jaccard Executed in {} seconds".format(_time), "\n")
 
@@ -127,11 +110,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         out.write("Score")
         out.write("\n")
 
-        # outN.write('(left_element, right_element)')
-        # outN.write(",")
-        # outN.write('Score')
-        # outN.write("\n")
-
         exception_count = 0
         for left_element in left_set:
             hop2s[left_element] = self._get_hop_2_neighbours(
@@ -147,7 +125,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
                             self.graph,
                         )
                         if aa_sim[left_element][right_element] > 0:
-                            # print(left_element, right_element, aa_sim[left_element][right_element])
                             dictionary.update(
                                 {
                                     (left_element, right_element): aa_sim[left_element][
@@ -162,17 +139,10 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         for k, v in sorted(
             dictionary.items(), key=operator.itemgetter(1), reverse=True
         ):
-            # print(k[0],v)
             out.write(str((k[0], k[1])))
             out.write(",")
             out.write(str(aa_sim[k[0]][k[1]]))
             out.write("\n")
-
-            # outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
-            # outN.write(",")
-            # outN.write(str(aa_sim[k[0]][k[1]]))
-            # outN.write("\n")
-        # print('Adamic-adar prediction finished sucnessfully')
 
         _time = time.time() - start_aa
         print("Adamic-adar Executed in {} seconds".format(_time), "\n")
@@ -186,11 +156,9 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         """
         start_cn = time.time()
 
-        # print('Common neighbor prediction starting...')
         pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
         out = open("./predictions/common_neighbor.csv", "w")
-        outN = open("./predictions/common_neighbor_with_name.csv", "w")
         hop2s = dict()
         neighbors = dict()
         cn_sim = collections.defaultdict(dict)
@@ -205,17 +173,10 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         out.write("Score")
         out.write("\n")
 
-        # outN.write('(left_element, right_element)')
-        # outN.write(",")
-        # outN.write('Score')
-        # outN.write("\n")
-
         for left_element in left_set:
-            # print('snp {} -- '.format(len(G[left_element])))
             hop2s[left_element] = self._get_hop_2_neighbours(
                 self.graph, list(set(self.graph[left_element])), 1
             )
-            # print('snp hop 2 {} -- '.format(len(hop2s[left_element])))
             for right_element in right_set:
                 # print('cancer {} -- '.format(len(G[right_element])))
                 neighbors[right_element] = list(set(self.graph[right_element]))
@@ -224,8 +185,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
                         hop2s[left_element], neighbors[right_element]
                     )
 
-                    # if (left_element, right_element) in edge_subset:
-                    #   print((left_element, right_element), cn_sim[left_element][right_element])
                     if cn_sim[left_element][right_element] > 0:
                         dictionary.update(
                             {
@@ -244,12 +203,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
             out.write(str(cn_sim[k[0]][k[1]]))
             out.write("\n")
 
-            #     outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
-            #     outN.write(",")
-            #     outN.write(str(cn_sim[k[0]][k[1]]))
-            #     outN.write("\n")
-        # print('Common neighbor prediction finished sucnessfully')
-
         _time = time.time() - start_cn
         print("Common neighbours Executed in {} seconds".format(_time), "\n")
 
@@ -267,7 +220,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
 
         pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
         out = open("./predictions/preferential_attachment.csv", "w")
-        outN = open("./predictions/preferential_attachment_with_name.csv", "w")
         hop2s = dict()
         neighbors_right_element = dict()
         neighbors_left_element = dict()
@@ -281,13 +233,7 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         out.write("Score")
         out.write("\n")
 
-        # outN.write('(left_element, right_element)')
-        # outN.write(",")
-        # outN.write('Score')
-        # outN.write("\n")
-
         for left_element in left_set:
-            # hop2s[left_element] = get_adjacents.get_hop_2_neighbours(G, list(set(G[left_element])), 1)
             neighbors_left_element[left_element] = list(set(self.graph[left_element]))
             for right_element in right_set:
                 neighbors_right_element[right_element] = list(
@@ -310,17 +256,10 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         for k, v in sorted(
             dictionary.items(), key=operator.itemgetter(1), reverse=True
         ):
-            # print(k[0],v)
             out.write(str((k[0], k[1])))
             out.write(",")
             out.write(str(pa_sim[k[0]][k[1]]))
             out.write("\n")
-
-            # outN.write(str((df_nodes[k[0]], df_nodes[k[1]])))
-            # outN.write(",")
-            # outN.write(str(pa_sim[k[0]][k[1]]))
-            # outN.write("\n")
-        # print('Preferential_attachment prediction finished sucnessfully')
 
         _time = time.time() - start_pa
         print("Preferential attachment Executed in {} seconds".format(_time), "\n")
@@ -336,7 +275,6 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
         """
         start_katz = time.time()
 
-        # print('Preferential_attachment prediction starting...')
         pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
         out = open("./predictions/preferential_attachment.csv", "w")
@@ -381,6 +319,5 @@ class BiGraph(Algorithms, ImportFiles, MakeGraph, GetAdjacents):
                         outN.write(str(katz_sim[left_element][right_element]))
                         outN.write("\n")
 
-        # print('Katz similarity prediction finished successfully')
         _time = time.time() - start_katz
         print("Katz similarity Executed in {} seconds".format(_time), "\n")
