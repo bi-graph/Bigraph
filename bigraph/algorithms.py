@@ -10,7 +10,7 @@ def _adamic_adar(set_one: list, set_two: list, graph) -> float:
     :param graph: NetworkX bipartite graph
     :return: Adamic Adar score
     """
-    intersection = (set(set_one) & set(set_two))
+    intersection = set(set_one) & set(set_two)
     sum = 0
     for node in intersection:
         # Get neighbors count
@@ -75,7 +75,7 @@ def _katz_similarity(node_i: int, node_j: int, graph) -> float:
     while length <= max_length:
         number_of_paths = neighbors.count(node_j)
         if number_of_paths > 0:
-            score += (beta ** length) * number_of_paths
+            score += (beta**length) * number_of_paths
 
         neighbours_for_next_loop = []
         for k in neighbors:

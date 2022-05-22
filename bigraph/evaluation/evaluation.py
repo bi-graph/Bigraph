@@ -3,12 +3,13 @@ from _operator import itemgetter
 import numpy as np
 from matplotlib import pyplot as plt
 from sklearn import metrics
-from sklearn.metrics import roc_curve, roc_auc_score
+from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.model_selection import KFold
-# from tabulate import tabulate
 
-from bigraph import bigraph as pr
-from bigraph.predict import jc_predict, aa_predict, cn_predict, pa_predict, katz_predict
+from bigraph.predict import aa_predict, cn_predict, jc_predict, pa_predict
+
+
+# from tabulate import tabulate
 
 
 def _plot_ROC(fpr: list, tpr: list, met: str):
@@ -23,9 +24,9 @@ def _plot_ROC(fpr: list, tpr: list, met: str):
     # Print AUC
     auc = metrics.auc(fpr, tpr)
     # auc = np.trapz(tpr, fpr)
-    print('AUC:', auc)
+    print("AUC:", auc)
     # Print ROC curve
-    plt.plot(fpr, tpr, label=('AUC -> %s (area = %0.2f)' % (met, auc)))
+    plt.plot(fpr, tpr, label=("AUC -> %s (area = %0.2f)" % (met, auc)))
     # plt.show()
     return True
 
@@ -51,22 +52,24 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
         test_edges = np_edges[test_index]
         G_train.remove_edges_from(test_edges)
         # print('G_train(node, edge): ', G_train.number_of_nodes(), G_train.number_of_edges())
-        print('Iteration %i / %i :' % (iterator, k))
+        print("Iteration %i / %i :" % (iterator, k))
         # -------------------------------------------------------------------
-        if method == 'jc':
+        if method == "jc":
             predicted = jc_predict(G_train)
-        elif method == 'aa':
+        elif method == "aa":
             predicted = aa_predict(G_train)
-        elif method == 'cn':
+        elif method == "cn":
             predicted = cn_predict(G_train)
-        elif method == 'pa':
+        elif method == "pa":
             predicted = pa_predict(G_train)
         else:
-            raise Exception('Entered method is not valid', method)
+            raise Exception("Entered method is not valid", method)
         # -------------------------------------------------------------------
         try:
-            precision = len(set(predicted.keys()) & set(map(tuple, test_edges))) / len(set(predicted.keys()))
-            print('precision: ', precision)
+            precision = len(set(predicted.keys()) & set(map(tuple, test_edges))) / len(
+                set(predicted.keys())
+            )
+            print("precision: ", precision)
             precision_sum += precision
         except:
             print(f"{method} evaluation - Iterate {iterator}: Predicted 0 links")
@@ -75,8 +78,14 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
         fpr_algo = []
         tpr_algo = []
         try:
-            score_algo, label_algo = zip(*[(float(score), label in test_edges) for label, score in
-                                           sorted(predicted.items(), key=itemgetter(1), reverse=True)])
+            score_algo, label_algo = zip(
+                *[
+                    (float(score), label in test_edges)
+                    for label, score in sorted(
+                        predicted.items(), key=itemgetter(1), reverse=True
+                    )
+                ]
+            )
             # Compute the ROC AUC Score
             fpr_algo, tpr_algo, _ = roc_curve(label_algo, score_algo)
             auc_algo = roc_auc_score(label_algo, score_algo)
@@ -86,19 +95,19 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
             print(e)
         # -------------------------------------------------------------------
         iterator += 1
-        print('---' * 20)
+        print("---" * 20)
 
     overal_precision = precision_sum / k
     overal_auc = auc_sum / k
     # print(tabulate([["%i-fold evaluation overal precision: %f" % (k, overal_precision),
     # "%i-fold evaluation overal auc: %f" % (k, overal_auc)]], tablefmt='jira'))
-    headers = ['overall_precision', 'overall_auc']
+    headers = ["overall_precision", "overall_auc"]
     table = [[overal_precision, overal_auc]]
     # print(tabulate(table, headers, tablefmt="pipe"))
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
 
 
-def evaluate(G: object, k: int = 2, method: str = 'all'):
+def evaluate(G: object, k: int = 2, method: str = "all"):
     """
     Evaluation interface for evaluating algorithms
 
@@ -107,9 +116,9 @@ def evaluate(G: object, k: int = 2, method: str = 'all'):
     :param method: Algorithm name
     :return: Calculated metrics: overall_precision, overall_auc, fpr_algo, tpr_algo
     """
-    methods = ['cn', 'jc', 'aa', 'pa']
+    methods = ["cn", "jc", "aa", "pa"]
     results = {}
-    if method == 'all':
+    if method == "all":
         for _method in methods:
             result = _evaluate_method(G, k, _method)
             results.update({method: result})
@@ -118,11 +127,13 @@ def evaluate(G: object, k: int = 2, method: str = 'all'):
         results.update({method: result})
 
     else:
-        raise Exception('Make sure you have entered a valid method name.\n valid methods: all, cn, jc, aa, pa')
+        raise Exception(
+            "Make sure you have entered a valid method name.\n valid methods: all, cn, jc, aa, pa"
+        )
     return results
 
 
-'''def evaluate(G, dfnodes, graphEdges, method, k):
+"""def evaluate(G, dfnodes, graphEdges, method, k):
     print('-' * 100)
     print('method: ', method)
     hop = 1 / k
@@ -222,9 +233,9 @@ def evaluate(G: object, k: int = 2, method: str = 'all'):
     # print("%i-fold evaluation recall: %f" % (fold, recallSum / (fold)))
 
     # plt.show()
-    print('-' * 100)'''
+    print('-' * 100)"""
 
-'''def evaluateROC(G, dfnodes, graphEdges, method='jc', k=10):
+"""def evaluateROC(G, dfnodes, graphEdges, method='jc', k=10):
     print('-' * 100)
     print('method: ', method)
     fold = k
@@ -345,4 +356,4 @@ def evaluate(G: object, k: int = 2, method: str = 'all'):
     for k22 in range(fpr_mean.__len__()):
         fprdic[k22] = fprdic[k22] / fprList.__len__()
 
-    return list(fprdic.values()), list(tprdic.values()), precisionSum'''''
+    return list(fprdic.values()), list(tprdic.values()), precisionSum""" ""

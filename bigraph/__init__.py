@@ -4,11 +4,7 @@
 
 """A package for link prediction in bipartite networks."""
 
-__all__ = [
-    'evaluation',
-    'preprocessing',
-    'predict'
-]
+__all__ = ["evaluation", "preprocessing", "predict"]
 
 # from bigraph.predict import aa_predict, jc_predict, pa_predict, cn_predict
 

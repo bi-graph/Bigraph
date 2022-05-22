@@ -3,12 +3,13 @@ from datetime import datetime
 import networkx as nx
 from tabulate import tabulate
 
+from bigraph import predict as pr
+
 # import snap
 # from scipy.stats import mode
 # from sklearn.cross_validation import KFold
 from bigraph.preprocessing.import_files import import_files
 from bigraph.preprocessing.make_graph import make_graph
-from bigraph import predict as pr
 
 
 def complement_graph(G):
@@ -22,7 +23,7 @@ def main():
     """
     start_time = datetime.now()
 
-    print('Running...', "\n")
+    print("Running...", "\n")
     df, df_nodes = import_files()
     G = make_graph(df)
     graphEdges = G.edges
@@ -40,9 +41,9 @@ def main():
     #               f, indent=4)
     # print("num of nodes: {}\nnum of edges: {}".format( G.nodes.__len__(), G.edges.__len__()))
     # print("num of SNP: {}\nnum of Cancer: {}".format({n for n, d in G.nodes(data=True) if d['bipartite']==0}.__len__(), {n for n, d in G.nodes(data=True) if d['bipartite']==1}.__len__()))
-    snp = {n for n, d in G.nodes(data=True) if d['bipartite'] == 0}.__len__()
-    cancer = {n for n, d in G.nodes(data=True) if d['bipartite'] == 1}.__len__()
-    headers = ['Number of nodes', 'Number of edges', 'SNP', 'Cancer']
+    snp = {n for n, d in G.nodes(data=True) if d["bipartite"] == 0}.__len__()
+    cancer = {n for n, d in G.nodes(data=True) if d["bipartite"] == 1}.__len__()
+    headers = ["Number of nodes", "Number of edges", "SNP", "Cancer"]
     table = [[G.nodes.__len__(), G.edges.__len__(), snp, cancer]]
     print(tabulate(table, headers, tablefmt="fancy_grid"))
     # clustering_coefficient = nx.algorithms.bipartite.average_clustering(G)
@@ -57,5 +58,5 @@ def main():
     pr.pa_predict(G)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

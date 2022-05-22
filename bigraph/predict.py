@@ -1,11 +1,18 @@
+import pathlib
+import time
 from _operator import itemgetter
 from collections import defaultdict
-import time
-import networkx as nx
-import pathlib
-from bigraph.preprocessing import get_adjacents
-from bigraph.algorithms import _jaccard, _adamic_adar, _common_neighbors, _preferential_attachment, _katz_similarity
 
+import networkx as nx
+
+from bigraph.algorithms import (
+    _adamic_adar,
+    _common_neighbors,
+    _jaccard,
+    _katz_similarity,
+    _preferential_attachment,
+)
+from bigraph.preprocessing import get_adjacents
 
 
 def jc_predict(G: object) -> dict:
@@ -19,19 +26,19 @@ def jc_predict(G: object) -> dict:
 
     # print('Jaccard prediction starting...')
     dictionary = {}
-    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
-    out = open('./predictions/jaccard.csv', 'w')
-    outN = open('./predictions/jaccard_with_name.csv', 'w')
+    out = open("./predictions/jaccard.csv", "w")
+    outN = open("./predictions/jaccard_with_name.csv", "w")
     hop2s = dict()
     neighbors = dict()
     jaccard_sim = defaultdict(dict)
-    left_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 0]
-    right_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 1]
+    left_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 0]
+    right_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 1]
 
-    out.write('(left_element, right_element)')
+    out.write("(left_element, right_element)")
     out.write(",")
-    out.write('Score')
+    out.write("Score")
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
@@ -41,15 +48,24 @@ def jc_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(
+            G, list(set(G[left_element])), 1
+        )
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
                 try:
-                    jaccard_sim[left_element][right_element] = _jaccard(hop2s[(left_element)],
-                                                                        neighbors[(right_element)])
+                    jaccard_sim[left_element][right_element] = _jaccard(
+                        hop2s[(left_element)], neighbors[(right_element)]
+                    )
                     if jaccard_sim[left_element][right_element] > 0:
-                        dictionary.update({(left_element, right_element): jaccard_sim[left_element][right_element]})
+                        dictionary.update(
+                            {
+                                (left_element, right_element): jaccard_sim[
+                                    left_element
+                                ][right_element]
+                            }
+                        )
                 except:
                     exception_count += 1
                     print(exception_count)
@@ -66,7 +82,7 @@ def jc_predict(G: object) -> dict:
 
     # print('Jaccard prediction finished sucnessfully')
     _time = time.time() - start_jc
-    print('Jaccard Executed in {} seconds'.format(_time), "\n")
+    print("Jaccard Executed in {} seconds".format(_time), "\n")
 
     return dictionary
 
@@ -80,22 +96,22 @@ def aa_predict(G: object) -> dict:
     """
     start_aa = time.time()
 
-    print('Adamic_adar prediction starting...')
-    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
+    print("Adamic_adar prediction starting...")
+    pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
-    out = open('./predictions/adamic_adar.csv', 'w')
-    outN = open('./predictions/adamic_adar_with_name.csv', 'w')
+    out = open("./predictions/adamic_adar.csv", "w")
+    outN = open("./predictions/adamic_adar_with_name.csv", "w")
     hop2s = dict()
     neighbors = dict()
     aa_sim = defaultdict(dict)
     sortDic = {}
-    left_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 0]
-    right_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 1]
+    left_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 0]
+    right_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 1]
     dictionary = {}
 
-    out.write('(left_element, right_element)')
+    out.write("(left_element, right_element)")
     out.write(",")
-    out.write('Score')
+    out.write("Score")
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
@@ -105,16 +121,25 @@ def aa_predict(G: object) -> dict:
 
     exception_count = 0
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(
+            G, list(set(G[left_element])), 1
+        )
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
                 try:
-                    aa_sim[left_element][right_element] = _adamic_adar(hop2s[(left_element)],
-                                                                       neighbors[(right_element)], G)
+                    aa_sim[left_element][right_element] = _adamic_adar(
+                        hop2s[(left_element)], neighbors[(right_element)], G
+                    )
                     if aa_sim[left_element][right_element] > 0:
                         # print(left_element, right_element, aa_sim[left_element][right_element])
-                        dictionary.update({(left_element, right_element): aa_sim[left_element][right_element]})
+                        dictionary.update(
+                            {
+                                (left_element, right_element): aa_sim[left_element][
+                                    right_element
+                                ]
+                            }
+                        )
                 except:
                     exception_count += 1
                     print(exception_count)
@@ -133,7 +158,7 @@ def aa_predict(G: object) -> dict:
     # print('Adamic-adar prediction finished sucnessfully')
 
     _time = time.time() - start_aa
-    print('Adamic-adar Executed in {} seconds'.format(_time), "\n")
+    print("Adamic-adar Executed in {} seconds".format(_time), "\n")
     return dictionary
 
 
@@ -147,22 +172,22 @@ def cn_predict(G: object) -> dict:
     start_cn = time.time()
 
     # print('Common neighbor prediction starting...')
-    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
-    out = open('./predictions/common_neighbor.csv', 'w')
-    outN = open('./predictions/common_neighbor_with_name.csv', 'w')
+    out = open("./predictions/common_neighbor.csv", "w")
+    outN = open("./predictions/common_neighbor_with_name.csv", "w")
     hop2s = dict()
     neighbors = dict()
     cn_sim = defaultdict(dict)
     sortDic = {}
 
-    left_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 0]
-    right_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 1]
+    left_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 0]
+    right_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 1]
 
     dictionary = {}
-    out.write('(left_element, right_element)')
+    out.write("(left_element, right_element)")
     out.write(",")
-    out.write('Score')
+    out.write("Score")
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
@@ -172,18 +197,28 @@ def cn_predict(G: object) -> dict:
 
     for left_element in left_set:
         # print('snp {} -- '.format(len(G[left_element])))
-        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(
+            G, list(set(G[left_element])), 1
+        )
         # print('snp hop 2 {} -- '.format(len(hop2s[left_element])))
         for right_element in right_set:
             # print('cancer {} -- '.format(len(G[right_element])))
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
-                cn_sim[left_element][right_element] = _common_neighbors(hop2s[left_element], neighbors[right_element])
+                cn_sim[left_element][right_element] = _common_neighbors(
+                    hop2s[left_element], neighbors[right_element]
+                )
 
                 # if (left_element, right_element) in edge_subset:
                 #   print((left_element, right_element), cn_sim[left_element][right_element])
                 if cn_sim[left_element][right_element] > 0:
-                    dictionary.update({(left_element, right_element): cn_sim[left_element][right_element]})
+                    dictionary.update(
+                        {
+                            (left_element, right_element): cn_sim[left_element][
+                                right_element
+                            ]
+                        }
+                    )
 
     for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
         # print(k[0],v)
@@ -199,7 +234,7 @@ def cn_predict(G: object) -> dict:
     # print('Common neighbor prediction finished sucnessfully')
 
     _time = time.time() - start_cn
-    print('Common neighbours Executed in {} seconds'.format(_time), "\n")
+    print("Common neighbours Executed in {} seconds".format(_time), "\n")
 
     return dictionary
 
@@ -215,20 +250,20 @@ def pa_predict(G: object) -> dict:
     # print('Preferential_attachment prediction starting...')
     dictionary = {}
 
-    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
-    out = open('./predictions/preferential_attachment.csv', 'w')
-    outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
+    pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
+    out = open("./predictions/preferential_attachment.csv", "w")
+    outN = open("./predictions/preferential_attachment_with_name.csv", "w")
     hop2s = dict()
     neighbors_right_element = dict()
     neighbors_left_element = dict()
     pa_sim = defaultdict(dict)
     sortDic = {}
-    left_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 0]
-    right_set = [n for n, d in G.nodes(data=True) if d['bipartite'] == 1]
+    left_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 0]
+    right_set = [n for n, d in G.nodes(data=True) if d["bipartite"] == 1]
 
-    out.write('(left_element, right_element)')
+    out.write("(left_element, right_element)")
     out.write(",")
-    out.write('Score')
+    out.write("Score")
     out.write("\n")
 
     # outN.write('(left_element, right_element)')
@@ -242,10 +277,18 @@ def pa_predict(G: object) -> dict:
         for right_element in right_set:
             neighbors_right_element[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
-                pa_sim[left_element][right_element] = _preferential_attachment(neighbors_left_element[(left_element)],
-                                                                               neighbors_right_element[(right_element)])
+                pa_sim[left_element][right_element] = _preferential_attachment(
+                    neighbors_left_element[(left_element)],
+                    neighbors_right_element[(right_element)],
+                )
                 if pa_sim[left_element][right_element] > 0:
-                    dictionary.update({(left_element, right_element): pa_sim[left_element][right_element]})
+                    dictionary.update(
+                        {
+                            (left_element, right_element): pa_sim[left_element][
+                                right_element
+                            ]
+                        }
+                    )
 
     for k, v in sorted(dictionary.items(), key=itemgetter(1), reverse=True):
         # print(k[0],v)
@@ -261,7 +304,7 @@ def pa_predict(G: object) -> dict:
     # print('Preferential_attachment prediction finished sucnessfully')
 
     _time = time.time() - start_pa
-    print('Preferential attachment Executed in {} seconds'.format(_time), "\n")
+    print("Preferential attachment Executed in {} seconds".format(_time), "\n")
 
     return dictionary
 
@@ -277,10 +320,10 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     start_katz = time.time()
 
     # print('Preferential_attachment prediction starting...')
-    pathlib.Path('./predictions').mkdir(parents=True, exist_ok=True)
+    pathlib.Path("./predictions").mkdir(parents=True, exist_ok=True)
 
-    out = open('./predictions/preferential_attachment.csv', 'w')
-    outN = open('./predictions/preferential_attachment_with_name.csv', 'w')
+    out = open("./predictions/preferential_attachment.csv", "w")
+    outN = open("./predictions/preferential_attachment_with_name.csv", "w")
     hop2s = dict()
     neighbors = dict()
     katz_sim = defaultdict(dict)
@@ -288,22 +331,26 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
     left_set = list(set(nx.bipartite.sets(G)[0]))
     right_set = list(set(nx.bipartite.sets(G)[1]))
 
-    out.write('(left_element, right_element)')
+    out.write("(left_element, right_element)")
     out.write(",")
-    out.write('Score')
+    out.write("Score")
     out.write("\n")
 
-    outN.write('(left_element, right_element)')
+    outN.write("(left_element, right_element)")
     outN.write(",")
-    outN.write('Score')
+    outN.write("Score")
     outN.write("\n")
 
     for left_element in left_set:
-        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(G, list(set(G[left_element])), 1)
+        hop2s[left_element] = get_adjacents._get_hop_2_neighbours(
+            G, list(set(G[left_element])), 1
+        )
         for right_element in right_set:
             neighbors[right_element] = list(set(G[right_element]))
             if not (left_element, right_element) in G.edges:
-                katz_sim[left_element][right_element] = _katz_similarity(int(left_element), int(right_element), G)
+                katz_sim[left_element][right_element] = _katz_similarity(
+                    int(left_element), int(right_element), G
+                )
                 if katz_sim[left_element][right_element] > 0:
                     out.write(str((left_element, right_element)))
                     out.write(",")
@@ -317,4 +364,4 @@ def katz_predict(G: object, df_nodes: dict) -> dict:
 
     # print('Katz similarity prediction finished sucnessfully')
     _time = time.time() - start_katz
-    print('Katz similarity Executed in {} seconds'.format(_time), "\n")
+    print("Katz similarity Executed in {} seconds".format(_time), "\n")

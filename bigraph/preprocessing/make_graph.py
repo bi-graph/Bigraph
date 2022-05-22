@@ -1,11 +1,13 @@
 import networkx as nx
+
 from bigraph.preprocessing.pd_to_list import _add_to_list
 
 
 def make_graph(
-        dataframe: dict,
-        left_bipartite: str = "left_side",
-        right_bipartite: str = "right_side"):
+    dataframe: dict,
+    left_bipartite: str = "left_side",
+    right_bipartite: str = "right_side",
+):
     """
     Make a graph based on the input dataframe
 
@@ -27,5 +29,5 @@ def make_graph(
     # TODO: make following line a choice to be able to remove isolates or not
 
     # graph.remove_nodes_from(isolates)
-    print('Graph made successfully', "\n")
+    print("Graph made successfully", "\n")
     return graph
