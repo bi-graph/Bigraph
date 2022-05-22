@@ -1,17 +1,14 @@
 from _operator import itemgetter
 
+import networkx
 import numpy as np
 from matplotlib import pyplot as plt
 from sklearn import metrics
 from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.model_selection import KFold
 
-from bigraph.predict import aa_predict, cn_predict, jc_predict, pa_predict
 
-
-# from tabulate import tabulate
-
-
+# fixme: refactor this module
 def _plot_ROC(fpr: list, tpr: list, met: str):
     """
     Plot ROC curve for algorithms
@@ -31,11 +28,11 @@ def _plot_ROC(fpr: list, tpr: list, met: str):
     return True
 
 
-def _evaluate_method(G: object, k: int, method: str) -> list:
+def _evaluate_method(graph: networkx.Graph, k: int, method: str) -> list:
     """
     Evaluate algorithms using precision and AUC metrics
 
-    :param G: Networkx bipartite graph
+    :param graph: Networkx bipartite graph
     :param k: Number of folds (used in KFold)
     :param method: Algorithm name
     :return: Calculated metrics: overal_precision, overal_auc, fpr_algo, tpr_algo
@@ -46,9 +43,9 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
     # print(tabulate([[f'Starting caculating {method}']], tablefmt='grid'))
     iterator = 0
 
-    for train_index, test_index in kf.split(list(G.edges)):
-        G_train = G.copy()
-        np_edges = np.array(list(G.edges))
+    for train_index, test_index in kf.split(list(graph.edges)):
+        G_train = graph.copy()
+        np_edges = np.array(list(graph.edges))
         test_edges = np_edges[test_index]
         G_train.remove_edges_from(test_edges)
         # print('G_train(node, edge): ', G_train.number_of_nodes(), G_train.number_of_edges())
@@ -107,11 +104,11 @@ def _evaluate_method(G: object, k: int, method: str) -> list:
     return [overal_precision, overal_auc, fpr_algo, tpr_algo]
 
 
-def evaluate(G: object, k: int = 2, method: str = "all"):
+def evaluate(graph: networkx.Graph, k: int = 2, method: str = "all"):
     """
     Evaluation interface for evaluating algorithms
 
-    :param G: Networkx bipartite graph
+    :param graph: Networkx bipartite graph
     :param k: Number of folds (used in KFold)
     :param method: Algorithm name
     :return: Calculated metrics: overall_precision, overall_auc, fpr_algo, tpr_algo
@@ -120,10 +117,10 @@ def evaluate(G: object, k: int = 2, method: str = "all"):
     results = {}
     if method == "all":
         for _method in methods:
-            result = _evaluate_method(G, k, _method)
+            result = _evaluate_method(graph, k, _method)
             results.update({method: result})
     elif method in methods:
-        result = _evaluate_method(G, k, method)
+        result = _evaluate_method(graph, k, method)
         results.update({method: result})
 
     else:
